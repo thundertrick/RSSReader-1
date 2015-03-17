@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 17/03/15.
+//  Created by Leopold Aschenbrenner on 01/03/15.
 //  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
 //
 
@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window?.tintColor = UIColor.orangeColor()
         return true
     }
 
@@ -54,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("RSSReader", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("FeedModel", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -68,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
             coordinator = nil
             // Report any error we got.
-            var dict = [String: AnyObject]()
+           var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
