@@ -18,7 +18,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     var error = NSErrorPointer()
     var menuItems : [String] {
         get {
-            var workingItems : [String] = ["Add Feed", "All"]
+            var workingItems : [String] = ["Add Feed", "All", "Unread"]
             let feedItems = fetchedResultsController.fetchedObjects as [Feed]
             if feedItems.count > 0 {
                 for feedItem in feedItems {

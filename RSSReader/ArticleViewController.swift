@@ -56,6 +56,7 @@ class ArticleViewController: UIViewController {
             self.dateLabel.text = NSDateFormatter.localizedStringFromDate(article.date, dateStyle: .MediumStyle, timeStyle: .ShortStyle)
             self.authorLabel.text = article.sourceTitle + "/"  + article.author
             self.contentLabel.text = article.content.stringByConvertingHTMLToPlainText()
+            
         }
         
     }

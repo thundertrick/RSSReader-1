@@ -24,6 +24,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     var managedObjectContext: NSManagedObjectContext?
     var currentView = 1
     let error = NSErrorPointer()
+    var shouldReloadContent = true
     
 
     
@@ -40,9 +41,11 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         updateDataManager.update()
     
         // customize ui
-        
-        
-        
+        var markReadButton = UIBarButtonItem(title: "Mark All Read", style: .Plain, target: self, action: "markAllRead")
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+         self.toolbarItems = [flexibleSpace, markReadButton, flexibleSpace]
+        self.navigationController?.toolbarHidden = false
+       
         // clear backButton text
         
         let backItem = UIBarButtonItem(title: "", style:.Bordered, target: nil, action: nil)
@@ -127,6 +130,16 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         
     }
     
+    func markAllRead() {
+        let items = fetchedResultsController.fetchedObjects as [Article]
+        for item in items {
+            item.read = true
+        }
+        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
+        
+    }
+    
+    
   
     
   
@@ -194,8 +207,15 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.tableView.reloadData()
         
             self.currentView = 1
+        } else if index == 2 {
+            self.title = "Unread"
+            self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "read == %@", false)
+            self.fetchedResultsController.performFetch(self.error)
+            self.tableView.reloadData()
+            self.currentView = 2
+
         } else {
-            let indexPath = NSIndexPath(forRow: index - 2, inSection: 0)
+            let indexPath = NSIndexPath(forRow: index - 3, inSection: 0)
             var feed = self.sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(indexPath) as Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
@@ -296,6 +316,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         
         let item = fetchedResultsController.objectAtIndexPath(indexPath) as Article
         currentArticle = item
+        item.read = true
+        shouldReloadContent = false
+        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
   
         self.performSegueWithIdentifier("showArticle", sender: self)
         
@@ -359,9 +382,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             cell.sourceAndDateText.text = "\(item.sourceTitle) | \(date)"
             cell.titleText.text = item.title!
             if item.read.boolValue {
-                cell.titleText.textColor = UIColor.grayColor()
-                cell.summaryText.textColor = UIColor.grayColor()
-                cell.sourceAndDateText.textColor = UIColor.grayColor()
+                cell.titleText.textColor = UIColor(red:0.788, green:0.783, blue:0.783, alpha:1)
+                cell.summaryText.textColor = UIColor(red:0.788, green:0.783, blue:0.783, alpha:1)
+                cell.sourceAndDateText.textColor = UIColor(red:0.788, green:0.783, blue:0.783, alpha:1)
             } else {
                 cell.titleText.textColor = UIColor.blackColor()
                 cell.summaryText.textColor = UIColor.blackColor()
@@ -416,7 +439,12 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
             //self.tableView.endUpdates()
-        self.tableView.reloadData()
+        if !shouldReloadContent {
+            shouldReloadContent = true
+        } else {
+           self.tableView.reloadData()
+        }
+        
         
     }
 
