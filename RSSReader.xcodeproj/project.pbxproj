@@ -248,7 +248,7 @@
 			children = (
 				CCDC0C081AB8B37800AF39F7 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CCDC0C171AB8B60E00AF39F7 /* Supporting Files */ = {
@@ -260,7 +260,7 @@
 				CCDC0C951AB8B8A500AF39F7 /* ObjcBridgingHeader.h */,
 				CCDC0C181AB8B62200AF39F7 /* Libaries */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CCDC0C181AB8B62200AF39F7 /* Libaries */ = {
@@ -270,7 +270,7 @@
 				CCDC0C471AB8B85400AF39F7 /* MWFeedParser */,
 				CCDC0C191AB8B64800AF39F7 /* Webbrowser */,
 			);
-			name = Libaries;
+			path = Libaries;
 			sourceTree = "<group>";
 		};
 		CCDC0C191AB8B64800AF39F7 /* Webbrowser */ = {
@@ -279,7 +279,7 @@
 				CCDC0C381AB8B75500AF39F7 /* Share Sheet */,
 				CCDC0C1B1AB8B67700AF39F7 /* KINWebbBrowser */,
 			);
-			name = Webbrowser;
+			path = Webbrowser;
 			sourceTree = "<group>";
 		};
 		CCDC0C1B1AB8B67700AF39F7 /* KINWebbBrowser */ = {
@@ -289,7 +289,7 @@
 				CCDC0C221AB8B71900AF39F7 /* KINWebBrowserViewController.h */,
 				CCDC0C231AB8B71900AF39F7 /* KINWebBrowserViewController.m */,
 			);
-			name = KINWebbBrowser;
+			path = KINWebbBrowser;
 			sourceTree = "<group>";
 		};
 		CCDC0C2B1AB8B72300AF39F7 /* Assets */ = {
@@ -302,7 +302,7 @@
 				CCDC0C201AB8B71900AF39F7 /* forwardbutton@2x.png */,
 				CCDC0C211AB8B71900AF39F7 /* forwardbutton@3x.png */,
 			);
-			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		CCDC0C381AB8B75500AF39F7 /* Share Sheet */ = {
@@ -316,7 +316,7 @@
 				CCDC0C311AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.h */,
 				CCDC0C391AB8B76200AF39F7 /* Assets */,
 			);
-			name = "Share Sheet";
+			path = "Share Sheet";
 			sourceTree = "<group>";
 		};
 		CCDC0C391AB8B76200AF39F7 /* Assets */ = {
@@ -325,7 +325,7 @@
 				CCDC0C441AB8B79000AF39F7 /* Chrome */,
 				CCDC0C3A1AB8B76A00AF39F7 /* Safari */,
 			);
-			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		CCDC0C3A1AB8B76A00AF39F7 /* Safari */ = {
@@ -335,7 +335,7 @@
 				CCDC0C301AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad@2x.png */,
 				CCDC0C331AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png */,
 			);
-			name = Safari;
+			path = Safari;
 			sourceTree = "<group>";
 		};
 		CCDC0C441AB8B79000AF39F7 /* Chrome */ = {
@@ -345,7 +345,7 @@
 				CCDC0C3C1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png */,
 				CCDC0C3F1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png */,
 			);
-			name = Chrome;
+			path = Chrome;
 			sourceTree = "<group>";
 		};
 		CCDC0C471AB8B85400AF39F7 /* MWFeedParser */ = {
@@ -367,7 +367,7 @@
 				CCDC0C551AB8B86400AF39F7 /* NSString+XMLEntities.h */,
 				CCDC0C561AB8B86400AF39F7 /* NSString+XMLEntities.m */,
 			);
-			name = MWFeedParser;
+			path = MWFeedParser;
 			sourceTree = "<group>";
 		};
 		CCDC0C5E1AB8B86900AF39F7 /* AFNetworking */ = {
@@ -394,7 +394,7 @@
 				CCDC0C701AB8B87800AF39F7 /* AFURLSessionManager.h */,
 				CCDC0C711AB8B87800AF39F7 /* AFURLSessionManager.m */,
 			);
-			name = AFNetworking;
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		CCDC0C7B1AB8B88000AF39F7 /* UIKit+AFNetworking */ = {
@@ -418,7 +418,7 @@
 				CCDC0C8B1AB8B88E00AF39F7 /* UIWebView+AFNetworking.h */,
 				CCDC0C8C1AB8B88E00AF39F7 /* UIWebView+AFNetworking.m */,
 			);
-			name = "UIKit+AFNetworking";
+			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
 		CCDC0C9C1AB8B96100AF39F7 /* FeedManager */ = {
@@ -427,7 +427,7 @@
 				CCDC0C981AB8B95B00AF39F7 /* SaveFeed.swift */,
 				CCDC0C991AB8B95B00AF39F7 /* UpdateDataManager.swift */,
 			);
-			name = FeedManager;
+			path = FeedManager;
 			sourceTree = "<group>";
 		};
 		CCDC0CA71AB8B99F00AF39F7 /* SideBar */ = {
@@ -436,7 +436,7 @@
 				CCDC0CA81AB8B9AA00AF39F7 /* SideBar.swift */,
 				CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */,
 			);
-			name = SideBar;
+			path = SideBar;
 			sourceTree = "<group>";
 		};
 		CCDC0CB41AB8B9D700AF39F7 /* CoreData */ = {
@@ -447,7 +447,7 @@
 				CCDC0CB01AB8B9D200AF39F7 /* Article.h */,
 				CCDC0CB11AB8B9D200AF39F7 /* Article.m */,
 			);
-			name = CoreData;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -632,6 +632,7 @@
 				CCDC0BFD1AB8B37800AF39F7 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -721,10 +722,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = RSSReader/Info.plist;
+				INFOPLIST_FILE = "RSSReader/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = RSSReader/ObjcBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSReader/Supporting Files/ObjcBridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -734,10 +735,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = RSSReader/Info.plist;
+				INFOPLIST_FILE = "RSSReader/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = RSSReader/ObjcBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSReader/Supporting Files/ObjcBridgingHeader.h";
 			};
 			name = Release;
 		};
@@ -753,7 +754,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RSSReaderTests/Info.plist;
+				INFOPLIST_FILE = "RSSReaderTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RSSReader.app/RSSReader";
@@ -768,7 +769,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RSSReaderTests/Info.plist;
+				INFOPLIST_FILE = "RSSReaderTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RSSReader.app/RSSReader";
