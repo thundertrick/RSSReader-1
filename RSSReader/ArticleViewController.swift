@@ -21,6 +21,7 @@ class ArticleViewController: UIViewController {
     
     @IBOutlet var contentLabel: UILabel!
     
+    @IBOutlet var scrollView: UIScrollView!
     
     // MARK: - Setup View
 
@@ -28,6 +29,11 @@ class ArticleViewController: UIViewController {
         super.viewDidLoad()
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
+        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        dateLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        authorLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        contentLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
 
         
         // Do any additional setup after loading the view.
@@ -58,6 +64,7 @@ class ArticleViewController: UIViewController {
             self.contentLabel.text = article.content.stringByConvertingHTMLToPlainText()
             
         }
+        scrollView.contentSize.height = 100
         
     }
   
