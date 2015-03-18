@@ -133,7 +133,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     func markAllRead() {
         let items = fetchedResultsController.fetchedObjects as [Article]
         for item in items {
+            if item.read.boolValue == false {
             item.read = true
+            }
         }
         dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
         
@@ -198,20 +200,23 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
-            self.currentView = 1
            
         } else  if index == 1 {
             self.title = "All"
             self.fetchedResultsController.fetchRequest.predicate = nil
             self.fetchedResultsController.performFetch(self.error)
-            self.tableView.reloadData()
+            
+                self.tableView.reloadData()
+            
         
             self.currentView = 1
         } else if index == 2 {
             self.title = "Unread"
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "read == %@", false)
             self.fetchedResultsController.performFetch(self.error)
+      
             self.tableView.reloadData()
+                
             self.currentView = 2
 
         } else {
@@ -219,7 +224,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             var feed = self.sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(indexPath) as Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
-            self.tableView.reloadData()
+           
+                self.tableView.reloadData()
+            
             self.title = feed.name
             self.currentView = index
             
@@ -247,6 +254,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         self.presentViewController(alert, animated: true, completion: nil)
         
         println("update Data failed")
+        self.sideBarDidSelectMenuButtonAtIndex(currentView)
+        self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
         
         // write func
 
@@ -256,6 +265,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     func updatedData() {
         println("updated data")
         refreshControl?.endRefreshing()
+        self.sideBarDidSelectMenuButtonAtIndex(currentView)
+        self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
        
 
     }
@@ -433,31 +444,28 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     var _fetchedResultsController: NSFetchedResultsController?
     
     
-  //  func controllerWillChangeContent(controller: NSFetchedResultsController) {
-    //   self.tableView.beginUpdates()
-   // }
+func controllerWillChangeContent(controller: NSFetchedResultsController) {
+      self.tableView.beginUpdates()
+   }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-            //self.tableView.endUpdates()
-        if !shouldReloadContent {
-            shouldReloadContent = true
-        } else {
-           self.tableView.reloadData()
-        }
+        
+        self.tableView.endUpdates()
         
         
     }
 
     
-  /*  func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
+   func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
         
                 switch type {
                     case .Insert:
                         self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
                     case .Update:
-                        let cell : FeedTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as FeedTableViewCell
+                        if let cell : FeedTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FeedTableViewCell {
                         self.configureCell(cell, atIndexPath: indexPath)
                         self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    }
                     case .Move:
                         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
@@ -469,7 +477,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 
     }
 
-*/
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         sideBar.removeSideBar()
