@@ -1,3 +1,3 @@
 # RSSReader
 A fast, feature-rich, and sleek RSS reader for iOS written in Swift.
-*Under heavy development*
+_Under heavy development_
