@@ -17,6 +17,7 @@
 @dynamic link;
 @dynamic read;
 @dynamic source;
+@dynamic sourceTitle;
 @dynamic summary;
 @dynamic title;
 @dynamic updatedDate;

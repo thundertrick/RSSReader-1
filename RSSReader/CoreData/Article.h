@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSNumber * read;
 @property (nonatomic, retain) NSString * source;
+@property (nonatomic, retain) NSString * sourceTitle;
 @property (nonatomic, retain) NSString * summary;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * updatedDate;

@@ -7,7 +7,7 @@
         <!--Main Table View Controller-->
         <scene sceneID="z58-8x-NeH">
             <objects>
-                <tableViewController id="HQH-x9-4YT" customClass="MainTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainTableViewController" id="HQH-x9-4YT" customClass="MainTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ums-N8-LiE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="KtV-Dz-09r"/>
                     <keyCommands/>
+                    <connections>
+                        <segue destination="1gP-nC-xPs" kind="show" identifier="showArticle" id="flR-vp-3aM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XyE-0N-EMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +39,7 @@
         <!--Article View Controller-->
         <scene sceneID="ETO-4y-heQ">
             <objects>
-                <viewController id="1gP-nC-xPs" customClass="ArticleViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleViewController" id="1gP-nC-xPs" customClass="ArticleViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dmb-kv-4Ko"/>
                         <viewControllerLayoutGuide type="bottom" id="tWr-Wr-pak"/>
@@ -46,25 +49,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFU-xO-mOw">
-                                <rect key="frame" x="42" y="91" width="33" height="21"/>
+                                <rect key="frame" x="42" y="91" width="228" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-Fb-9hY">
-                                <rect key="frame" x="47" y="120" width="36" height="21"/>
+                                <rect key="frame" x="47" y="120" width="331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5C-ND-egG">
-                                <rect key="frame" x="47" y="159" width="52" height="21"/>
+                                <rect key="frame" x="47" y="159" width="324" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHM-DX-ZdJ">
-                                <rect key="frame" x="42" y="222" width="228" height="300"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHM-DX-ZdJ">
+                                <rect key="frame" x="42" y="222" width="329" height="300"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -73,6 +76,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="h5C-ND-egG" id="aTP-k6-OaR"/>
+                        <outlet property="contentLabel" destination="eHM-DX-ZdJ" id="nOW-Fe-3IO"/>
+                        <outlet property="dateLabel" destination="SKf-Fb-9hY" id="67K-C0-YNU"/>
+                        <outlet property="titleLabel" destination="vFU-xO-mOw" id="v7H-bw-84Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ad9-DU-tGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

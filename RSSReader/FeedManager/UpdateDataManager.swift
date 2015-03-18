@@ -15,7 +15,7 @@ protocol UpdateDataManagerDelegate {
 
 class UpdateDataManager: NSObject, MWFeedParserDelegate {
     var coreDataHelper = CoreDataHelper()
-
+    
     
     var delegate : UpdateDataManagerDelegate?
      var urls : [String] {
@@ -70,7 +70,6 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
 
     
      func feedParser(parser: MWFeedParser!, didParseFeedItem item: MWFeedItem!) {
-        let moc = coreDataHelper.managedObjectContext()
 
         if let date = item.date {
         let author = (item.author != nil) ? item.author : "(no author)"
@@ -80,6 +79,9 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         let updatedDate = (item.date != nil) ? item.updated : NSDate()
         let link = (item.link != nil) ? item.link : "\(parser.url())"
         let source = "\(parser.url())"
+        let moc = coreDataHelper.managedObjectContext()
+        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "link == %@", source), managedObjectContext: moc) as [Feed]
+        let sourceTitle : String = items[0].name
     
         
         
@@ -106,6 +108,9 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
                     article.title = title
                 }
                 
+                if article.sourceTitle != sourceTitle {
+                    article.sourceTitle = sourceTitle
+                }
                 if article.updatedDate != updatedDate {
                     article.updatedDate = updatedDate
                 }
@@ -121,7 +126,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             feedArticle.link = link
             feedArticle.source = source
             feedArticle.summary = summary
-        
+            feedArticle.sourceTitle = sourceTitle
             feedArticle.title = title
             feedArticle.updatedDate = updatedDate
             feedArticle.read = false
@@ -153,6 +158,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         
     }
     
+       
     
 }
 

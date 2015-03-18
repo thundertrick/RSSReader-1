@@ -29,13 +29,19 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate, UIGestureRecognizer
     let orignView:UIView!
     var delegate:SideBarDelegate?
     var isSideBarOpen:Bool = false
+    var hideGestureRecognizer = UISwipeGestureRecognizer()
+    var showGestureRecognizer = UISwipeGestureRecognizer()
     
-    override
-    init() {
+    override init() {
         super.init()
+       
     }
     
-    
+    func removeSideBar() {
+        sideBarContainerView.removeFromSuperview()
+        orignView.removeGestureRecognizer(hideGestureRecognizer)
+        orignView.removeGestureRecognizer(showGestureRecognizer)
+    }
     init(sourceView:UIView, menuItems:Array<String>, indexToSelect : Int?){
         super.init()
         orignView = sourceView
@@ -45,11 +51,11 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate, UIGestureRecognizer
         
         animator = UIDynamicAnimator(referenceView: orignView)
         
-        let showGestureRecognizer:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+         showGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
         showGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         orignView.addGestureRecognizer(showGestureRecognizer)
         
-        let hideGestureRecognizer:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+         hideGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
         hideGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
         
         // TODO: MAYBE PLACE THAT WITHIN ORIGIN

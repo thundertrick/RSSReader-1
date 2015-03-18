@@ -8,6 +8,9 @@
 
 import UIKit
 
+var currentArticle : Article? = nil
+
+
 class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate {
     
     
@@ -21,6 +24,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     var managedObjectContext: NSManagedObjectContext?
     var currentView = 1
     let error = NSErrorPointer()
+    
+
     
     
     override func viewDidLoad() {
@@ -68,14 +73,14 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         
         // set title
         self.title = "All"
-        
-        setupSideBar()
+     
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        setupSideBar()
     }
     
     
@@ -195,7 +200,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
             self.tableView.reloadData()
-            self.title = feed.title
+            self.title = feed.name
             self.currentView = index
             
             
@@ -284,19 +289,17 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
-        let item = fetchedResultsController.objectAtIndexPath(indexPath) as Article
+        
         if sideBar.isSideBarOpen {
             sideBar.showSideBar(false)
         }
-        if item.link != nil {
-        let webBrowser = KINWebBrowserViewController()
-        println(item.link)
-        let url = NSURL(string: item.link)
-        webBrowser.showsPageTitleInNavigationBar = true
-        webBrowser.showsURLInNavigationBar = true
-        webBrowser.loadURL(url)
-        self.navigationController!.pushViewController(webBrowser, animated: true)
-        }
+        
+        let item = fetchedResultsController.objectAtIndexPath(indexPath) as Article
+        currentArticle = item
+  
+        self.performSegueWithIdentifier("showArticle", sender: self)
+        
+      
     }
 
     
@@ -350,20 +353,21 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             }
         
             cell.summaryText.text = item.summary.stringByConvertingHTMLToPlainText()!
-        
-            var sourceTitle = ""
-        
-        for var i = 0; i < self.sideBar.sideBarTableViewController.fetchedResultsController.fetchedObjects?.count; ++i {
-            let _indexPath = NSIndexPath(forRow: i, inSection: 0)
-            let feed = sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(_indexPath) as Feed
-            if feed.link == item.source {
-                sourceTitle = feed.title
-            }
-        }
+   
 
             let date = NSDateFormatter.localizedStringFromDate(item.date, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-            cell.sourceAndDateText.text = "\(sourceTitle) | \(date)"
+            cell.sourceAndDateText.text = "\(item.sourceTitle) | \(date)"
             cell.titleText.text = item.title!
+            if item.read.boolValue {
+                cell.titleText.textColor = UIColor.grayColor()
+                cell.summaryText.textColor = UIColor.grayColor()
+                cell.sourceAndDateText.textColor = UIColor.grayColor()
+            } else {
+                cell.titleText.textColor = UIColor.blackColor()
+                cell.summaryText.textColor = UIColor.blackColor()
+                cell.sourceAndDateText.textColor = UIColor.darkGrayColor()
+            }
+            
     
             
         }
@@ -415,6 +419,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         self.tableView.reloadData()
         
     }
+
     
   /*  func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
         
@@ -437,5 +442,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     }
 
 */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        sideBar.removeSideBar()
+    }
     
 }
