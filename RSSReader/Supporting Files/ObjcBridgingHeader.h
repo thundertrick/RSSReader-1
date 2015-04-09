@@ -12,4 +12,7 @@
 #import "NSString+HTML.h"
 #import "Feed.h"
 #import "Article.h"
+#import "SVWebViewControllerActivitySafari.h"
+#import "SVWebViewControllerActivityChrome.h"
+#import "SVWebViewControllerActivity.h"
 

@@ -8,33 +8,24 @@
 
 import UIKit
 
-class ArticleViewController: UIViewController {
-
+class ArticleViewController: UIViewController, UIWebViewDelegate {
+    
+    // MARK: - init
     var dataHelper = CoreDataHelper()
-    // MARK: - Outlets
+    var parser = HTMLParser()
+    @IBOutlet var webView: UIWebView!
     
-    @IBOutlet var titleLabel: UILabel!
-    
-    @IBOutlet var dateLabel: UILabel!
-    
-    @IBOutlet var authorLabel: UILabel!
-    
-    @IBOutlet var contentLabel: UILabel!
-    
-    @IBOutlet var scrollView: UIScrollView!
-    
+    var actionButton : UIBarButtonItem = UIBarButtonItem()
     // MARK: - Setup View
 
     override func viewDidLoad() {
         super.viewDidLoad()
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
-        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        dateLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        authorLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        contentLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
-
+         actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "actionMethod")
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        self.toolbarItems = [flexibleSpace, actionButton]
+        webView.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -44,7 +35,7 @@ class ArticleViewController: UIViewController {
         if let article = currentArticle {
             if article.link != nil {
             let webBrowser = KINWebBrowserViewController()
-            println(article.link)
+     
             let url = NSURL(string: article.link)
             webBrowser.showsPageTitleInNavigationBar = true
             webBrowser.showsURLInNavigationBar = true
@@ -58,13 +49,14 @@ class ArticleViewController: UIViewController {
         super.viewWillAppear(animated)
         if let article = currentArticle {
             self.title = article.sourceTitle
-            self.titleLabel.text = article.title
-            self.dateLabel.text = NSDateFormatter.localizedStringFromDate(article.date, dateStyle: .MediumStyle, timeStyle: .ShortStyle)
-            self.authorLabel.text = article.sourceTitle + "/"  + article.author
-            self.contentLabel.text = article.content.stringByConvertingHTMLToPlainText()
-            
+            parser.articleContent = article.content
+            parser.articleTitle = article.title
+            parser.articleAuthor = article.sourceTitle + "/"  + article.author
+            parser.articleDatePublished = article.date
+            println(parser.article)
+            self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
         }
-        scrollView.contentSize.height = 100
+      
         
     }
   
@@ -75,7 +67,46 @@ class ArticleViewController: UIViewController {
     }
     
 
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+             if let article = currentArticle {
+                if request.URL ==  NSURL(string: article.link) {
+                    return true
+                } else {
+                    let webBrowser = KINWebBrowserViewController()
+                    let url = request.URL
+                    webBrowser.showsPageTitleInNavigationBar = true
+                    webBrowser.showsURLInNavigationBar = true
+                    webBrowser.loadURL(url)
+                    self.navigationController!.pushViewController(webBrowser, animated: true)
+                    return false
+                }
+             } else {
+                return true
+        }
+    }
     
+    func actionMethod() {
+   
+        if let article = currentArticle {
+            let textToShare = article.title
+            if let link = NSURL(string: article.link) {
+                let objectsToShare = [textToShare, link]
+                let safariActivity = SVWebViewControllerActivitySafari()
+                let chromeActivity = SVWebViewControllerActivityChrome()
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity, chromeActivity])
+                if activityVC.respondsToSelector("popoverPresentationController") {
+                    // iOS 8+
+                    let presentationController = activityVC.popoverPresentationController
+                    presentationController?.sourceView = view
+                    presentationController?.barButtonItem = actionButton
+                }
+                self.presentViewController(activityVC, animated: true, completion: nil)
+            
+            
+        
+            }
+        }
+    }
     
     
     // MARK: - Navigation
