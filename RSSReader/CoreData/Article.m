@@ -18,6 +18,7 @@
 @dynamic read;
 @dynamic source;
 @dynamic sourceTitle;
+@dynamic starred;
 @dynamic summary;
 @dynamic title;
 @dynamic updatedDate;

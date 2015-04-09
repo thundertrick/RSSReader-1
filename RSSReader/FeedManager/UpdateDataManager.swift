@@ -130,6 +130,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             feedArticle.title = title
             feedArticle.updatedDate = updatedDate
             feedArticle.read = false
+            feedArticle.starred = false
          
        }
         coreDataHelper.saveManagedObjectContext(moc)

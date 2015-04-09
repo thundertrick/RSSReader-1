@@ -16,21 +16,36 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet var webView: UIWebView!
     
     var actionButton : UIBarButtonItem = UIBarButtonItem()
+    var starButton : UIBarButtonItem = UIBarButtonItem()
     // MARK: - Setup View
 
     override func viewDidLoad() {
         super.viewDidLoad()
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
-         actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "actionMethod")
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
-        self.toolbarItems = [flexibleSpace, actionButton]
-        webView.delegate = self
+        initToolBarButtonItems()
+                webView.delegate = self
+        
         
         // Do any additional setup after loading the view.
     }
     
+    func initToolBarButtonItems() {
+       if let article = currentArticle {
+        actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "actionMethod")
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        if article.starred == true {
+            self.starButton = UIBarButtonItem(image: UIImage(named: "filledStar"), style: UIBarButtonItemStyle.Plain, target: self, action: "starItem")
+            
+        } else {
+            self.starButton = UIBarButtonItem(image: UIImage(named: "unfilledStar"), style: UIBarButtonItemStyle.Plain, target: self, action: "starItem")
+        }
     
+        self.toolbarItems = [flexibleSpace, starButton, flexibleSpace, actionButton, flexibleSpace]
+        }
+
+    }
+
     func openWeb() {
         if let article = currentArticle {
             if article.link != nil {
@@ -45,6 +60,18 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         }
 
     }
+    
+    func starItem() {
+        if let article = currentArticle {
+            if article.starred == true {
+                article.starred = false
+            } else {
+                article.starred = true
+            }
+            initToolBarButtonItems()
+        }
+        
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let article = currentArticle {
@@ -53,6 +80,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             parser.articleTitle = article.title
             parser.articleAuthor = article.sourceTitle + "/"  + article.author
             parser.articleDatePublished = article.date
+         
             println(parser.article)
             self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
         }

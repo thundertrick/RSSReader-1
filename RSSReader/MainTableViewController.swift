@@ -219,8 +219,18 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 
             self.currentView = 2
 
+        } else if index == 3 {
+            self.title = "Unread"
+            self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "starred == %@", true)
+            self.fetchedResultsController.performFetch(self.error)
+            
+            self.tableView.reloadData()
+            
+            self.currentView = 3
+        
+        
         } else {
-            let indexPath = NSIndexPath(forRow: index - 3, inSection: 0)
+            let indexPath = NSIndexPath(forRow: index - 4, inSection: 0)
             var feed = self.sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
