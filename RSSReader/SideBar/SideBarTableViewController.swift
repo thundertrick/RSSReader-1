@@ -19,7 +19,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     var menuItems : [String] {
         get {
             var workingItems : [String] = ["Add Feed", "All", "Unread"]
-            let feedItems = fetchedResultsController.fetchedObjects as [Feed]
+            let feedItems = fetchedResultsController.fetchedObjects as! [Feed]
             if feedItems.count > 0 {
                 for feedItem in feedItems {
                     workingItems.append(feedItem.name)

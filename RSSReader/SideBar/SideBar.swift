@@ -26,7 +26,7 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate, UIGestureRecognizer
     let sideBarContainerView:UIView = UIView()
     let sideBarTableViewController:SideBarTableViewController = SideBarTableViewController()
     var animator:UIDynamicAnimator!
-    let orignView:UIView!
+    var orignView:UIView!
     var delegate:SideBarDelegate?
     var isSideBarOpen:Bool = false
     var hideGestureRecognizer = UISwipeGestureRecognizer()

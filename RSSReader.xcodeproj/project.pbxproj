@@ -12,7 +12,6 @@
 		CCDC0BFE1AB8B37800AF39F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0BFC1AB8B37800AF39F7 /* LaunchScreen.xib */; };
 		CCDC0C0A1AB8B37800AF39F7 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C091AB8B37800AF39F7 /* RSSReaderTests.swift */; };
 		CCDC0C141AB8B5E400AF39F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDC0C131AB8B5E400AF39F7 /* CoreData.framework */; };
-		CCDC0C161AB8B60A00AF39F7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C151AB8B60A00AF39F7 /* Info.plist */; };
 		CCDC0C241AB8B71900AF39F7 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1C1AB8B71900AF39F7 /* backbutton.png */; };
 		CCDC0C251AB8B71900AF39F7 /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1D1AB8B71900AF39F7 /* backbutton@2x.png */; };
 		CCDC0C261AB8B71900AF39F7 /* backbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1E1AB8B71900AF39F7 /* backbutton@3x.png */; };
@@ -494,7 +493,7 @@
 		CCDC0BE31AB8B37800AF39F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Leopold Aschenbrenner";
 				TargetAttributes = {
 					CCDC0BEA1AB8B37800AF39F7 = {
@@ -538,7 +537,6 @@
 				CCDC0C401AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				CCDC0CA61AB8B98E00AF39F7 /* Main.storyboard in Resources */,
 				CCDC0C431AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png in Resources */,
-				CCDC0C161AB8B60A00AF39F7 /* Info.plist in Resources */,
 				CCDC0C251AB8B71900AF39F7 /* backbutton@2x.png in Resources */,
 				CCDC0C261AB8B71900AF39F7 /* backbutton@3x.png in Resources */,
 				CC3467421AB8C94E00434630 /* Images.xcassets in Resources */,

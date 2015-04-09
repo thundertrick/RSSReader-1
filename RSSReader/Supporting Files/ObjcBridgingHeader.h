@@ -2,8 +2,8 @@
 //  ObjcBridgingHeader.h
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 06/03/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 06/03/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 #import "UIImageView+AFNetworking.h"

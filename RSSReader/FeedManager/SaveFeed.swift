@@ -2,8 +2,8 @@
 //  SaveFeed.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 03/03/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 03/03/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,7 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     
     func successInDeleteFeedWithName(name: String) -> Bool {
         let moc = coreDataHelper.managedObjectContext()
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "name = %@", name), managedObjectContext: moc) as [Feed]
+        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "name = %@", name), managedObjectContext: moc) as! [Feed]
         if items.count > 1 {
             for item in items {
                 moc.deleteObject(item as NSManagedObject)
@@ -42,7 +42,7 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
         let moc = coreDataHelper.managedObjectContext()
         let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc)
         if items.count >= index {
-            let item = items.objectAtIndex(index) as Feed
+            let item = items.objectAtIndex(index) as! Feed
             moc.deleteObject(item)
             coreDataHelper.saveManagedObjectContext(moc)
             return true
@@ -77,7 +77,7 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     
      func feedParser(parser: MWFeedParser!, didParseFeedInfo info: MWFeedInfo!) {
         let moc = coreDataHelper.managedObjectContext()
-        let feedInfo : Feed = coreDataHelper.insertManagedObject(NSStringFromClass(Feed), managedObjectContext: moc) as Feed
+        let feedInfo : Feed = coreDataHelper.insertManagedObject(NSStringFromClass(Feed), managedObjectContext: moc) as! Feed
         feedInfo.link = givenFeedURL
         feedInfo.title = info.title
         feedInfo.summary = (info.summary != nil) ? info.summary : ""

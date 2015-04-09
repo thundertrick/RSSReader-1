@@ -2,8 +2,8 @@
 //  MainTableViewController.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 01/03/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 01/03/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 import UIKit
@@ -48,7 +48,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
        
         // clear backButton text
         
-        let backItem = UIBarButtonItem(title: "", style:.Bordered, target: nil, action: nil)
+        let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
         
         // register nib for FeedTableViewCell
@@ -131,7 +131,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     }
     
     func markAllRead() {
-        let items = fetchedResultsController.fetchedObjects as [Article]
+        let items = fetchedResultsController.fetchedObjects as! [Article]
         for item in items {
             if item.read.boolValue == false {
             item.read = true
@@ -189,9 +189,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                     
                     
                     let textFields = alert.textFields
-                    let feedNameTextField = textFields!.last as UITextField
+                    let feedNameTextField = textFields!.last as! UITextField
                     feedNameTextField.endEditing(true)
-                    let feedURLTextField = textFields!.first as UITextField
+                    let feedURLTextField = textFields!.first as! UITextField
                     feedURLTextField.endEditing(true)
                     if  let feedURL = feedURLTextField.text {
                         self.saveFeedManager.saveFeedWithURL(feedURL, withName: feedNameTextField.text)
@@ -221,7 +221,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
 
         } else {
             let indexPath = NSIndexPath(forRow: index - 3, inSection: 0)
-            var feed = self.sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(indexPath) as Feed
+            var feed = self.sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
            
@@ -306,13 +306,13 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
         return info.numberOfObjects
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       var cell: FeedTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as FeedTableViewCell
+       var cell: FeedTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell
         configureCell(cell, atIndexPath: indexPath)
         return cell
 
@@ -325,7 +325,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             sideBar.showSideBar(false)
         }
         
-        let item = fetchedResultsController.objectAtIndexPath(indexPath) as Article
+        let item = fetchedResultsController.objectAtIndexPath(indexPath) as! Article
         currentArticle = item
         item.read = true
         shouldReloadContent = false
@@ -341,7 +341,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
      
         if self.fetchedResultsController.fetchedObjects?.count > indexPath.row {
           
-            let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as Article
+            let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Article
             var imageSource = ""
             if item.content != nil {
                 
@@ -351,7 +351,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 let regex = NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: nil, error: nil)
                 
                 if htmlContent.length > 0 {
-                    var match = regex?.matchesInString(htmlContent, options: nil, range: rangeOfString)
+                    var match = regex?.matchesInString(htmlContent as String, options: nil, range: rangeOfString)
                     
                     if (match != nil) && (match?.count > 0) {
                         for (index, value) in enumerate(match!) {
@@ -361,7 +361,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                             if (NSString(string: imageURL.lowercaseString).rangeOfString("feedburner").location == NSNotFound) && (NSString(string: imageURL.lowercaseString).rangeOfString("feedsportal").location == NSNotFound) && (imageURL.substringToIndex(4) == "http") {
                                 
                                 
-                                imageSource = imageURL
+                                imageSource = imageURL as String
                                 break
                             }
                             
@@ -456,27 +456,29 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     }
 
     
-   func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
-                switch type {
-                    case .Insert:
-                        self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-                    case .Update:
-                        if let cell : FeedTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as? FeedTableViewCell {
-                        self.configureCell(cell, atIndexPath: indexPath)
-                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                    }
-                    case .Move:
-                        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                        self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-                    case .Delete:
-                        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                    default:
-                        return
-                }
-                
+        switch type{
+        case .Insert:
+            if let newIndex = newIndexPath{
+                self.tableView.insertRowsAtIndexPaths([newIndex], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+        case .Delete:
+            if let index = indexPath{
+                self.tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+        case .Update:
+            if let index = indexPath{
+                self.tableView.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+        case .Move:
+            if let index  = indexPath, newIndex = newIndexPath{
+                self.tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndex], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+        }
     }
-
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)

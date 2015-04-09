@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 01/03/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 01/03/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 import UIKit
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.LeopoldAschenbrenner.RSSReader" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {

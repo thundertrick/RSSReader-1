@@ -2,8 +2,8 @@
 //  UpdateDataManager.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 03/03/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 03/03/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         if items.count > 0 {
             for item in items {
                 let moc = coreDataHelper.managedObjectContext()
-                let realItem = moc.objectWithID(item.objectID) as Feed
+                let realItem = moc.objectWithID(item.objectID) as! Feed
                 workingURLs.append(realItem.link)
                 
             }
@@ -34,7 +34,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
     
      func retrieveFeeds() -> [Feed] {
         let moc = coreDataHelper.managedObjectContext()
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc) as [Feed]
+        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc) as! [Feed]
         return items
     }
     
@@ -80,7 +80,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         let link = (item.link != nil) ? item.link : "\(parser.url())"
         let source = "\(parser.url())"
         let moc = coreDataHelper.managedObjectContext()
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "link == %@", source), managedObjectContext: moc) as [Feed]
+        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "link == %@", source), managedObjectContext: moc) as! [Feed]
         let sourceTitle : String = items[0].name
     
         
@@ -91,13 +91,13 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         let p2 = NSPredicate(format: "source == %@", source)
         var p3 = NSPredicate()
         if let theDate = item.date {
-            p3 = NSPredicate(format: "date == %@", item.date)!
+            p3 = NSPredicate(format: "date == %@", item.date)
         } else {
-            p3 = NSPredicate(format: "content == %@", content)!
+            p3 = NSPredicate(format: "content == %@", content)
         }
-        let predicateArray = [p!, p1!, p2!, p3]
+        let predicateArray = [p, p1, p2, p3]
         let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicateArray)
-        let articles : [Article] = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: predicate, managedObjectContext: moc) as [Article]
+        let articles : [Article] = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: predicate, managedObjectContext: moc) as! [Article]
         if articles.count > 0 {
             for article in articles {
                 if article.content != content {
@@ -119,7 +119,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             
         } else {
 
-            let feedArticle : Article = coreDataHelper.insertManagedObject(NSStringFromClass(Article), managedObjectContext: moc) as Article
+            let feedArticle : Article = coreDataHelper.insertManagedObject(NSStringFromClass(Article), managedObjectContext: moc) as! Article
             feedArticle.author =  author
             feedArticle.content = summary
             feedArticle.date = date
@@ -143,10 +143,10 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
      func feedParser(parser: MWFeedParser!, didParseFeedInfo info: MWFeedInfo!) {
         let moc = coreDataHelper.managedObjectContext()
         let predicate = NSPredicate(format: "link = %@", "\(parser.url())")
-        let feeds = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: predicate, managedObjectContext: moc) as  [Feed]
+        let feeds = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: predicate, managedObjectContext: moc) as!  [Feed]
         for feedItem in feeds {
             let amoc = coreDataHelper.managedObjectContext()
-            let feed = amoc.objectWithID(feedItem.objectID) as Feed
+            let feed = amoc.objectWithID(feedItem.objectID) as!Feed
             if feed.title != info.title {
                 feed.title = info.title
             }

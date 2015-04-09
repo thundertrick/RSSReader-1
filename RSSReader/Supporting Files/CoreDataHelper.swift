@@ -10,7 +10,7 @@ class CoreDataHelper: NSObject {
     
     func managedObjectContext()->NSManagedObjectContext{
       
-        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext : NSManagedObjectContext = appDel.managedObjectContext!
         
         return managedObjectContext
@@ -19,7 +19,7 @@ class CoreDataHelper: NSObject {
     
     func insertManagedObject(className:NSString, managedObjectContext:NSManagedObjectContext)->AnyObject{
     
-        let managedObject:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(className, inManagedObjectContext: managedObjectContext) as NSManagedObject
+        let managedObject:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(className as String, inManagedObjectContext: managedObjectContext) as! NSManagedObject
         
         return managedObject
         
@@ -36,7 +36,7 @@ class CoreDataHelper: NSObject {
     
     func fetchEntities(className:NSString, withPredicate predicate:NSPredicate?, managedObjectContext:NSManagedObjectContext)->NSArray{
         let fetchRequest:NSFetchRequest = NSFetchRequest()
-        let entetyDescription:NSEntityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)!
+        let entetyDescription:NSEntityDescription = NSEntityDescription.entityForName(className as String, inManagedObjectContext: managedObjectContext)!
         
         fetchRequest.entity = entetyDescription
         if predicate != nil{
