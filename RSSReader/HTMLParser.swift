@@ -28,7 +28,7 @@ class HTMLParser {
     
     private var authorToAppend : String {
         get {
-            return "<i>by: \(articleAuthor)</i><br />"
+            return "<i>\(articleAuthor)</i><br />"
         }
         
     }
