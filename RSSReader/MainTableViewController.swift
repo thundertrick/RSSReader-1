@@ -385,6 +385,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 cell.removeImage()
                 }
             }
+            cell.accessoryType = .DisclosureIndicator
         
             cell.summaryText.text = item.summary.stringByConvertingHTMLToPlainText()!
    
