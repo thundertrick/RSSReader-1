@@ -10,7 +10,7 @@ protocol SideBarTableViewControllerDelegate{
     func sideBarControllerDidSelectRow(indexPath:NSIndexPath)
 }
 
-class SideBarTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class SideBarTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
 
     var delegate:SideBarTableViewControllerDelegate?
     var tableData:[String] = []
@@ -37,8 +37,32 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return menuItems.count
     }
+
     
-  
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let lprg = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        lprg.minimumPressDuration = 2.0
+        lprg.delegate = self
+        self.tableView.addGestureRecognizer(lprg)
+    }
+    
+    func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        
+        let p : CGPoint = recognizer.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(p)
+        println("\(indexPath?.row), \(indexPath?.section)")
+        if (indexPath == nil) {
+            return
+        } else if indexPath!.row < 4 {
+            return
+        } else if (recognizer.state == UIGestureRecognizerState.Began) {
+            deleteFeedAtIndexPath(indexPath!)
+        } else {
+           println(recognizer.state)
+        }
+        
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
@@ -70,7 +94,24 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
 
+    func deleteFeedAtIndexPath(indexPath: NSIndexPath) {
+        let newIndexPath = NSIndexPath(forRow: indexPath.row - 4, inSection: 0)
+      let object = fetchedResultsController.objectAtIndexPath(newIndexPath) as! Feed
+        let link = object.link
+        fetchedResultsController.managedObjectContext.deleteObject(object)
+        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
+        println("made it to here")
+
+          let p = NSPredicate(format: "source == %@", link)
     
+       let items = dataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: p, managedObjectContext: fetchedResultsController.managedObjectContext) as! [Article]
+        println("and to here")
+        for item in items {
+            fetchedResultsController.managedObjectContext.deleteObject(item)
+        }
+        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
+        
+    }
     
     func configureFeedCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         cell.textLabel?.text = menuItems[indexPath.row]
@@ -109,14 +150,14 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     var _fetchedResultsController: NSFetchedResultsController?
 
-    
-
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         dispatch_async(dispatch_get_main_queue(), {
-             self.tableView.reloadData()
+            self.tableView.reloadData()
         })
-       
+        
     }
+    
+    
     
    
     }

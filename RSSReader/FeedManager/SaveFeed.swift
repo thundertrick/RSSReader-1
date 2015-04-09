@@ -22,20 +22,7 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     private var givenFeedName = ""
     private var givenFeedURL = ""
     
-    func successInDeleteFeedWithName(name: String) -> Bool {
-        let moc = coreDataHelper.managedObjectContext()
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "name = %@", name), managedObjectContext: moc) as! [Feed]
-        if items.count > 1 {
-            for item in items {
-                moc.deleteObject(item as NSManagedObject)
-            }
-            coreDataHelper.saveManagedObjectContext(moc)
-            return true
-        } else {
-            return false
-        }
-        
-    }
+   
     
     
     func successInDeleteFeedAtIndex(index: Int) -> Bool {

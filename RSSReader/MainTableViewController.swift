@@ -220,7 +220,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.currentView = 2
 
         } else if index == 3 {
-            self.title = "Unread"
+            self.title = "Starred"
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "starred == %@", true)
             self.fetchedResultsController.performFetch(self.error)
             
@@ -460,10 +460,10 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
    }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        
         self.tableView.endUpdates()
-        
-        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
     }
 
     
