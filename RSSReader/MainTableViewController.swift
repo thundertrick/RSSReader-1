@@ -161,7 +161,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
         
         
-        // todo: make smoother
+     
         println(index)
         
             if self.navigationController?.visibleViewController != self {
@@ -200,6 +200,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
+            self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+              self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+            self.currentView = 1
            
         } else  if index == 1 {
             self.title = "All"
@@ -207,16 +210,19 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.performFetch(self.error)
             
                 self.tableView.reloadData()
-            
-        
+       
+          self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+         
             self.currentView = 1
+          
         } else if index == 2 {
             self.title = "Unread"
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "read == %@", false)
             self.fetchedResultsController.performFetch(self.error)
       
             self.tableView.reloadData()
-                
+               self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+  
             self.currentView = 2
 
         } else if index == 3 {
@@ -225,8 +231,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.performFetch(self.error)
             
             self.tableView.reloadData()
-            
-            self.currentView = 3
+              self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+                      self.currentView = 3
         
         
         } else {
@@ -235,8 +241,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
            
-                self.tableView.reloadData()
-            
+            self.tableView.reloadData()
             self.title = feed.name
             self.currentView = index
             

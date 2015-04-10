@@ -14,7 +14,6 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     var dataHelper = CoreDataHelper()
     var parser = HTMLParser()
     @IBOutlet var webView: UIWebView!
-    var counter = 0
     
     var actionButton : UIBarButtonItem = UIBarButtonItem()
     var starButton : UIBarButtonItem = UIBarButtonItem()
@@ -83,7 +82,6 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             parser.articleDatePublished = article.date
          
             println(parser.article)
-            self.counter = 0
             self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
         
         }
@@ -99,20 +97,20 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
 
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
-                if counter ==  0 {
-                    counter++
-                    return true
-                } else {
-                    let webBrowser = KINWebBrowserViewController()
-                    let url = request.URL
-                    webBrowser.showsPageTitleInNavigationBar = true
-                    webBrowser.showsURLInNavigationBar = true
-                    webBrowser.loadURL(url)
-                    self.navigationController!.pushViewController(webBrowser, animated: true)
-                    counter++
-                    return false
-                }
+    
+    
+        if navigationType == UIWebViewNavigationType.LinkClicked {
+            let webBrowser = KINWebBrowserViewController()
+            let url = request.URL
+            webBrowser.showsPageTitleInNavigationBar = true
+            webBrowser.showsURLInNavigationBar = true
+            webBrowser.loadURL(url)
+            self.navigationController!.pushViewController(webBrowser, animated: true)
+            return false
+
+        } else {
+            return true
+        }
         
         }
     
