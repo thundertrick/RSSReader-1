@@ -212,6 +212,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 self.tableView.reloadData()
        
           self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+            
+            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
          
             self.currentView = 1
           
@@ -222,7 +224,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
       
             self.tableView.reloadData()
                self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-  
+            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
             self.currentView = 2
 
         } else if index == 3 {
@@ -232,6 +234,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             
             self.tableView.reloadData()
               self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+              self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
                       self.currentView = 3
         
         
@@ -243,6 +246,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
            
             self.tableView.reloadData()
             self.title = feed.name
+              self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
             self.currentView = index
             
             
