@@ -43,7 +43,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             self.starButton = UIBarButtonItem(image: UIImage(named: "unfilledStar"), style: UIBarButtonItemStyle.Plain, target: self, action: "starItem")
         }
         
-        if article.read == true{
+        if article.read == false {
               self.readButton = UIBarButtonItem(image: UIImage(named: "filledCircle"), style: UIBarButtonItemStyle.Plain, target: self, action: "readItem")
             
         } else {

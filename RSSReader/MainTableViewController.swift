@@ -259,7 +259,6 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             
             self.presentViewController(alert, animated: true, completion: nil)
             self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-              self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
             self.currentView = 1
            
         } else  if index == 1 {
@@ -514,9 +513,9 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
    }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.endUpdates()
+     
         dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
+               self.tableView.endUpdates()
         })
     }
 
