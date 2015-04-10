@@ -17,6 +17,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     var actionButton : UIBarButtonItem = UIBarButtonItem()
     var starButton : UIBarButtonItem = UIBarButtonItem()
+    var readButton : UIBarButtonItem = UIBarButtonItem()
     // MARK: - Setup View
 
     override func viewDidLoad() {
@@ -24,7 +25,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
         initToolBarButtonItems()
-                webView.delegate = self
+        webView.delegate = self
+        webView.opaque = false
         
         
         // Do any additional setup after loading the view.
@@ -40,8 +42,16 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         } else {
             self.starButton = UIBarButtonItem(image: UIImage(named: "unfilledStar"), style: UIBarButtonItemStyle.Plain, target: self, action: "starItem")
         }
-    
-        self.toolbarItems = [flexibleSpace, starButton, flexibleSpace, actionButton, flexibleSpace]
+        
+        if article.read == true{
+              self.readButton = UIBarButtonItem(image: UIImage(named: "filledCircle"), style: UIBarButtonItemStyle.Plain, target: self, action: "readItem")
+            
+        } else {
+            self.readButton = UIBarButtonItem(image: UIImage(named: "unfilledCircle"), style: UIBarButtonItemStyle.Plain, target: self, action: "readItem")
+
+        }
+        
+        self.toolbarItems = [flexibleSpace, readButton, flexibleSpace, starButton, flexibleSpace, actionButton, flexibleSpace]
         }
 
     }
@@ -61,6 +71,21 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
 
     }
     
+    
+    func readItem() {
+        if let article = currentArticle {
+            if article.read == true {
+                article.read = false
+            } else {
+                article.read = true
+            }
+        
+    
+            initToolBarButtonItems()
+        }
+        
+    }
+
     func starItem() {
         if let article = currentArticle {
             if article.starred == true {
@@ -133,19 +158,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
                 self.presentViewController(activityVC, animated: true, completion: nil)
             
             
-        
             }
         }
     }
-    
-    
-    // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.+
-        currentArticle == nil
-    }
+
+ 
     
 
 }

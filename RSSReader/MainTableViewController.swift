@@ -10,8 +10,9 @@ import UIKit
 
 var currentArticle : Article? = nil
 
+var shouldScrollToTop = true
 
-class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate {
+class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
     
     
     // iniatialize UI Helper Classes
@@ -24,7 +25,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     var managedObjectContext: NSManagedObjectContext?
     var currentView = 1
     let error = NSErrorPointer()
-    var shouldReloadContent = true
+  
+  
     
 
     
@@ -71,8 +73,17 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         refreshControl.addTarget(self, action: Selector("updateFromRefreshButton"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
         
-        // add observer for update
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateFromRefreshButton"), name: "update", object: nil)
+        // add double tap gesture recognizer
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        doubleTapGesture.numberOfTapsRequired = 2
+        doubleTapGesture.delegate = self
+        self.tableView.addGestureRecognizer(doubleTapGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.delegate = self
+        tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
+        self.tableView.addGestureRecognizer(tapGesture)
         
         // set title
         self.title = "All"
@@ -82,7 +93,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        currentArticle == nil
+        shouldScrollToTop = false
         setupSideBar()
     }
     
@@ -103,7 +115,41 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     
     
+    func handleTap(recognizer: UITapGestureRecognizer) {
+     
+        let p : CGPoint = recognizer.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(p)
     
+        if (indexPath == nil) {
+            return
+       
+        } else  {
+            
+            if recognizer.numberOfTapsRequired == 2 {
+          let item = fetchedResultsController.objectAtIndexPath(indexPath!) as! Article
+            if item.read == false {
+                item.read = true
+            } else {
+                item.read = false
+            }
+            dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
+            } else {
+         
+                if sideBar.isSideBarOpen {
+                    sideBar.showSideBar(false)
+                }
+                
+                let item = fetchedResultsController.objectAtIndexPath(indexPath!) as! Article
+                currentArticle = item
+                item.read = true
+                
+                dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
+                
+                self.performSegueWithIdentifier("showArticle", sender: self)
+            }
+        }
+
+    }
     
     // Menu Button functions
     
@@ -212,8 +258,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 self.tableView.reloadData()
        
           self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-            
-            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
+     
          
             self.currentView = 1
           
@@ -224,7 +269,6 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
       
             self.tableView.reloadData()
                self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
             self.currentView = 2
 
         } else if index == 3 {
@@ -233,9 +277,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.performFetch(self.error)
             
             self.tableView.reloadData()
-              self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-              self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
-                      self.currentView = 3
+            self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+            self.currentView = 3
         
         
         } else {
@@ -246,8 +289,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
            
             self.tableView.reloadData()
             self.title = feed.name
-              self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
-            self.currentView = index
+                         self.currentView = index
             
             
         }
@@ -255,6 +297,13 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         if sideBar.isSideBarOpen {
             self.sideBar.showSideBar(false)
             
+        }
+        
+        if shouldScrollToTop {
+            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
+
+        } else {
+            shouldScrollToTop = true
         }
         
 
@@ -337,23 +386,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
 
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
-        
-        if sideBar.isSideBarOpen {
-            sideBar.showSideBar(false)
-        }
-        
-        let item = fetchedResultsController.objectAtIndexPath(indexPath) as! Article
-        currentArticle = item
-        item.read = true
-        shouldReloadContent = false
-        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
-  
-        self.performSegueWithIdentifier("showArticle", sender: self)
-        
-      
-    }
+
 
     
     func configureCell(cell: FeedTableViewCell, atIndexPath indexPath: NSIndexPath) {

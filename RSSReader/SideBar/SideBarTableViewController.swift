@@ -58,6 +58,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
             deleteFeedAtIndexPath(indexPath!)
+           delegate?.sideBarControllerDidSelectRow(indexPath!)
         } else {
            println(recognizer.state)
         }

@@ -10,7 +10,7 @@
 		CC1672891AD6F4400003EF40 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1672881AD6F4400003EF40 /* HTMLParser.swift */; };
 		CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC34673E1AB8C8BB00434630 /* FeedModel.xcdatamodeld */; };
 		CC3467421AB8C94E00434630 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3467411AB8C94E00434630 /* Images.xcassets */; };
-		CCDC0BFE1AB8B37800AF39F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0BFC1AB8B37800AF39F7 /* LaunchScreen.xib */; };
+		CCD28FB51AD7D82A0015E0B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD28FB41AD7D82A0015E0B6 /* LaunchScreen.storyboard */; };
 		CCDC0C0A1AB8B37800AF39F7 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C091AB8B37800AF39F7 /* RSSReaderTests.swift */; };
 		CCDC0C141AB8B5E400AF39F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDC0C131AB8B5E400AF39F7 /* CoreData.framework */; };
 		CCDC0C241AB8B71900AF39F7 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1C1AB8B71900AF39F7 /* backbutton.png */; };
@@ -82,8 +82,8 @@
 		CC1672881AD6F4400003EF40 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		CC34673F1AB8C8BB00434630 /* FeedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedModel.xcdatamodel; sourceTree = "<group>"; };
 		CC3467411AB8C94E00434630 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CCD28FB41AD7D82A0015E0B6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCDC0BEB1AB8B37800AF39F7 /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCDC0BFD1AB8B37800AF39F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CCDC0C031AB8B37800AF39F7 /* RSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDC0C081AB8B37800AF39F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCDC0C091AB8B37800AF39F7 /* RSSReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderTests.swift; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 		CCDC0C171AB8B60E00AF39F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CCD28FB41AD7D82A0015E0B6 /* LaunchScreen.storyboard */,
 				CC3467411AB8C94E00434630 /* Images.xcassets */,
-				CCDC0BFC1AB8B37800AF39F7 /* LaunchScreen.xib */,
 				CCDC0C151AB8B60A00AF39F7 /* Info.plist */,
 				CCDC0C451AB8B82B00AF39F7 /* CoreDataHelper.swift */,
 				CCDC0C951AB8B8A500AF39F7 /* ObjcBridgingHeader.h */,
@@ -541,13 +541,13 @@
 				CCDC0CA61AB8B98E00AF39F7 /* Main.storyboard in Resources */,
 				CCDC0C431AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				CCDC0C251AB8B71900AF39F7 /* backbutton@2x.png in Resources */,
+				CCD28FB51AD7D82A0015E0B6 /* LaunchScreen.storyboard in Resources */,
 				CCDC0C261AB8B71900AF39F7 /* backbutton@3x.png in Resources */,
 				CC3467421AB8C94E00434630 /* Images.xcassets in Resources */,
 				CCDC0C411AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				CCDC0C371AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				CCDC0C271AB8B71900AF39F7 /* forwardbutton.png in Resources */,
 				CCDC0CA41AB8B98000AF39F7 /* FeedTableViewCell.xib in Resources */,
-				CCDC0BFE1AB8B37800AF39F7 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,18 +626,6 @@
 			targetProxy = CCDC0C041AB8B37800AF39F7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		CCDC0BFC1AB8B37800AF39F7 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCDC0BFD1AB8B37800AF39F7 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = ../.;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CCDC0C0B1AB8B37800AF39F7 /* Debug */ = {

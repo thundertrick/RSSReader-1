@@ -170,6 +170,7 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate, UIGestureRecognizer
     }
     
     func sideBarControllerDidSelectRow(indexPath: NSIndexPath) {
+        shouldScrollToTop = true
         delegate?.sideBarDidSelectMenuButtonAtIndex(indexPath.row)
     }
     
