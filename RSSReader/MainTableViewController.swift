@@ -177,13 +177,25 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     }
     
     func markAllRead() {
-        let items = fetchedResultsController.fetchedObjects as! [Article]
-        for item in items {
-            if item.read.boolValue == false {
-            item.read = true
+        
+        let alert = UIAlertController(title: "Mark All Read", message: "Do you want to mark all items as read?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action -> Void in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action -> Void in
+            let items = self.fetchedResultsController.fetchedObjects as! [Article]
+            for item in items {
+                if item.read.boolValue == false {
+                    item.read = true
+                }
             }
-        }
-        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
+            self.dataHelper.saveManagedObjectContext(self.fetchedResultsController.managedObjectContext)
+
+            }))
+        
+           self.presentViewController(alert, animated: true, completion: nil)
+
         
     }
     
