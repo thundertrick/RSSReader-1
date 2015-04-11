@@ -7,409 +7,373 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01A394AEAE024C009F47B1A9 /* dzn_icn_activity_dolphin@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BC41CB222B98CE3A3E17D53B /* dzn_icn_activity_dolphin@2x~ipad.png */; };
-		054DD034E0163D3CCD5A349E /* dzn_icn_activity_link@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5EAACAF65A9C4262BF75A65 /* dzn_icn_activity_link@2x.png */; };
-		09929E192233B50D916BAA4B /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 69BB7D1ED4035560B693B2DD /* en.lproj */; };
-		1355AEC7D7786731472581D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCE4BD2BACB4FA472AA52C3 /* WebKit.framework */; };
-		1B9715CE888F7A7F924A165E /* DZNWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF64946D6409CB7D9F4235A /* DZNWebViewController.m */; };
-		2699F2319F71AE11E099A264 /* dzn_icn_activity_link@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C0141B3C68AB002744CCDF03 /* dzn_icn_activity_link@2x~ipad.png */; };
-		2B1708DDF7D4D2B786334DAC /* dzn_icn_activity_chrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C679CEEE479CED64EBC16F /* dzn_icn_activity_chrome@2x.png */; };
-		2EAF72B206C79764DF4AD5B1 /* Pods-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A700C2CC88DE62A7E6C3656 /* Pods-Alamofire-dummy.m */; };
-		32AF874101098C05514D223D /* Pods-DZNWebViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 295A4F5D09E13EECD936DA3A /* Pods-DZNWebViewController-dummy.m */; };
-		3875FE80CE5D67F819DE9405 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598833A30DCDB85304AB2C6 /* Alamofire.swift */; };
-		43CAC397E3B50092558BA989 /* Pods-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C49CDA1924DB2CA4A6FA3AB9 /* Pods-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4C13648C14B2A24A2CDEDAA0 /* dzn_icn_activity_dolphin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B71FA7FFEABE34F0F1A7FF /* dzn_icn_activity_dolphin@2x.png */; };
-		4F93701856EB7CC0326AFDF0 /* dzn_icn_toolbar_backward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9406A328DC44E5966BD282 /* dzn_icn_toolbar_backward@2x.png */; };
-		506B8C28C2B05C2BE94A09AA /* dzn_icn_toolbar_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A5DEE3374759A7C888FF0 /* dzn_icn_toolbar_action@3x.png */; };
-		57ECA00D7440A4C37B9E0104 /* dzn_icn_toolbar_reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB858FB91AEEE9656642702D /* dzn_icn_toolbar_reload@2x.png */; };
-		5DC859A4C633E15625E761F0 /* dzn_icn_toolbar_stop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE15164FFF46D164FF2B6169 /* dzn_icn_toolbar_stop@3x.png */; };
-		7362ACAD5ED5E4FA9B94C21C /* DZNWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EEB546FE89DCC2B5BADE4C /* DZNWebView.m */; };
-		762F1A90E6FC391A6032BF0B /* dzn_icn_toolbar_backward.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3F2B079AAFF8F3FA6DFCD /* dzn_icn_toolbar_backward.png */; };
-		82DA50CEE56CD2EDC012AE83 /* DZNPolyActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = FCB09BDBC3643B5E12DC3A3B /* DZNPolyActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CB6082F05EB7309488FD5A8 /* dzn_icn_toolbar_stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6911A1DFE5F99394209304F /* dzn_icn_toolbar_stop@2x.png */; };
-		8E55036D0E70CF0A332CAA08 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 99F09F7C3EB522F8672FC2F3 /* es.lproj */; };
-		90DF32FFBA12ADFC9B279763 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E15354B82008486F5ECDE0 /* Foundation.framework */; };
-		9248ADF1ED6E2C9CD079545E /* dzn_icn_toolbar_forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A94581EAD85B09FD70084 /* dzn_icn_toolbar_forward@3x.png */; };
-		938E66E961C51DC155C6E3A1 /* dzn_icn_toolbar_action.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5BB8C16A1C1459F11934F /* dzn_icn_toolbar_action.png */; };
-		93C4DE1E4E068A89FF50C7A3 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5033C7F21806C59B020370 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		956B8DE9AB4C4B7403ED3F80 /* dzn_icn_toolbar_reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C1806ED302BDD2389D7CBB /* dzn_icn_toolbar_reload.png */; };
-		A8C701125194909E0AF5D771 /* dzn_icn_toolbar_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB2A8C51B9A6108E92888A /* dzn_icn_toolbar_stop.png */; };
-		AD0540DEC6F84D809E526708 /* DZNWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 28580F7FE0D506CE19C9096E /* DZNWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF97635BA307F2AE9CF1F3A2 /* dzn_icn_toolbar_reload@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15049819CF809785FBC15280 /* dzn_icn_toolbar_reload@3x.png */; };
-		AF9BA5FB0CC4BED7F9AA9406 /* dzn_icn_toolbar_forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C66BB46F8F3BB13505F40AE /* dzn_icn_toolbar_forward.png */; };
-		B26B801B34AB89A1C069CA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E15354B82008486F5ECDE0 /* Foundation.framework */; };
-		B444440996C93A4A67EE6444 /* DZNPolyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E15CB7C76B021B17D26B0551 /* DZNPolyActivity.m */; };
-		BAD457103A52DDEDDAD65EAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022E0F7E9290F6C47494F3E1 /* UIKit.framework */; };
-		BB9F8137C311E9A5A4FE3029 /* dzn_icn_activity_opera@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 790703281E3546D6618DF0D1 /* dzn_icn_activity_opera@2x~ipad.png */; };
-		C5A1ACCADC749243F49FB81E /* dzn_icn_toolbar_backward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82D94C5E122CFFA8E19B8547 /* dzn_icn_toolbar_backward@3x.png */; };
-		CA4F0F3814AA0EBB16A3A903 /* Pods-DZNWebViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5A5DA291578D7347EB317B7 /* Pods-DZNWebViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDC2FC5E88EF7027ED50B4EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E15354B82008486F5ECDE0 /* Foundation.framework */; };
-		D24083AF34DBC050557E11E1 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0190B2D492EB6A9461A0F2D /* Pods-dummy.m */; };
-		D27481A45BCB262AD3C4F0AA /* dzn_icn_toolbar_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B17536525E7D04A701D208BC /* dzn_icn_toolbar_forward@2x.png */; };
-		D75ACA2306C8AC1F9F2C420A /* dzn_icn_toolbar_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FDD4E3CA5AB57AE3084405 /* dzn_icn_toolbar_action@2x.png */; };
-		DFA7C6D08A4B2D39FC5AB07C /* DZNWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9E406EA29C60E78D6C472E /* DZNWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E04ED58FC64AEA98B8569B30 /* dzn_icn_activity_safari@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD052C196191FE8A6193888 /* dzn_icn_activity_safari@2x~ipad.png */; };
-		E0745763C5AF09A46DAE2235 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 03EE6E404AC78A430C081D27 /* de.lproj */; };
-		E23C599A50966C528AE34DF2 /* dzn_icn_activity_opera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1D85CBAEB13CB0E01E2CED /* dzn_icn_activity_opera@2x.png */; };
-		F89EB27064830E630A0E03D0 /* dzn_icn_activity_chrome@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B6F571D35A56A5BF0F07A6F0 /* dzn_icn_activity_chrome@2x~ipad.png */; };
+		021FBD1550D94E0D4CAFD1F5 /* dzn_icn_activity_dolphin@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 21F2AE480E9F8543B2AB2257 /* dzn_icn_activity_dolphin@2x~ipad.png */; };
+		030F5510901FECAA9349A710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47388A8627AB8357ABA8E9B /* Foundation.framework */; };
+		07BA3EF2E2A1A7A555EE94A4 /* dzn_icn_activity_link@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1C857AC26FA2E46300C033 /* dzn_icn_activity_link@2x~ipad.png */; };
+		092CC6D6794895A30D7C5209 /* dzn_icn_toolbar_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C35B7633C649625DB180F71C /* dzn_icn_toolbar_action@3x.png */; };
+		0EA8D1B5C5616420AED5F6B6 /* dzn_icn_toolbar_reload.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD5829454E1BD88756964A3 /* dzn_icn_toolbar_reload.png */; };
+		0F563E3D14FFC559652010E9 /* DZNWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020A9E4504E4B6FD47D91E6 /* DZNWebViewController.m */; };
+		1CC5734F42684E870E77E618 /* Pods-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA2B1E7D63ABCC87CA06161 /* Pods-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		249E3C68CF32CDDBE8164DC7 /* DZNWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A128FBE0F6BEA3A0472488E /* DZNWebView.m */; };
+		275AB7E6F20CD6A3AB506461 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7214FBBC66195BBDFDF0C8B8 /* en.lproj */; };
+		2A81E355B3B770A1CC4A4DD3 /* dzn_icn_activity_chrome@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFCD367ABBA5AF29C32EC4A /* dzn_icn_activity_chrome@2x~ipad.png */; };
+		36168D6BE535D95D37AFABEE /* dzn_icn_toolbar_backward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9067D81A45C9BDA98286F589 /* dzn_icn_toolbar_backward@3x.png */; };
+		3751F74CA8077F73502D7B2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47388A8627AB8357ABA8E9B /* Foundation.framework */; };
+		3AE660F7BD7ED08CAD408AA9 /* dzn_icn_toolbar_forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39F1273D13040C543318C70C /* dzn_icn_toolbar_forward@3x.png */; };
+		480A80C67A9A1496CD6D572A /* dzn_icn_activity_safari@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C20B653C4294003C1EF4E6C /* dzn_icn_activity_safari@2x~ipad.png */; };
+		48AF5D5770B2FB61FC833BFD /* dzn_icn_toolbar_stop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9B1CA46BCACBC7E53BCD7A /* dzn_icn_toolbar_stop@3x.png */; };
+		4A6CE0E0BA0DBF89A333672C /* dzn_icn_activity_opera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A13F42A2B9B2D8A50FF4E9A8 /* dzn_icn_activity_opera@2x.png */; };
+		4B990FDEBFDD2EBFA919EA8F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969561E22C92FFB69885BFC3 /* WebKit.framework */; };
+		4E22A4479C7789EBD85D6C19 /* DZNPolyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 19047BE6288CF65EFD77AAB8 /* DZNPolyActivity.m */; };
+		50CE0E824350FC1EF4593C29 /* dzn_icn_toolbar_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D0D549AAEC75B19409670D /* dzn_icn_toolbar_forward@2x.png */; };
+		54FEEFBAFFF01218BC2DE97B /* DZNWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E70F6591F33566AB7081591 /* DZNWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		631E864F9E576BA4173E1F6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47388A8627AB8357ABA8E9B /* Foundation.framework */; };
+		64763CA958B49E7165F10B5F /* dzn_icn_toolbar_forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 73EDE3FF5D0624EDB33CBF3E /* dzn_icn_toolbar_forward.png */; };
+		677FC3FBBF0D478B20DD05D9 /* Pods-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B3448B9482A3EF2090F485 /* Pods-Alamofire-dummy.m */; };
+		84906BF59122E5C042BC674A /* dzn_icn_activity_chrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E0583DA70F9380E07217781 /* dzn_icn_activity_chrome@2x.png */; };
+		85D86DD481097CF11B14E8D6 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4D9697E8E9AFE45D1F5261 /* Alamofire.swift */; };
+		8AF5ECCC24ACE3222EC94996 /* DZNPolyActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F9AF5211AF68486DE1A6F19 /* DZNPolyActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E5B77255A2AF2E0D7E10661 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB0F76C52B5B1503C972AF /* Pods-dummy.m */; };
+		938DE3D2FBE224C2B34E13BE /* dzn_icn_activity_opera@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B52BA5328ACA9811250AFB /* dzn_icn_activity_opera@2x~ipad.png */; };
+		967044EE8BC72357D6A34B9E /* dzn_icn_toolbar_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = D8711E21C4B5471CC7B05532 /* dzn_icn_toolbar_stop.png */; };
+		A20A03A0D51072E61D992ABE /* dzn_icn_activity_dolphin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EA16D5AAEEEA5963CDD0A3 /* dzn_icn_activity_dolphin@2x.png */; };
+		A849B723536A1707C0E2D432 /* dzn_icn_toolbar_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A6A92730E5DF396578B26 /* dzn_icn_toolbar_action@2x.png */; };
+		AE2DC8F45D521CF461445406 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7B0B4ACFAE4E10754DFD97 /* UIKit.framework */; };
+		AF6C375C1B0B0F3A3ED26590 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0235B0E69178AE3FDE7220EE /* de.lproj */; };
+		B13AFA9E2A6A1E0B8C13208C /* dzn_icn_toolbar_reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBD9AEAD32171230B85D75 /* dzn_icn_toolbar_reload@2x.png */; };
+		B28894D4C8F71F536A25D2C1 /* dzn_icn_toolbar_stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D42C0B5B1664D167CD779B1C /* dzn_icn_toolbar_stop@2x.png */; };
+		B2B49AE83BD390A35765AA7C /* dzn_icn_toolbar_action.png in Resources */ = {isa = PBXBuildFile; fileRef = C9961C18628095660F1AB460 /* dzn_icn_toolbar_action.png */; };
+		BC5B0FCCCB619036467242FA /* dzn_icn_toolbar_backward.png in Resources */ = {isa = PBXBuildFile; fileRef = B23512CFC59C64AF946FCF6A /* dzn_icn_toolbar_backward.png */; };
+		C4A4C21A7BE31E3472204E6A /* Pods-DZNWebViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DF5744F8BC1E2AFE0D2A84CF /* Pods-DZNWebViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6E39815B56CAA591A7F555D /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 46BDEA52F0F365228CDEF59E /* es.lproj */; };
+		C7999097A2FD9F232FC04CB4 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D3CDF4BE4DB4DC0DF22186 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA25DCFFB2243334DF6F041A /* dzn_icn_toolbar_reload@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E04AA72D5BCE1601DCE3D20 /* dzn_icn_toolbar_reload@3x.png */; };
+		E25C04505CDB141FAEEEE77E /* dzn_icn_activity_link@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493519F840BB38124539AF30 /* dzn_icn_activity_link@2x.png */; };
+		E9EE56228F517680D813C53D /* dzn_icn_toolbar_backward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F31BB2461DA4B74CB4848170 /* dzn_icn_toolbar_backward@2x.png */; };
+		EF136D0EA6BE6257EAD2DAC5 /* DZNWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9134B0AE54C41B69B89D9277 /* DZNWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE434EA4D30488B346F52FB2 /* Pods-DZNWebViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7985F523A6654F01A7842BD /* Pods-DZNWebViewController-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2E47EAAD4F6226BF5CBB8342 /* PBXContainerItemProxy */ = {
+		542CE4E97FBE18A6FE7C882E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5A6212D659DD1417EACE9AB7 /* Project object */;
+			containerPortal = 2B0A15BB083C89EAB8EAC865 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E3A3EB2FDF02B6A31B8F109F;
-			remoteInfo = "Pods-DZNWebViewController";
-		};
-		3E33EC2785DB242279B78CD4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A6212D659DD1417EACE9AB7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 09E9E59A3F3FC65E3BC41F75;
+			remoteGlobalIDString = 1CE99E1F0A1FA3F4D4D123E5;
 			remoteInfo = "Pods-Alamofire";
+		};
+		8CF385BF072D84D502A7497C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B0A15BB083C89EAB8EAC865 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0363BF60A361A708D68B9351;
+			remoteInfo = "Pods-DZNWebViewController";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008A5DEE3374759A7C888FF0 /* dzn_icn_toolbar_action@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_action@3x.png"; path = "Source/Resources/dzn_icn_toolbar_action@3x.png"; sourceTree = "<group>"; };
-		022E0F7E9290F6C47494F3E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		02EEB546FE89DCC2B5BADE4C /* DZNWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNWebView.m; path = Source/Classes/DZNWebView.m; sourceTree = "<group>"; };
-		03EE6E404AC78A430C081D27 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = Source/Resources/de.lproj; sourceTree = "<group>"; };
-		0598833A30DCDB85304AB2C6 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		0AD052C196191FE8A6193888 /* dzn_icn_activity_safari@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_safari@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_safari@2x~ipad.png"; sourceTree = "<group>"; };
-		0BF64946D6409CB7D9F4235A /* DZNWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNWebViewController.m; path = Source/Classes/DZNWebViewController.m; sourceTree = "<group>"; };
-		0C9E406EA29C60E78D6C472E /* DZNWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DZNWebView.h; path = Source/Classes/DZNWebView.h; sourceTree = "<group>"; };
-		0D126843D6B5BC01DBD3BC4C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0E5033C7F21806C59B020370 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		0F7A94581EAD85B09FD70084 /* dzn_icn_toolbar_forward@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_forward@3x.png"; path = "Source/Resources/dzn_icn_toolbar_forward@3x.png"; sourceTree = "<group>"; };
-		15049819CF809785FBC15280 /* dzn_icn_toolbar_reload@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_reload@3x.png"; path = "Source/Resources/dzn_icn_toolbar_reload@3x.png"; sourceTree = "<group>"; };
-		19FDD4E3CA5AB57AE3084405 /* dzn_icn_toolbar_action@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_action@2x.png"; path = "Source/Resources/dzn_icn_toolbar_action@2x.png"; sourceTree = "<group>"; };
-		20C1806ED302BDD2389D7CBB /* dzn_icn_toolbar_reload.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_reload.png; path = Source/Resources/dzn_icn_toolbar_reload.png; sourceTree = "<group>"; };
-		272AB9CA8689D701A632CB0D /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		28580F7FE0D506CE19C9096E /* DZNWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DZNWebViewController.h; path = Source/Classes/DZNWebViewController.h; sourceTree = "<group>"; };
-		295A4F5D09E13EECD936DA3A /* Pods-DZNWebViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DZNWebViewController-dummy.m"; sourceTree = "<group>"; };
-		2CD5BB8C16A1C1459F11934F /* dzn_icn_toolbar_action.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_action.png; path = Source/Resources/dzn_icn_toolbar_action.png; sourceTree = "<group>"; };
-		366BB77D0813B5613CF6E6A9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		3A56DD3E6E65A766A47E0381 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		3E251BE46446DB2181261F8B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41AF5E7DF7FB5D845E53D77E /* Pods-Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
-		4C66BB46F8F3BB13505F40AE /* dzn_icn_toolbar_forward.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_forward.png; path = Source/Resources/dzn_icn_toolbar_forward.png; sourceTree = "<group>"; };
-		4CE95615CF8DD3382A672439 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		55953C8422C2522A6486FB37 /* Pods-DZNWebViewController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZNWebViewController-Private.xcconfig"; sourceTree = "<group>"; };
-		5EFE80B0B1BFC72E1184A838 /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		69BB7D1ED4035560B693B2DD /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Source/Resources/en.lproj; sourceTree = "<group>"; };
-		6B60DAC8541F7F251489C77F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D70F0C8E090E459986F25F8 /* Pods-Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		6F843BB96F629E2F68D68377 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FCF41449670CDDA7B7D4E29 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		75EBA9970F9C68E9C67444FD /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		790703281E3546D6618DF0D1 /* dzn_icn_activity_opera@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_opera@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_opera@2x~ipad.png"; sourceTree = "<group>"; };
-		82D94C5E122CFFA8E19B8547 /* dzn_icn_toolbar_backward@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_backward@3x.png"; path = "Source/Resources/dzn_icn_toolbar_backward@3x.png"; sourceTree = "<group>"; };
-		8672811D15A670245F53322F /* Pods-DZNWebViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZNWebViewController.xcconfig"; sourceTree = "<group>"; };
-		95565589755301F2AF2359EB /* Pods-DZNWebViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DZNWebViewController.modulemap"; sourceTree = "<group>"; };
-		99F09F7C3EB522F8672FC2F3 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = Source/Resources/es.lproj; sourceTree = "<group>"; };
-		9A700C2CC88DE62A7E6C3656 /* Pods-Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Alamofire-dummy.m"; sourceTree = "<group>"; };
-		9AFB2A8C51B9A6108E92888A /* dzn_icn_toolbar_stop.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_stop.png; path = Source/Resources/dzn_icn_toolbar_stop.png; sourceTree = "<group>"; };
-		9E57452BB9D22441481ED243 /* Pods-Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Alamofire.modulemap"; sourceTree = "<group>"; };
-		B17536525E7D04A701D208BC /* dzn_icn_toolbar_forward@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_forward@2x.png"; path = "Source/Resources/dzn_icn_toolbar_forward@2x.png"; sourceTree = "<group>"; };
-		B6F571D35A56A5BF0F07A6F0 /* dzn_icn_activity_chrome@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_chrome@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_chrome@2x~ipad.png"; sourceTree = "<group>"; };
-		BA9BD90573C49EE2FD008841 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC1D85CBAEB13CB0E01E2CED /* dzn_icn_activity_opera@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_opera@2x.png"; path = "Source/Resources/dzn_icn_activity_opera@2x.png"; sourceTree = "<group>"; };
-		BC41CB222B98CE3A3E17D53B /* dzn_icn_activity_dolphin@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_dolphin@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_dolphin@2x~ipad.png"; sourceTree = "<group>"; };
-		BE15164FFF46D164FF2B6169 /* dzn_icn_toolbar_stop@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_stop@3x.png"; path = "Source/Resources/dzn_icn_toolbar_stop@3x.png"; sourceTree = "<group>"; };
-		C0141B3C68AB002744CCDF03 /* dzn_icn_activity_link@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_link@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_link@2x~ipad.png"; sourceTree = "<group>"; };
-		C0190B2D492EB6A9461A0F2D /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		C49CDA1924DB2CA4A6FA3AB9 /* Pods-Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		C6911A1DFE5F99394209304F /* dzn_icn_toolbar_stop@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_stop@2x.png"; path = "Source/Resources/dzn_icn_toolbar_stop@2x.png"; sourceTree = "<group>"; };
-		CC9406A328DC44E5966BD282 /* dzn_icn_toolbar_backward@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_backward@2x.png"; path = "Source/Resources/dzn_icn_toolbar_backward@2x.png"; sourceTree = "<group>"; };
-		CEB822F3F35B4313F66760F2 /* Pods-DZNWebViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DZNWebViewController-prefix.pch"; sourceTree = "<group>"; };
-		CEF3F2B079AAFF8F3FA6DFCD /* dzn_icn_toolbar_backward.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_backward.png; path = Source/Resources/dzn_icn_toolbar_backward.png; sourceTree = "<group>"; };
-		D4B71FA7FFEABE34F0F1A7FF /* dzn_icn_activity_dolphin@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_dolphin@2x.png"; path = "Source/Resources/dzn_icn_activity_dolphin@2x.png"; sourceTree = "<group>"; };
-		D5EAACAF65A9C4262BF75A65 /* dzn_icn_activity_link@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_link@2x.png"; path = "Source/Resources/dzn_icn_activity_link@2x.png"; sourceTree = "<group>"; };
-		D5F3F007A746BA17304FCC8A /* DZNWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DZNWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E15CB7C76B021B17D26B0551 /* DZNPolyActivity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNPolyActivity.m; path = Source/Classes/DZNPolyActivity.m; sourceTree = "<group>"; };
-		E1C679CEEE479CED64EBC16F /* dzn_icn_activity_chrome@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_chrome@2x.png"; path = "Source/Resources/dzn_icn_activity_chrome@2x.png"; sourceTree = "<group>"; };
-		E51C73EF1A21555C7C8E806D /* Pods-Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Alamofire.xcconfig"; sourceTree = "<group>"; };
-		E5AB4AC3084EDC6C0FA79A06 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2E15354B82008486F5ECDE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F5A5DA291578D7347EB317B7 /* Pods-DZNWebViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DZNWebViewController-umbrella.h"; sourceTree = "<group>"; };
-		FB858FB91AEEE9656642702D /* dzn_icn_toolbar_reload@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_reload@2x.png"; path = "Source/Resources/dzn_icn_toolbar_reload@2x.png"; sourceTree = "<group>"; };
-		FCB09BDBC3643B5E12DC3A3B /* DZNPolyActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DZNPolyActivity.h; path = Source/Classes/DZNPolyActivity.h; sourceTree = "<group>"; };
-		FCCE4BD2BACB4FA472AA52C3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
-		FE7E5F03258E096E0C529692 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0235B0E69178AE3FDE7220EE /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = Source/Resources/de.lproj; sourceTree = "<group>"; };
+		0C20B653C4294003C1EF4E6C /* dzn_icn_activity_safari@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_safari@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_safari@2x~ipad.png"; sourceTree = "<group>"; };
+		112C5A8621D4B2FF3658BD86 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14B52BA5328ACA9811250AFB /* dzn_icn_activity_opera@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_opera@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_opera@2x~ipad.png"; sourceTree = "<group>"; };
+		17D0D549AAEC75B19409670D /* dzn_icn_toolbar_forward@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_forward@2x.png"; path = "Source/Resources/dzn_icn_toolbar_forward@2x.png"; sourceTree = "<group>"; };
+		19047BE6288CF65EFD77AAB8 /* DZNPolyActivity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNPolyActivity.m; path = Source/Classes/DZNPolyActivity.m; sourceTree = "<group>"; };
+		1A128FBE0F6BEA3A0472488E /* DZNWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNWebView.m; path = Source/Classes/DZNWebView.m; sourceTree = "<group>"; };
+		1F7B0B4ACFAE4E10754DFD97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		21F2AE480E9F8543B2AB2257 /* dzn_icn_activity_dolphin@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_dolphin@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_dolphin@2x~ipad.png"; sourceTree = "<group>"; };
+		25D097331435CD7C6FF4971D /* Pods-Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Alamofire.modulemap"; sourceTree = "<group>"; };
+		29FBD9AEAD32171230B85D75 /* dzn_icn_toolbar_reload@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_reload@2x.png"; path = "Source/Resources/dzn_icn_toolbar_reload@2x.png"; sourceTree = "<group>"; };
+		2CC7B5F3C2B90FC965E9B0CD /* Pods-DZNWebViewController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZNWebViewController-Private.xcconfig"; sourceTree = "<group>"; };
+		2DFCD367ABBA5AF29C32EC4A /* dzn_icn_activity_chrome@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_chrome@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_chrome@2x~ipad.png"; sourceTree = "<group>"; };
+		2F9AF5211AF68486DE1A6F19 /* DZNPolyActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DZNPolyActivity.h; path = Source/Classes/DZNPolyActivity.h; sourceTree = "<group>"; };
+		31200A96C82E667481857934 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		39F1273D13040C543318C70C /* dzn_icn_toolbar_forward@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_forward@3x.png"; path = "Source/Resources/dzn_icn_toolbar_forward@3x.png"; sourceTree = "<group>"; };
+		3E3A6C5D413ABC8DF326378B /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		44B3448B9482A3EF2090F485 /* Pods-Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Alamofire-dummy.m"; sourceTree = "<group>"; };
+		46BDEA52F0F365228CDEF59E /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = Source/Resources/es.lproj; sourceTree = "<group>"; };
+		493519F840BB38124539AF30 /* dzn_icn_activity_link@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_link@2x.png"; path = "Source/Resources/dzn_icn_activity_link@2x.png"; sourceTree = "<group>"; };
+		4DA242CE70DCBA7A07010847 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		4E04AA72D5BCE1601DCE3D20 /* dzn_icn_toolbar_reload@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_reload@3x.png"; path = "Source/Resources/dzn_icn_toolbar_reload@3x.png"; sourceTree = "<group>"; };
+		5DA2B1E7D63ABCC87CA06161 /* Pods-Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		5ECE99C15CF952A099172D0B /* Pods-DZNWebViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DZNWebViewController.modulemap"; sourceTree = "<group>"; };
+		60A522C7DCA1A56B0FA290AC /* Pods-Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		61B822A7310BFBEB4C151D77 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E0583DA70F9380E07217781 /* dzn_icn_activity_chrome@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_chrome@2x.png"; path = "Source/Resources/dzn_icn_activity_chrome@2x.png"; sourceTree = "<group>"; };
+		6E70F6591F33566AB7081591 /* DZNWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DZNWebViewController.h; path = Source/Classes/DZNWebViewController.h; sourceTree = "<group>"; };
+		6F8A6A92730E5DF396578B26 /* dzn_icn_toolbar_action@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_action@2x.png"; path = "Source/Resources/dzn_icn_toolbar_action@2x.png"; sourceTree = "<group>"; };
+		7020A9E4504E4B6FD47D91E6 /* DZNWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNWebViewController.m; path = Source/Classes/DZNWebViewController.m; sourceTree = "<group>"; };
+		7214FBBC66195BBDFDF0C8B8 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Source/Resources/en.lproj; sourceTree = "<group>"; };
+		73EDE3FF5D0624EDB33CBF3E /* dzn_icn_toolbar_forward.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_forward.png; path = Source/Resources/dzn_icn_toolbar_forward.png; sourceTree = "<group>"; };
+		7620C50B1A6C4D3BE1ED23EB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		9067D81A45C9BDA98286F589 /* dzn_icn_toolbar_backward@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_backward@3x.png"; path = "Source/Resources/dzn_icn_toolbar_backward@3x.png"; sourceTree = "<group>"; };
+		90D3CDF4BE4DB4DC0DF22186 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		9134B0AE54C41B69B89D9277 /* DZNWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DZNWebView.h; path = Source/Classes/DZNWebView.h; sourceTree = "<group>"; };
+		93ED4F927B5647DBFBB459AB /* DZNWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DZNWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		969561E22C92FFB69885BFC3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		9B2407F56C5B64E7F12A4CFC /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		9C4D9697E8E9AFE45D1F5261 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		A13F42A2B9B2D8A50FF4E9A8 /* dzn_icn_activity_opera@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_opera@2x.png"; path = "Source/Resources/dzn_icn_activity_opera@2x.png"; sourceTree = "<group>"; };
+		A1543E480F312379884CEE30 /* Pods-DZNWebViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZNWebViewController.xcconfig"; sourceTree = "<group>"; };
+		A47388A8627AB8357ABA8E9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A6EA16D5AAEEEA5963CDD0A3 /* dzn_icn_activity_dolphin@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_dolphin@2x.png"; path = "Source/Resources/dzn_icn_activity_dolphin@2x.png"; sourceTree = "<group>"; };
+		B23512CFC59C64AF946FCF6A /* dzn_icn_toolbar_backward.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_backward.png; path = Source/Resources/dzn_icn_toolbar_backward.png; sourceTree = "<group>"; };
+		BB14722F367FCD35BAFC2765 /* Pods-Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
+		BDD5829454E1BD88756964A3 /* dzn_icn_toolbar_reload.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_reload.png; path = Source/Resources/dzn_icn_toolbar_reload.png; sourceTree = "<group>"; };
+		BE764C7E9A000766BBC25DC5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C27705695A52C508BEEAC209 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C35B7633C649625DB180F71C /* dzn_icn_toolbar_action@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_action@3x.png"; path = "Source/Resources/dzn_icn_toolbar_action@3x.png"; sourceTree = "<group>"; };
+		C9961C18628095660F1AB460 /* dzn_icn_toolbar_action.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_action.png; path = Source/Resources/dzn_icn_toolbar_action.png; sourceTree = "<group>"; };
+		CF9B1CA46BCACBC7E53BCD7A /* dzn_icn_toolbar_stop@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_stop@3x.png"; path = "Source/Resources/dzn_icn_toolbar_stop@3x.png"; sourceTree = "<group>"; };
+		D42C0B5B1664D167CD779B1C /* dzn_icn_toolbar_stop@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_stop@2x.png"; path = "Source/Resources/dzn_icn_toolbar_stop@2x.png"; sourceTree = "<group>"; };
+		D759AC8D38EF37423F048ED6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7985F523A6654F01A7842BD /* Pods-DZNWebViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DZNWebViewController-dummy.m"; sourceTree = "<group>"; };
+		D8711E21C4B5471CC7B05532 /* dzn_icn_toolbar_stop.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_stop.png; path = Source/Resources/dzn_icn_toolbar_stop.png; sourceTree = "<group>"; };
+		DB1C857AC26FA2E46300C033 /* dzn_icn_activity_link@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_link@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_link@2x~ipad.png"; sourceTree = "<group>"; };
+		DC620D5FFF339C6AD7EA81B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF5744F8BC1E2AFE0D2A84CF /* Pods-DZNWebViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DZNWebViewController-umbrella.h"; sourceTree = "<group>"; };
+		DFEB0F76C52B5B1503C972AF /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		E065195CE05EDF3835A11643 /* Pods-Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Alamofire.xcconfig"; sourceTree = "<group>"; };
+		E59B92C5F50E2C01CA4DFFB2 /* Pods-DZNWebViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DZNWebViewController-prefix.pch"; sourceTree = "<group>"; };
+		F31BB2461DA4B74CB4848170 /* dzn_icn_toolbar_backward@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_backward@2x.png"; path = "Source/Resources/dzn_icn_toolbar_backward@2x.png"; sourceTree = "<group>"; };
+		F42D0673A2E81DB29469037C /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		F7AC43204426D916A68CF981 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		FEBE9861FF65E576BB6A13FC /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6776A648AED0863F336CBE9C /* Frameworks */ = {
+		50A85A71C2E47AB52CFD1CE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90DF32FFBA12ADFC9B279763 /* Foundation.framework in Frameworks */,
-				BAD457103A52DDEDDAD65EAF /* UIKit.framework in Frameworks */,
-				1355AEC7D7786731472581D1 /* WebKit.framework in Frameworks */,
+				030F5510901FECAA9349A710 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C7DACEDF7268E9DC8E7494AB /* Frameworks */ = {
+		75875DAF8381DD741B79F516 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDC2FC5E88EF7027ED50B4EA /* Foundation.framework in Frameworks */,
+				3751F74CA8077F73502D7B2F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DECC934FDA357553D5D199EF /* Frameworks */ = {
+		BD87347D444B7CDCC421879C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B26B801B34AB89A1C069CA77 /* Foundation.framework in Frameworks */,
+				631E864F9E576BA4173E1F6D /* Foundation.framework in Frameworks */,
+				AE2DC8F45D521CF461445406 /* UIKit.framework in Frameworks */,
+				4B990FDEBFDD2EBFA919EA8F /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		31CAC8A0C26297D253C4AB56 /* Alamofire */ = {
+		2F17806BF6775B95FEE9FE9A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0598833A30DCDB85304AB2C6 /* Alamofire.swift */,
-				42C618981121CBA223C1D12C /* Support Files */,
+				717CE0E80DEA1C7A891C87BD /* Pods */,
 			);
-			path = Alamofire;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3E7E24B0441A9829BCC024ED /* Resources */ = {
+		48F2AA7DCBDB93AB966CCF3E = {
 			isa = PBXGroup;
 			children = (
-				03EE6E404AC78A430C081D27 /* de.lproj */,
-				E1C679CEEE479CED64EBC16F /* dzn_icn_activity_chrome@2x.png */,
-				B6F571D35A56A5BF0F07A6F0 /* dzn_icn_activity_chrome@2x~ipad.png */,
-				D4B71FA7FFEABE34F0F1A7FF /* dzn_icn_activity_dolphin@2x.png */,
-				BC41CB222B98CE3A3E17D53B /* dzn_icn_activity_dolphin@2x~ipad.png */,
-				D5EAACAF65A9C4262BF75A65 /* dzn_icn_activity_link@2x.png */,
-				C0141B3C68AB002744CCDF03 /* dzn_icn_activity_link@2x~ipad.png */,
-				BC1D85CBAEB13CB0E01E2CED /* dzn_icn_activity_opera@2x.png */,
-				790703281E3546D6618DF0D1 /* dzn_icn_activity_opera@2x~ipad.png */,
-				0AD052C196191FE8A6193888 /* dzn_icn_activity_safari@2x~ipad.png */,
-				2CD5BB8C16A1C1459F11934F /* dzn_icn_toolbar_action.png */,
-				19FDD4E3CA5AB57AE3084405 /* dzn_icn_toolbar_action@2x.png */,
-				008A5DEE3374759A7C888FF0 /* dzn_icn_toolbar_action@3x.png */,
-				CEF3F2B079AAFF8F3FA6DFCD /* dzn_icn_toolbar_backward.png */,
-				CC9406A328DC44E5966BD282 /* dzn_icn_toolbar_backward@2x.png */,
-				82D94C5E122CFFA8E19B8547 /* dzn_icn_toolbar_backward@3x.png */,
-				4C66BB46F8F3BB13505F40AE /* dzn_icn_toolbar_forward.png */,
-				B17536525E7D04A701D208BC /* dzn_icn_toolbar_forward@2x.png */,
-				0F7A94581EAD85B09FD70084 /* dzn_icn_toolbar_forward@3x.png */,
-				20C1806ED302BDD2389D7CBB /* dzn_icn_toolbar_reload.png */,
-				FB858FB91AEEE9656642702D /* dzn_icn_toolbar_reload@2x.png */,
-				15049819CF809785FBC15280 /* dzn_icn_toolbar_reload@3x.png */,
-				9AFB2A8C51B9A6108E92888A /* dzn_icn_toolbar_stop.png */,
-				C6911A1DFE5F99394209304F /* dzn_icn_toolbar_stop@2x.png */,
-				BE15164FFF46D164FF2B6169 /* dzn_icn_toolbar_stop@3x.png */,
-				69BB7D1ED4035560B693B2DD /* en.lproj */,
-				99F09F7C3EB522F8672FC2F3 /* es.lproj */,
+				FEBE9861FF65E576BB6A13FC /* Podfile */,
+				5A25EC047D045E86271D771B /* Frameworks */,
+				7A28DE5C47AAF529F07F2FC6 /* Pods */,
+				8B895EE8E3210B112A55D281 /* Products */,
+				2F17806BF6775B95FEE9FE9A /* Targets Support Files */,
 			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
-		42C618981121CBA223C1D12C /* Support Files */ = {
+		5A25EC047D045E86271D771B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5AB4AC3084EDC6C0FA79A06 /* Info.plist */,
-				9E57452BB9D22441481ED243 /* Pods-Alamofire.modulemap */,
-				E51C73EF1A21555C7C8E806D /* Pods-Alamofire.xcconfig */,
-				41AF5E7DF7FB5D845E53D77E /* Pods-Alamofire-Private.xcconfig */,
-				9A700C2CC88DE62A7E6C3656 /* Pods-Alamofire-dummy.m */,
-				6D70F0C8E090E459986F25F8 /* Pods-Alamofire-prefix.pch */,
-				C49CDA1924DB2CA4A6FA3AB9 /* Pods-Alamofire-umbrella.h */,
+				F3525963F240051ACB883108 /* iOS */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Alamofire";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		705F894DC4AEDB849594FC95 /* Pods */ = {
+		5C38DE05496BC61D6F8E502D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3E251BE46446DB2181261F8B /* Info.plist */,
-				5EFE80B0B1BFC72E1184A838 /* Pods.modulemap */,
-				0D126843D6B5BC01DBD3BC4C /* Pods-acknowledgements.markdown */,
-				6FCF41449670CDDA7B7D4E29 /* Pods-acknowledgements.plist */,
-				C0190B2D492EB6A9461A0F2D /* Pods-dummy.m */,
-				272AB9CA8689D701A632CB0D /* Pods-environment.h */,
-				4CE95615CF8DD3382A672439 /* Pods-frameworks.sh */,
-				75EBA9970F9C68E9C67444FD /* Pods-resources.sh */,
-				0E5033C7F21806C59B020370 /* Pods-umbrella.h */,
-				366BB77D0813B5613CF6E6A9 /* Pods.debug.xcconfig */,
-				3A56DD3E6E65A766A47E0381 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			path = "Target Support Files/Pods";
-			sourceTree = "<group>";
-		};
-		803707A1E51502180D141A27 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BA9BD90573C49EE2FD008841 /* Info.plist */,
-				95565589755301F2AF2359EB /* Pods-DZNWebViewController.modulemap */,
-				8672811D15A670245F53322F /* Pods-DZNWebViewController.xcconfig */,
-				55953C8422C2522A6486FB37 /* Pods-DZNWebViewController-Private.xcconfig */,
-				295A4F5D09E13EECD936DA3A /* Pods-DZNWebViewController-dummy.m */,
-				CEB822F3F35B4313F66760F2 /* Pods-DZNWebViewController-prefix.pch */,
-				F5A5DA291578D7347EB317B7 /* Pods-DZNWebViewController-umbrella.h */,
+				D759AC8D38EF37423F048ED6 /* Info.plist */,
+				5ECE99C15CF952A099172D0B /* Pods-DZNWebViewController.modulemap */,
+				A1543E480F312379884CEE30 /* Pods-DZNWebViewController.xcconfig */,
+				2CC7B5F3C2B90FC965E9B0CD /* Pods-DZNWebViewController-Private.xcconfig */,
+				D7985F523A6654F01A7842BD /* Pods-DZNWebViewController-dummy.m */,
+				E59B92C5F50E2C01CA4DFFB2 /* Pods-DZNWebViewController-prefix.pch */,
+				DF5744F8BC1E2AFE0D2A84CF /* Pods-DZNWebViewController-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-DZNWebViewController";
 			sourceTree = "<group>";
 		};
-		863A7378A711BD1835CFC90A /* iOS */ = {
+		717CE0E80DEA1C7A891C87BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F2E15354B82008486F5ECDE0 /* Foundation.framework */,
-				022E0F7E9290F6C47494F3E1 /* UIKit.framework */,
-				FCCE4BD2BACB4FA472AA52C3 /* WebKit.framework */,
+				112C5A8621D4B2FF3658BD86 /* Info.plist */,
+				F42D0673A2E81DB29469037C /* Pods.modulemap */,
+				C27705695A52C508BEEAC209 /* Pods-acknowledgements.markdown */,
+				F7AC43204426D916A68CF981 /* Pods-acknowledgements.plist */,
+				DFEB0F76C52B5B1503C972AF /* Pods-dummy.m */,
+				3E3A6C5D413ABC8DF326378B /* Pods-environment.h */,
+				31200A96C82E667481857934 /* Pods-frameworks.sh */,
+				9B2407F56C5B64E7F12A4CFC /* Pods-resources.sh */,
+				90D3CDF4BE4DB4DC0DF22186 /* Pods-umbrella.h */,
+				7620C50B1A6C4D3BE1ED23EB /* Pods.debug.xcconfig */,
+				4DA242CE70DCBA7A07010847 /* Pods.release.xcconfig */,
 			);
-			name = iOS;
+			name = Pods;
+			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		ADA880E0001F17EA7497FF3E /* DZNWebViewController */ = {
+		7A28DE5C47AAF529F07F2FC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FCB09BDBC3643B5E12DC3A3B /* DZNPolyActivity.h */,
-				E15CB7C76B021B17D26B0551 /* DZNPolyActivity.m */,
-				0C9E406EA29C60E78D6C472E /* DZNWebView.h */,
-				02EEB546FE89DCC2B5BADE4C /* DZNWebView.m */,
-				28580F7FE0D506CE19C9096E /* DZNWebViewController.h */,
-				0BF64946D6409CB7D9F4235A /* DZNWebViewController.m */,
-				3E7E24B0441A9829BCC024ED /* Resources */,
-				803707A1E51502180D141A27 /* Support Files */,
+				F676143099522423527899BF /* Alamofire */,
+				8D547BE69C8884B84AB91C6D /* DZNWebViewController */,
 			);
-			path = DZNWebViewController;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		C3B7C125FA5C3697EF0598A9 /* Targets Support Files */ = {
+		8B895EE8E3210B112A55D281 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				705F894DC4AEDB849594FC95 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C72997E9EB6D3E049567CD04 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6F843BB96F629E2F68D68377 /* Alamofire.framework */,
-				D5F3F007A746BA17304FCC8A /* DZNWebViewController.framework */,
-				6B60DAC8541F7F251489C77F /* Pods.framework */,
+				61B822A7310BFBEB4C151D77 /* Alamofire.framework */,
+				93ED4F927B5647DBFBB459AB /* DZNWebViewController.framework */,
+				BE764C7E9A000766BBC25DC5 /* Pods.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CED75C80586E692210423AC0 /* Frameworks */ = {
+		8D547BE69C8884B84AB91C6D /* DZNWebViewController */ = {
 			isa = PBXGroup;
 			children = (
-				863A7378A711BD1835CFC90A /* iOS */,
+				2F9AF5211AF68486DE1A6F19 /* DZNPolyActivity.h */,
+				19047BE6288CF65EFD77AAB8 /* DZNPolyActivity.m */,
+				9134B0AE54C41B69B89D9277 /* DZNWebView.h */,
+				1A128FBE0F6BEA3A0472488E /* DZNWebView.m */,
+				6E70F6591F33566AB7081591 /* DZNWebViewController.h */,
+				7020A9E4504E4B6FD47D91E6 /* DZNWebViewController.m */,
+				9DFAB0A742BBDF177C520325 /* Resources */,
+				5C38DE05496BC61D6F8E502D /* Support Files */,
 			);
-			name = Frameworks;
+			path = DZNWebViewController;
 			sourceTree = "<group>";
 		};
-		E132DD8B741D6373A9E618EB = {
+		9DFAB0A742BBDF177C520325 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FE7E5F03258E096E0C529692 /* Podfile */,
-				CED75C80586E692210423AC0 /* Frameworks */,
-				F7ACF1E7F8A200E0C36A8A33 /* Pods */,
-				C72997E9EB6D3E049567CD04 /* Products */,
-				C3B7C125FA5C3697EF0598A9 /* Targets Support Files */,
+				0235B0E69178AE3FDE7220EE /* de.lproj */,
+				6E0583DA70F9380E07217781 /* dzn_icn_activity_chrome@2x.png */,
+				2DFCD367ABBA5AF29C32EC4A /* dzn_icn_activity_chrome@2x~ipad.png */,
+				A6EA16D5AAEEEA5963CDD0A3 /* dzn_icn_activity_dolphin@2x.png */,
+				21F2AE480E9F8543B2AB2257 /* dzn_icn_activity_dolphin@2x~ipad.png */,
+				493519F840BB38124539AF30 /* dzn_icn_activity_link@2x.png */,
+				DB1C857AC26FA2E46300C033 /* dzn_icn_activity_link@2x~ipad.png */,
+				A13F42A2B9B2D8A50FF4E9A8 /* dzn_icn_activity_opera@2x.png */,
+				14B52BA5328ACA9811250AFB /* dzn_icn_activity_opera@2x~ipad.png */,
+				0C20B653C4294003C1EF4E6C /* dzn_icn_activity_safari@2x~ipad.png */,
+				C9961C18628095660F1AB460 /* dzn_icn_toolbar_action.png */,
+				6F8A6A92730E5DF396578B26 /* dzn_icn_toolbar_action@2x.png */,
+				C35B7633C649625DB180F71C /* dzn_icn_toolbar_action@3x.png */,
+				B23512CFC59C64AF946FCF6A /* dzn_icn_toolbar_backward.png */,
+				F31BB2461DA4B74CB4848170 /* dzn_icn_toolbar_backward@2x.png */,
+				9067D81A45C9BDA98286F589 /* dzn_icn_toolbar_backward@3x.png */,
+				73EDE3FF5D0624EDB33CBF3E /* dzn_icn_toolbar_forward.png */,
+				17D0D549AAEC75B19409670D /* dzn_icn_toolbar_forward@2x.png */,
+				39F1273D13040C543318C70C /* dzn_icn_toolbar_forward@3x.png */,
+				BDD5829454E1BD88756964A3 /* dzn_icn_toolbar_reload.png */,
+				29FBD9AEAD32171230B85D75 /* dzn_icn_toolbar_reload@2x.png */,
+				4E04AA72D5BCE1601DCE3D20 /* dzn_icn_toolbar_reload@3x.png */,
+				D8711E21C4B5471CC7B05532 /* dzn_icn_toolbar_stop.png */,
+				D42C0B5B1664D167CD779B1C /* dzn_icn_toolbar_stop@2x.png */,
+				CF9B1CA46BCACBC7E53BCD7A /* dzn_icn_toolbar_stop@3x.png */,
+				7214FBBC66195BBDFDF0C8B8 /* en.lproj */,
+				46BDEA52F0F365228CDEF59E /* es.lproj */,
 			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		F7ACF1E7F8A200E0C36A8A33 /* Pods */ = {
+		A32B09E4BFA6EC4CCA52AB16 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				31CAC8A0C26297D253C4AB56 /* Alamofire */,
-				ADA880E0001F17EA7497FF3E /* DZNWebViewController */,
+				DC620D5FFF339C6AD7EA81B0 /* Info.plist */,
+				25D097331435CD7C6FF4971D /* Pods-Alamofire.modulemap */,
+				E065195CE05EDF3835A11643 /* Pods-Alamofire.xcconfig */,
+				BB14722F367FCD35BAFC2765 /* Pods-Alamofire-Private.xcconfig */,
+				44B3448B9482A3EF2090F485 /* Pods-Alamofire-dummy.m */,
+				60A522C7DCA1A56B0FA290AC /* Pods-Alamofire-prefix.pch */,
+				5DA2B1E7D63ABCC87CA06161 /* Pods-Alamofire-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Alamofire";
+			sourceTree = "<group>";
+		};
+		F3525963F240051ACB883108 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A47388A8627AB8357ABA8E9B /* Foundation.framework */,
+				1F7B0B4ACFAE4E10754DFD97 /* UIKit.framework */,
+				969561E22C92FFB69885BFC3 /* WebKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F676143099522423527899BF /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				9C4D9697E8E9AFE45D1F5261 /* Alamofire.swift */,
+				A32B09E4BFA6EC4CCA52AB16 /* Support Files */,
+			);
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		541B60F32BA2EC29C83848EC /* Headers */ = {
+		127E8252C7D7ED0539EA7FD3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CAC397E3B50092558BA989 /* Pods-Alamofire-umbrella.h in Headers */,
+				8AF5ECCC24ACE3222EC94996 /* DZNPolyActivity.h in Headers */,
+				EF136D0EA6BE6257EAD2DAC5 /* DZNWebView.h in Headers */,
+				54FEEFBAFFF01218BC2DE97B /* DZNWebViewController.h in Headers */,
+				C4A4C21A7BE31E3472204E6A /* Pods-DZNWebViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63BBA556E7D1F63463CA4AF2 /* Headers */ = {
+		C84AA5DA794379F436765DE6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93C4DE1E4E068A89FF50C7A3 /* Pods-umbrella.h in Headers */,
+				1CC5734F42684E870E77E618 /* Pods-Alamofire-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1CB752DD8DA338E7C341711 /* Headers */ = {
+		D7C24D879D9FFE56E5E1F0FC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82DA50CEE56CD2EDC012AE83 /* DZNPolyActivity.h in Headers */,
-				DFA7C6D08A4B2D39FC5AB07C /* DZNWebView.h in Headers */,
-				AD0540DEC6F84D809E526708 /* DZNWebViewController.h in Headers */,
-				CA4F0F3814AA0EBB16A3A903 /* Pods-DZNWebViewController-umbrella.h in Headers */,
+				C7999097A2FD9F232FC04CB4 /* Pods-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		09E9E59A3F3FC65E3BC41F75 /* Pods-Alamofire */ = {
+		0363BF60A361A708D68B9351 /* Pods-DZNWebViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E26ED9A9B7D9D04289312E8 /* Build configuration list for PBXNativeTarget "Pods-Alamofire" */;
+			buildConfigurationList = 6D5A23669573544FF79ED915 /* Build configuration list for PBXNativeTarget "Pods-DZNWebViewController" */;
 			buildPhases = (
-				460874BCD471AAFB02C4A77F /* Sources */,
-				DECC934FDA357553D5D199EF /* Frameworks */,
-				541B60F32BA2EC29C83848EC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Alamofire";
-			productName = "Pods-Alamofire";
-			productReference = 6F843BB96F629E2F68D68377 /* Alamofire.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		761A247F02E19C9993DBCE9E /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B6FBD48A98D9FB8AEDC54430 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				415FE908D5CE426A611DCCA1 /* Sources */,
-				C7DACEDF7268E9DC8E7494AB /* Frameworks */,
-				63BBA556E7D1F63463CA4AF2 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				253080C7A1388B71DB5597CF /* PBXTargetDependency */,
-				525234B4FB0AA826A1022606 /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 6B60DAC8541F7F251489C77F /* Pods.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E3A3EB2FDF02B6A31B8F109F /* Pods-DZNWebViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0A8A398A378E64091E480F08 /* Build configuration list for PBXNativeTarget "Pods-DZNWebViewController" */;
-			buildPhases = (
-				CEC3E43642C29188C55960E6 /* Sources */,
-				6776A648AED0863F336CBE9C /* Frameworks */,
-				F1CB752DD8DA338E7C341711 /* Headers */,
-				0E4B32BBDD92C309FBA553DB /* Resources */,
+				C83E676FBDC40191E092D359 /* Sources */,
+				BD87347D444B7CDCC421879C /* Frameworks */,
+				127E8252C7D7ED0539EA7FD3 /* Headers */,
+				9CFF4E7BD2D56F2AA4026D19 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -417,239 +381,157 @@
 			);
 			name = "Pods-DZNWebViewController";
 			productName = "Pods-DZNWebViewController";
-			productReference = D5F3F007A746BA17304FCC8A /* DZNWebViewController.framework */;
+			productReference = 93ED4F927B5647DBFBB459AB /* DZNWebViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1CE99E1F0A1FA3F4D4D123E5 /* Pods-Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 982DB46D622F48041240CE8D /* Build configuration list for PBXNativeTarget "Pods-Alamofire" */;
+			buildPhases = (
+				BBF5895752778C1E6A2DDDD9 /* Sources */,
+				50A85A71C2E47AB52CFD1CE9 /* Frameworks */,
+				C84AA5DA794379F436765DE6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Alamofire";
+			productName = "Pods-Alamofire";
+			productReference = 61B822A7310BFBEB4C151D77 /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B8219E3D8C38E7C06EA081D9 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61C1E4E1D2826E6112BF4C82 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				0D5A29F324F01BE87EA0CD3F /* Sources */,
+				75875DAF8381DD741B79F516 /* Frameworks */,
+				D7C24D879D9FFE56E5E1F0FC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FB3D87ED90DA1710AEEF8EC /* PBXTargetDependency */,
+				3CEBFA5FAEB900AC22122089 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = BE764C7E9A000766BBC25DC5 /* Pods.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5A6212D659DD1417EACE9AB7 /* Project object */ = {
+		2B0A15BB083C89EAB8EAC865 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = F33FCA1FF545428FE176A23F /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4AECADDC2D01EA62B5A2B469 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = E132DD8B741D6373A9E618EB;
-			productRefGroup = C72997E9EB6D3E049567CD04 /* Products */;
+			mainGroup = 48F2AA7DCBDB93AB966CCF3E;
+			productRefGroup = 8B895EE8E3210B112A55D281 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				761A247F02E19C9993DBCE9E /* Pods */,
-				09E9E59A3F3FC65E3BC41F75 /* Pods-Alamofire */,
-				E3A3EB2FDF02B6A31B8F109F /* Pods-DZNWebViewController */,
+				B8219E3D8C38E7C06EA081D9 /* Pods */,
+				1CE99E1F0A1FA3F4D4D123E5 /* Pods-Alamofire */,
+				0363BF60A361A708D68B9351 /* Pods-DZNWebViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0E4B32BBDD92C309FBA553DB /* Resources */ = {
+		9CFF4E7BD2D56F2AA4026D19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0745763C5AF09A46DAE2235 /* de.lproj in Resources */,
-				2B1708DDF7D4D2B786334DAC /* dzn_icn_activity_chrome@2x.png in Resources */,
-				F89EB27064830E630A0E03D0 /* dzn_icn_activity_chrome@2x~ipad.png in Resources */,
-				4C13648C14B2A24A2CDEDAA0 /* dzn_icn_activity_dolphin@2x.png in Resources */,
-				01A394AEAE024C009F47B1A9 /* dzn_icn_activity_dolphin@2x~ipad.png in Resources */,
-				054DD034E0163D3CCD5A349E /* dzn_icn_activity_link@2x.png in Resources */,
-				2699F2319F71AE11E099A264 /* dzn_icn_activity_link@2x~ipad.png in Resources */,
-				E23C599A50966C528AE34DF2 /* dzn_icn_activity_opera@2x.png in Resources */,
-				BB9F8137C311E9A5A4FE3029 /* dzn_icn_activity_opera@2x~ipad.png in Resources */,
-				E04ED58FC64AEA98B8569B30 /* dzn_icn_activity_safari@2x~ipad.png in Resources */,
-				938E66E961C51DC155C6E3A1 /* dzn_icn_toolbar_action.png in Resources */,
-				D75ACA2306C8AC1F9F2C420A /* dzn_icn_toolbar_action@2x.png in Resources */,
-				506B8C28C2B05C2BE94A09AA /* dzn_icn_toolbar_action@3x.png in Resources */,
-				762F1A90E6FC391A6032BF0B /* dzn_icn_toolbar_backward.png in Resources */,
-				4F93701856EB7CC0326AFDF0 /* dzn_icn_toolbar_backward@2x.png in Resources */,
-				C5A1ACCADC749243F49FB81E /* dzn_icn_toolbar_backward@3x.png in Resources */,
-				AF9BA5FB0CC4BED7F9AA9406 /* dzn_icn_toolbar_forward.png in Resources */,
-				D27481A45BCB262AD3C4F0AA /* dzn_icn_toolbar_forward@2x.png in Resources */,
-				9248ADF1ED6E2C9CD079545E /* dzn_icn_toolbar_forward@3x.png in Resources */,
-				956B8DE9AB4C4B7403ED3F80 /* dzn_icn_toolbar_reload.png in Resources */,
-				57ECA00D7440A4C37B9E0104 /* dzn_icn_toolbar_reload@2x.png in Resources */,
-				AF97635BA307F2AE9CF1F3A2 /* dzn_icn_toolbar_reload@3x.png in Resources */,
-				A8C701125194909E0AF5D771 /* dzn_icn_toolbar_stop.png in Resources */,
-				8CB6082F05EB7309488FD5A8 /* dzn_icn_toolbar_stop@2x.png in Resources */,
-				5DC859A4C633E15625E761F0 /* dzn_icn_toolbar_stop@3x.png in Resources */,
-				09929E192233B50D916BAA4B /* en.lproj in Resources */,
-				8E55036D0E70CF0A332CAA08 /* es.lproj in Resources */,
+				AF6C375C1B0B0F3A3ED26590 /* de.lproj in Resources */,
+				84906BF59122E5C042BC674A /* dzn_icn_activity_chrome@2x.png in Resources */,
+				2A81E355B3B770A1CC4A4DD3 /* dzn_icn_activity_chrome@2x~ipad.png in Resources */,
+				A20A03A0D51072E61D992ABE /* dzn_icn_activity_dolphin@2x.png in Resources */,
+				021FBD1550D94E0D4CAFD1F5 /* dzn_icn_activity_dolphin@2x~ipad.png in Resources */,
+				E25C04505CDB141FAEEEE77E /* dzn_icn_activity_link@2x.png in Resources */,
+				07BA3EF2E2A1A7A555EE94A4 /* dzn_icn_activity_link@2x~ipad.png in Resources */,
+				4A6CE0E0BA0DBF89A333672C /* dzn_icn_activity_opera@2x.png in Resources */,
+				938DE3D2FBE224C2B34E13BE /* dzn_icn_activity_opera@2x~ipad.png in Resources */,
+				480A80C67A9A1496CD6D572A /* dzn_icn_activity_safari@2x~ipad.png in Resources */,
+				B2B49AE83BD390A35765AA7C /* dzn_icn_toolbar_action.png in Resources */,
+				A849B723536A1707C0E2D432 /* dzn_icn_toolbar_action@2x.png in Resources */,
+				092CC6D6794895A30D7C5209 /* dzn_icn_toolbar_action@3x.png in Resources */,
+				BC5B0FCCCB619036467242FA /* dzn_icn_toolbar_backward.png in Resources */,
+				E9EE56228F517680D813C53D /* dzn_icn_toolbar_backward@2x.png in Resources */,
+				36168D6BE535D95D37AFABEE /* dzn_icn_toolbar_backward@3x.png in Resources */,
+				64763CA958B49E7165F10B5F /* dzn_icn_toolbar_forward.png in Resources */,
+				50CE0E824350FC1EF4593C29 /* dzn_icn_toolbar_forward@2x.png in Resources */,
+				3AE660F7BD7ED08CAD408AA9 /* dzn_icn_toolbar_forward@3x.png in Resources */,
+				0EA8D1B5C5616420AED5F6B6 /* dzn_icn_toolbar_reload.png in Resources */,
+				B13AFA9E2A6A1E0B8C13208C /* dzn_icn_toolbar_reload@2x.png in Resources */,
+				CA25DCFFB2243334DF6F041A /* dzn_icn_toolbar_reload@3x.png in Resources */,
+				967044EE8BC72357D6A34B9E /* dzn_icn_toolbar_stop.png in Resources */,
+				B28894D4C8F71F536A25D2C1 /* dzn_icn_toolbar_stop@2x.png in Resources */,
+				48AF5D5770B2FB61FC833BFD /* dzn_icn_toolbar_stop@3x.png in Resources */,
+				275AB7E6F20CD6A3AB506461 /* en.lproj in Resources */,
+				C6E39815B56CAA591A7F555D /* es.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		415FE908D5CE426A611DCCA1 /* Sources */ = {
+		0D5A29F324F01BE87EA0CD3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D24083AF34DBC050557E11E1 /* Pods-dummy.m in Sources */,
+				8E5B77255A2AF2E0D7E10661 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		460874BCD471AAFB02C4A77F /* Sources */ = {
+		BBF5895752778C1E6A2DDDD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3875FE80CE5D67F819DE9405 /* Alamofire.swift in Sources */,
-				2EAF72B206C79764DF4AD5B1 /* Pods-Alamofire-dummy.m in Sources */,
+				85D86DD481097CF11B14E8D6 /* Alamofire.swift in Sources */,
+				677FC3FBBF0D478B20DD05D9 /* Pods-Alamofire-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEC3E43642C29188C55960E6 /* Sources */ = {
+		C83E676FBDC40191E092D359 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B444440996C93A4A67EE6444 /* DZNPolyActivity.m in Sources */,
-				7362ACAD5ED5E4FA9B94C21C /* DZNWebView.m in Sources */,
-				1B9715CE888F7A7F924A165E /* DZNWebViewController.m in Sources */,
-				32AF874101098C05514D223D /* Pods-DZNWebViewController-dummy.m in Sources */,
+				4E22A4479C7789EBD85D6C19 /* DZNPolyActivity.m in Sources */,
+				249E3C68CF32CDDBE8164DC7 /* DZNWebView.m in Sources */,
+				0F563E3D14FFC559652010E9 /* DZNWebViewController.m in Sources */,
+				FE434EA4D30488B346F52FB2 /* Pods-DZNWebViewController-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		253080C7A1388B71DB5597CF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Alamofire";
-			target = 09E9E59A3F3FC65E3BC41F75 /* Pods-Alamofire */;
-			targetProxy = 3E33EC2785DB242279B78CD4 /* PBXContainerItemProxy */;
-		};
-		525234B4FB0AA826A1022606 /* PBXTargetDependency */ = {
+		3CEBFA5FAEB900AC22122089 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-DZNWebViewController";
-			target = E3A3EB2FDF02B6A31B8F109F /* Pods-DZNWebViewController */;
-			targetProxy = 2E47EAAD4F6226BF5CBB8342 /* PBXContainerItemProxy */;
+			target = 0363BF60A361A708D68B9351 /* Pods-DZNWebViewController */;
+			targetProxy = 8CF385BF072D84D502A7497C /* PBXContainerItemProxy */;
+		};
+		3FB3D87ED90DA1710AEEF8EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Alamofire";
+			target = 1CE99E1F0A1FA3F4D4D123E5 /* Pods-Alamofire */;
+			targetProxy = 542CE4E97FBE18A6FE7C882E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B491B7410C39DD063660DB5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41AF5E7DF7FB5D845E53D77E /* Pods-Alamofire-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Alamofire/Pods-Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-Alamofire/Pods-Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		502F382E7F033BCF94B1FA40 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A56DD3E6E65A766A47E0381 /* Pods.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		758EC42CC48AD71E0EE959FF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41AF5E7DF7FB5D845E53D77E /* Pods-Alamofire-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Alamofire/Pods-Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-Alamofire/Pods-Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9D62AE273A11D17968F4D36D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		A4BDFDB4AFC0640CE52B95C8 /* Debug */ = {
+		2D655FCBE4A6FAB1CB695F34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -688,9 +570,97 @@
 			};
 			name = Debug;
 		};
-		A8C614E8826CEB3CD125EA94 /* Release */ = {
+		3CD59E0BBE648903A65CEE65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55953C8422C2522A6486FB37 /* Pods-DZNWebViewController-Private.xcconfig */;
+			baseConfigurationReference = 2CC7B5F3C2B90FC965E9B0CD /* Pods-DZNWebViewController-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DZNWebViewController/Pods-DZNWebViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-DZNWebViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-DZNWebViewController/Pods-DZNWebViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DZNWebViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		51144777651E38009C0D08EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57FCD9D092ED8D2334EC9DC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB14722F367FCD35BAFC2765 /* Pods-Alamofire-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Alamofire/Pods-Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Alamofire/Pods-Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AC2EDE88E41DFC9DFD4EB518 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CC7B5F3C2B90FC965E9B0CD /* Pods-DZNWebViewController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -715,9 +685,66 @@
 			};
 			name = Release;
 		};
-		C14D4D9D274B1573063D6E17 /* Debug */ = {
+		C6DF284C9C22180CCE48C0C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 366BB77D0813B5613CF6E6A9 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 4DA242CE70DCBA7A07010847 /* Pods.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D453EC99851B677F5C11F19F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB14722F367FCD35BAFC2765 /* Pods-Alamofire-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Alamofire/Pods-Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Alamofire/Pods-Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E6D47E9F5C3803D7E557A94E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7620C50B1A6C4D3BE1ED23EB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -745,73 +772,46 @@
 			};
 			name = Debug;
 		};
-		C6EB9C54F544F08084D660C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55953C8422C2522A6486FB37 /* Pods-DZNWebViewController-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-DZNWebViewController/Pods-DZNWebViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-DZNWebViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-DZNWebViewController/Pods-DZNWebViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DZNWebViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A8A398A378E64091E480F08 /* Build configuration list for PBXNativeTarget "Pods-DZNWebViewController" */ = {
+		4AECADDC2D01EA62B5A2B469 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C6EB9C54F544F08084D660C1 /* Debug */,
-				A8C614E8826CEB3CD125EA94 /* Release */,
+				2D655FCBE4A6FAB1CB695F34 /* Debug */,
+				51144777651E38009C0D08EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E26ED9A9B7D9D04289312E8 /* Build configuration list for PBXNativeTarget "Pods-Alamofire" */ = {
+		61C1E4E1D2826E6112BF4C82 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B491B7410C39DD063660DB5 /* Debug */,
-				758EC42CC48AD71E0EE959FF /* Release */,
+				E6D47E9F5C3803D7E557A94E /* Debug */,
+				C6DF284C9C22180CCE48C0C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6FBD48A98D9FB8AEDC54430 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		6D5A23669573544FF79ED915 /* Build configuration list for PBXNativeTarget "Pods-DZNWebViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C14D4D9D274B1573063D6E17 /* Debug */,
-				502F382E7F033BCF94B1FA40 /* Release */,
+				3CD59E0BBE648903A65CEE65 /* Debug */,
+				AC2EDE88E41DFC9DFD4EB518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F33FCA1FF545428FE176A23F /* Build configuration list for PBXProject "Pods" */ = {
+		982DB46D622F48041240CE8D /* Build configuration list for PBXNativeTarget "Pods-Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A4BDFDB4AFC0640CE52B95C8 /* Debug */,
-				9D62AE273A11D17968F4D36D /* Release */,
+				D453EC99851B677F5C11F19F /* Debug */,
+				57FCD9D092ED8D2334EC9DC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5A6212D659DD1417EACE9AB7 /* Project object */;
+	rootObject = 2B0A15BB083C89EAB8EAC865 /* Project object */;
 }

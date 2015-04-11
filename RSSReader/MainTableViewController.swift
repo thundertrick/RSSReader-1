@@ -60,9 +60,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         // register nib for FeedTableViewCell
         var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        
-        nib = UINib(nibName: "FeedWithoutImageTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "withoutImage")
+
 
         // setup nav bar butons
         
@@ -97,6 +95,9 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController!.hidesBarsOnSwipe = false
+        self.navigationController!.hidesBarsWhenKeyboardAppears = false
+        self.navigationController!.hidesBarsWhenVerticallyCompact = false
         currentArticle == nil
         shouldScrollToTop = false
         setupSideBar()

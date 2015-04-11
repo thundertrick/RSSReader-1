@@ -24,14 +24,19 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
         initToolBarButtonItems()
         webView.delegate = self
         webView.opaque = false
         
+        // clear backButton text
         
-        // Do any additional setup after loading the view.
+        let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
+
+        
     }
     
     func initToolBarButtonItems() {
@@ -101,6 +106,9 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+            self.navigationController!.hidesBarsOnSwipe = false
+            self.navigationController!.hidesBarsWhenKeyboardAppears = false
+            self.navigationController!.hidesBarsWhenVerticallyCompact = false
         if let article = currentArticle {
             self.title = article.sourceTitle
             parser.articleContent = article.content
