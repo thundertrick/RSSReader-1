@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+
+
 var currentArticle : Article? = nil
 
 var shouldScrollToTop = true
@@ -32,6 +35,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = true
         

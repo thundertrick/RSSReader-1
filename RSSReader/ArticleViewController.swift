@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVWebViewController
+
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
     
@@ -59,12 +61,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     func openWeb() {
         if let article = currentArticle {
             if article.link != nil {
-            let webBrowser = KINWebBrowserViewController()
-     
-            let url = NSURL(string: article.link)
-            webBrowser.showsPageTitleInNavigationBar = true
-            webBrowser.showsURLInNavigationBar = true
-            webBrowser.loadURL(url)
+            let webBrowser = SVWebViewController(address: article.link)
             self.navigationController!.pushViewController(webBrowser, animated: true)
             }
         }
@@ -125,11 +122,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     
         if navigationType == UIWebViewNavigationType.LinkClicked {
-            let webBrowser = KINWebBrowserViewController()
-            let url = request.URL
-            webBrowser.showsPageTitleInNavigationBar = true
-            webBrowser.showsURLInNavigationBar = true
-            webBrowser.loadURL(url)
+            let webBrowser = SVWebViewController(address: "\(request.URL)")
             self.navigationController!.pushViewController(webBrowser, animated: true)
             return false
 
@@ -160,7 +153,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             
             }
         }
-    }
+    } 
 
 
  

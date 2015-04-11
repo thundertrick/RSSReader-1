@@ -7,28 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA87E636D89C08A62EB80D26 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D63985F1C1060438C2436 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC1672891AD6F4400003EF40 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1672881AD6F4400003EF40 /* HTMLParser.swift */; };
 		CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC34673E1AB8C8BB00434630 /* FeedModel.xcdatamodeld */; };
 		CC3467421AB8C94E00434630 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3467411AB8C94E00434630 /* Images.xcassets */; };
 		CCD28FB51AD7D82A0015E0B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD28FB41AD7D82A0015E0B6 /* LaunchScreen.storyboard */; };
 		CCDC0C0A1AB8B37800AF39F7 /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C091AB8B37800AF39F7 /* RSSReaderTests.swift */; };
 		CCDC0C141AB8B5E400AF39F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDC0C131AB8B5E400AF39F7 /* CoreData.framework */; };
-		CCDC0C241AB8B71900AF39F7 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1C1AB8B71900AF39F7 /* backbutton.png */; };
-		CCDC0C251AB8B71900AF39F7 /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1D1AB8B71900AF39F7 /* backbutton@2x.png */; };
-		CCDC0C261AB8B71900AF39F7 /* backbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1E1AB8B71900AF39F7 /* backbutton@3x.png */; };
-		CCDC0C271AB8B71900AF39F7 /* forwardbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C1F1AB8B71900AF39F7 /* forwardbutton.png */; };
-		CCDC0C281AB8B71900AF39F7 /* forwardbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C201AB8B71900AF39F7 /* forwardbutton@2x.png */; };
-		CCDC0C291AB8B71900AF39F7 /* forwardbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C211AB8B71900AF39F7 /* forwardbutton@3x.png */; };
-		CCDC0C2A1AB8B71900AF39F7 /* KINWebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C231AB8B71900AF39F7 /* KINWebBrowserViewController.m */; };
-		CCDC0C2E1AB8B73400AF39F7 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C2D1AB8B73400AF39F7 /* SVWebViewControllerActivity.m */; };
-		CCDC0C341AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C2F1AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad.png */; };
-		CCDC0C351AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C301AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad@2x.png */; };
-		CCDC0C361AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C321AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.m */; };
-		CCDC0C371AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C331AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png */; };
-		CCDC0C401AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C3B1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad.png */; };
-		CCDC0C411AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C3C1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png */; };
-		CCDC0C421AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C3E1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.m */; };
-		CCDC0C431AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0C3F1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png */; };
 		CCDC0C461AB8B82B00AF39F7 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C451AB8B82B00AF39F7 /* CoreDataHelper.swift */; };
 		CCDC0C571AB8B86400AF39F7 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C491AB8B86400AF39F7 /* GTMNSString+HTML.m */; };
 		CCDC0C581AB8B86400AF39F7 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0C4B1AB8B86400AF39F7 /* MWFeedInfo.m */; };
@@ -79,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25C30F599CE05E7690DA733D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9B2722C395FB33E7B09CCFEB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C38D63985F1C1060438C2436 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1672881AD6F4400003EF40 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		CC34673F1AB8C8BB00434630 /* FeedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedModel.xcdatamodel; sourceTree = "<group>"; };
 		CC3467411AB8C94E00434630 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -89,26 +77,6 @@
 		CCDC0C091AB8B37800AF39F7 /* RSSReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderTests.swift; sourceTree = "<group>"; };
 		CCDC0C131AB8B5E400AF39F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CCDC0C151AB8B60A00AF39F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCDC0C1C1AB8B71900AF39F7 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
-		CCDC0C1D1AB8B71900AF39F7 /* backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@2x.png"; sourceTree = "<group>"; };
-		CCDC0C1E1AB8B71900AF39F7 /* backbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@3x.png"; sourceTree = "<group>"; };
-		CCDC0C1F1AB8B71900AF39F7 /* forwardbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forwardbutton.png; sourceTree = "<group>"; };
-		CCDC0C201AB8B71900AF39F7 /* forwardbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forwardbutton@2x.png"; sourceTree = "<group>"; };
-		CCDC0C211AB8B71900AF39F7 /* forwardbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forwardbutton@3x.png"; sourceTree = "<group>"; };
-		CCDC0C221AB8B71900AF39F7 /* KINWebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINWebBrowserViewController.h; sourceTree = "<group>"; };
-		CCDC0C231AB8B71900AF39F7 /* KINWebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINWebBrowserViewController.m; sourceTree = "<group>"; };
-		CCDC0C2C1AB8B73400AF39F7 /* SVWebViewControllerActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivity.h; sourceTree = "<group>"; };
-		CCDC0C2D1AB8B73400AF39F7 /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
-		CCDC0C2F1AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari-iPad.png"; sourceTree = "<group>"; };
-		CCDC0C301AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari-iPad@2x.png"; sourceTree = "<group>"; };
-		CCDC0C311AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivitySafari.h; sourceTree = "<group>"; };
-		CCDC0C321AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivitySafari.m; sourceTree = "<group>"; };
-		CCDC0C331AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari@2x.png"; sourceTree = "<group>"; };
-		CCDC0C3B1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome-iPad.png"; sourceTree = "<group>"; };
-		CCDC0C3C1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome-iPad@2x.png"; sourceTree = "<group>"; };
-		CCDC0C3D1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivityChrome.h; sourceTree = "<group>"; };
-		CCDC0C3E1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivityChrome.m; sourceTree = "<group>"; };
-		CCDC0C3F1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome@2x.png"; sourceTree = "<group>"; };
 		CCDC0C451AB8B82B00AF39F7 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		CCDC0C481AB8B86400AF39F7 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CCDC0C491AB8B86400AF39F7 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
@@ -184,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCDC0C141AB8B5E400AF39F7 /* CoreData.framework in Frameworks */,
+				CA87E636D89C08A62EB80D26 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +166,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22FC967BDC4D632422416CB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25C30F599CE05E7690DA733D /* Pods.debug.xcconfig */,
+				9B2722C395FB33E7B09CCFEB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5BCA63478BD2E55340C11319 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C38D63985F1C1060438C2436 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CCDC0BE21AB8B37800AF39F7 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +190,8 @@
 				CCDC0BED1AB8B37800AF39F7 /* RSSReader */,
 				CCDC0C061AB8B37800AF39F7 /* RSSReaderTests */,
 				CCDC0BEC1AB8B37800AF39F7 /* Products */,
+				22FC967BDC4D632422416CB1 /* Pods */,
+				5BCA63478BD2E55340C11319 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,84 +258,8 @@
 			children = (
 				CCDC0C5E1AB8B86900AF39F7 /* AFNetworking */,
 				CCDC0C471AB8B85400AF39F7 /* MWFeedParser */,
-				CCDC0C191AB8B64800AF39F7 /* Webbrowser */,
 			);
 			path = Libaries;
-			sourceTree = "<group>";
-		};
-		CCDC0C191AB8B64800AF39F7 /* Webbrowser */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C381AB8B75500AF39F7 /* Share Sheet */,
-				CCDC0C1B1AB8B67700AF39F7 /* KINWebbBrowser */,
-			);
-			path = Webbrowser;
-			sourceTree = "<group>";
-		};
-		CCDC0C1B1AB8B67700AF39F7 /* KINWebbBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C2B1AB8B72300AF39F7 /* Assets */,
-				CCDC0C221AB8B71900AF39F7 /* KINWebBrowserViewController.h */,
-				CCDC0C231AB8B71900AF39F7 /* KINWebBrowserViewController.m */,
-			);
-			path = KINWebbBrowser;
-			sourceTree = "<group>";
-		};
-		CCDC0C2B1AB8B72300AF39F7 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C1C1AB8B71900AF39F7 /* backbutton.png */,
-				CCDC0C1D1AB8B71900AF39F7 /* backbutton@2x.png */,
-				CCDC0C1E1AB8B71900AF39F7 /* backbutton@3x.png */,
-				CCDC0C1F1AB8B71900AF39F7 /* forwardbutton.png */,
-				CCDC0C201AB8B71900AF39F7 /* forwardbutton@2x.png */,
-				CCDC0C211AB8B71900AF39F7 /* forwardbutton@3x.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		CCDC0C381AB8B75500AF39F7 /* Share Sheet */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C3D1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.h */,
-				CCDC0C3E1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.m */,
-				CCDC0C2D1AB8B73400AF39F7 /* SVWebViewControllerActivity.m */,
-				CCDC0C321AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.m */,
-				CCDC0C2C1AB8B73400AF39F7 /* SVWebViewControllerActivity.h */,
-				CCDC0C311AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.h */,
-				CCDC0C391AB8B76200AF39F7 /* Assets */,
-			);
-			path = "Share Sheet";
-			sourceTree = "<group>";
-		};
-		CCDC0C391AB8B76200AF39F7 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C441AB8B79000AF39F7 /* Chrome */,
-				CCDC0C3A1AB8B76A00AF39F7 /* Safari */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		CCDC0C3A1AB8B76A00AF39F7 /* Safari */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C2F1AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad.png */,
-				CCDC0C301AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad@2x.png */,
-				CCDC0C331AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png */,
-			);
-			path = Safari;
-			sourceTree = "<group>";
-		};
-		CCDC0C441AB8B79000AF39F7 /* Chrome */ = {
-			isa = PBXGroup;
-			children = (
-				CCDC0C3B1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad.png */,
-				CCDC0C3C1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png */,
-				CCDC0C3F1AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png */,
-			);
-			path = Chrome;
 			sourceTree = "<group>";
 		};
 		CCDC0C471AB8B85400AF39F7 /* MWFeedParser */ = {
@@ -459,9 +371,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCDC0C0D1AB8B37800AF39F7 /* Build configuration list for PBXNativeTarget "RSSReader" */;
 			buildPhases = (
+				374F0351FAD8D0ED7C6739C6 /* Check Pods Manifest.lock */,
 				CCDC0BE71AB8B37800AF39F7 /* Sources */,
 				CCDC0BE81AB8B37800AF39F7 /* Frameworks */,
 				CCDC0BE91AB8B37800AF39F7 /* Resources */,
+				4C797B066F54D95B0B627357 /* Embed Pods Frameworks */,
+				4186BBF2EC33F80980AC5C00 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -532,21 +447,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCDC0C281AB8B71900AF39F7 /* forwardbutton@2x.png in Resources */,
-				CCDC0C341AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
-				CCDC0C351AB8B74500AF39F7 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
-				CCDC0C291AB8B71900AF39F7 /* forwardbutton@3x.png in Resources */,
-				CCDC0C241AB8B71900AF39F7 /* backbutton.png in Resources */,
-				CCDC0C401AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				CCDC0CA61AB8B98E00AF39F7 /* Main.storyboard in Resources */,
-				CCDC0C431AB8B77400AF39F7 /* SVWebViewControllerActivityChrome@2x.png in Resources */,
-				CCDC0C251AB8B71900AF39F7 /* backbutton@2x.png in Resources */,
 				CCD28FB51AD7D82A0015E0B6 /* LaunchScreen.storyboard in Resources */,
-				CCDC0C261AB8B71900AF39F7 /* backbutton@3x.png in Resources */,
 				CC3467421AB8C94E00434630 /* Images.xcassets in Resources */,
-				CCDC0C411AB8B77400AF39F7 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
-				CCDC0C371AB8B74500AF39F7 /* SVWebViewControllerActivitySafari@2x.png in Resources */,
-				CCDC0C271AB8B71900AF39F7 /* forwardbutton.png in Resources */,
 				CCDC0CA41AB8B98000AF39F7 /* FeedTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +463,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		374F0351FAD8D0ED7C6739C6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4186BBF2EC33F80980AC5C00 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C797B066F54D95B0B627357 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CCDC0BE71AB8B37800AF39F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -567,7 +518,6 @@
 			files = (
 				CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */,
 				CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */,
-				CCDC0C2E1AB8B73400AF39F7 /* SVWebViewControllerActivity.m in Sources */,
 				CCDC0C901AB8B88E00AF39F7 /* UIButton+AFNetworking.m in Sources */,
 				CCDC0C5A1AB8B86400AF39F7 /* MWFeedParser.m in Sources */,
 				CCDC0C9A1AB8B95B00AF39F7 /* SaveFeed.swift in Sources */,
@@ -588,12 +538,9 @@
 				CCDC0C461AB8B82B00AF39F7 /* CoreDataHelper.swift in Sources */,
 				CCDC0C8E1AB8B88E00AF39F7 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CCDC0C591AB8B86400AF39F7 /* MWFeedItem.m in Sources */,
-				CCDC0C2A1AB8B71900AF39F7 /* KINWebBrowserViewController.m in Sources */,
-				CCDC0C361AB8B74500AF39F7 /* SVWebViewControllerActivitySafari.m in Sources */,
 				CCDC0C971AB8B94200AF39F7 /* AppDelegate.swift in Sources */,
 				CCDC0C5C1AB8B86400AF39F7 /* NSString+HTML.m in Sources */,
 				CCDC0C9E1AB8B97100AF39F7 /* MainTableViewController.swift in Sources */,
-				CCDC0C421AB8B77400AF39F7 /* SVWebViewControllerActivityChrome.m in Sources */,
 				CCDC0C5D1AB8B86400AF39F7 /* NSString+XMLEntities.m in Sources */,
 				CCDC0C761AB8B87800AF39F7 /* AFSecurityPolicy.m in Sources */,
 				CCDC0C931AB8B88E00AF39F7 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -709,11 +656,13 @@
 		};
 		CCDC0C0E1AB8B37800AF39F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C30F599CE05E7690DA733D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "RSSReader/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RSSReader/Supporting Files/ObjcBridgingHeader.h";
@@ -723,11 +672,13 @@
 		};
 		CCDC0C0F1AB8B37800AF39F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B2722C395FB33E7B09CCFEB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "RSSReader/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RSSReader/Supporting Files/ObjcBridgingHeader.h";
