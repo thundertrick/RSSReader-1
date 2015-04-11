@@ -206,7 +206,6 @@ static char DZNWebViewControllerKVOContext = 0;
     if (!_actionBarItem)
     {
         _actionBarItem = [[UIBarButtonItem alloc] initWithImage:[self actionButtonImage] landscapeImagePhone:nil style:0 target:self action:@selector(presentActivityController:)];
-        _actionBarItem.accessibilityLabel = NSLocalizedStringFromTable(@"Share", @"DZNWebViewController", @"Accessibility label button title");
         _actionBarItem.enabled = NO;
     }
     return _actionBarItem;
@@ -381,9 +380,15 @@ static char DZNWebViewControllerKVOContext = 0;
         return;
     }
     
-    UIFont *titleFont = self.navigationBar.titleTextAttributes[NSFontAttributeName] ?: [UIFont boldSystemFontOfSize:12.0];
-    UIFont *urlFont = [UIFont fontWithName:titleFont.fontName size:titleFont.pointSize-2.0];
-    UIColor *textColor = self.navigationBar.titleTextAttributes[NSForegroundColorAttributeName] ?: [UIColor blackColor];
+    UIFont *titleFont = [UIFont boldSystemFontOfSize:12.0];
+    UIFont *urlFont = [UIFont systemFontOfSize:10.0];
+    UIColor *textColor = [UIColor blackColor];
+    
+    if (self.navigationBar.titleTextAttributes) {
+        titleFont = self.navigationBar.titleTextAttributes[NSFontAttributeName];
+        urlFont = [UIFont fontWithName:titleFont.fontName size:titleFont.pointSize-2.0];
+        textColor = self.navigationBar.titleTextAttributes[NSForegroundColorAttributeName];
+    }
     
     NSMutableString *text = [NSMutableString stringWithString:title];
     
@@ -847,7 +852,6 @@ static char DZNWebViewControllerKVOContext = 0;
     _backwardLongPress = nil;
     _forwardLongPress = nil;
     
-    _webView.scrollView.delegate = nil;
     _webView.navDelegate = nil;
     _webView.UIDelegate = nil;
     _webView = nil;

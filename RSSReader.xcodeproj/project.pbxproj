@@ -416,6 +416,7 @@
 				TargetAttributes = {
 					CCDC0BEA1AB8B37800AF39F7 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 7S7E5LW8G9;
 					};
 					CCDC0C021AB8B37800AF39F7 = {
 						CreatedOnToolsVersion = 6.2;

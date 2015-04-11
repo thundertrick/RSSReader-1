@@ -98,7 +98,6 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         self.navigationController!.hidesBarsOnSwipe = false
         self.navigationController!.hidesBarsWhenKeyboardAppears = false
         self.navigationController!.hidesBarsWhenVerticallyCompact = false
-        currentArticle == nil
         shouldScrollToTop = false
         setupSideBar()
     }
