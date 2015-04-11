@@ -1,0 +1,13 @@
+PODS:
+  - Alamofire (1.2.0)
+  - SVWebViewController (HEAD based on 1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 1.1)
+  - SVWebViewController (HEAD)
+
+SPEC CHECKSUMS:
+  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
+
+COCOAPODS: 0.36.3
