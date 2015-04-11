@@ -1,13 +1,27 @@
 PODS:
   - Alamofire (1.2.0)
-  - SVWebViewController (HEAD based on 1.0)
+  - DZNWebViewController (3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.1)
-  - SVWebViewController (HEAD)
+  - Alamofire (from `https://github.com/thehexagon/Alamofire.git`)
+  - DZNWebViewController (from `https://github.com/thehexagon/DZNWebViewController.git`)
+
+EXTERNAL SOURCES:
+  Alamofire:
+    :git: https://github.com/thehexagon/Alamofire.git
+  DZNWebViewController:
+    :git: https://github.com/thehexagon/DZNWebViewController.git
+
+CHECKOUT OPTIONS:
+  Alamofire:
+    :commit: 6d1238d9ac9032980c27843fc27015d8db121cdd
+    :git: https://github.com/thehexagon/Alamofire.git
+  DZNWebViewController:
+    :commit: 1443fe85bcfbf1e95d65abb0d2edac40ce48c2db
+    :git: https://github.com/thehexagon/DZNWebViewController.git
 
 SPEC CHECKSUMS:
   Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
-  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
+  DZNWebViewController: 3c63bfa4f8f9ae4da03329d20f10b8b9900c14cc
 
 COCOAPODS: 0.36.3

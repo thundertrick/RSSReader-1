@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SVWebViewController
+import DZNWebViewController
 
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
@@ -61,8 +61,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     func openWeb() {
         if let article = currentArticle {
             if article.link != nil {
-            let webBrowser = SVWebViewController(address: article.link)
-            self.navigationController!.pushViewController(webBrowser, animated: true)
+                let url = NSURL(string: article.link)
+                let webBrowser = DZNWebViewController(URL: url)
+                webBrowser.supportedWebNavigationTools = DZNWebNavigationTools.All
+                webBrowser.showLoadingProgress = true
+                webBrowser.allowHistory = true
+                webBrowser.hideBarsWithGestures = true
+                self.navigationController!.pushViewController(webBrowser, animated: true)
             }
         }
 
@@ -122,7 +127,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     
         if navigationType == UIWebViewNavigationType.LinkClicked {
-            let webBrowser = SVWebViewController(address: "\(request.URL)")
+            let url = request.URL
+            let webBrowser = DZNWebViewController(URL: url)
+            webBrowser.supportedWebNavigationTools = DZNWebNavigationTools.All
+            webBrowser.showLoadingProgress = true
+            webBrowser.allowHistory = true
+            webBrowser.hideBarsWithGestures = true
             self.navigationController!.pushViewController(webBrowser, animated: true)
             return false
 
@@ -139,9 +149,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             let textToShare = article.title
             if let link = NSURL(string: article.link) {
                 let objectsToShare = [textToShare, link]
-                let safariActivity = SVWebViewControllerActivitySafari()
-                let chromeActivity = SVWebViewControllerActivityChrome()
-                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity, chromeActivity])
+                let safariActivity = DZNPolyActivity(type: DZNPolyActivityType.Safari)
+                 let chromeActivity = DZNPolyActivity(type: DZNPolyActivityType.Chrome)
+                 let operaActivity = DZNPolyActivity(type: DZNPolyActivityType.Opera)
+                 let linkActivity = DZNPolyActivity(type: DZNPolyActivityType.Link)
+                 let dolphinActivity = DZNPolyActivity(type: DZNPolyActivityType.Dolphin)
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity, chromeActivity, operaActivity, linkActivity, dolphinActivity])
                 if activityVC.respondsToSelector("popoverPresentationController") {
                     // iOS 8+
                     let presentationController = activityVC.popoverPresentationController

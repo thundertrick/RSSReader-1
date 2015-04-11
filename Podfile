@@ -2,5 +2,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'SVWebViewController', :head
-pod 'Alamofire', '~> 1.1'
+pod 'DZNWebViewController', :git => 'https://github.com/thehexagon/DZNWebViewController.git'
+pod 'Alamofire', :git => 'https://github.com/thehexagon/Alamofire.git'

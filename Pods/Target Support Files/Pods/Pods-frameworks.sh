@@ -49,9 +49,9 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
-  install_framework 'SVWebViewController.framework'
+  install_framework 'DZNWebViewController.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
-  install_framework 'SVWebViewController.framework'
+  install_framework 'DZNWebViewController.framework'
 fi
