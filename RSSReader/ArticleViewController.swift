@@ -67,15 +67,19 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     func openWeb() {
         if let article = currentArticle {
             if article.link != nil {
-             /*   let url = NSURL(string: article.link)
+                let url = NSURL(string: "http://www.google.com")
+                var webView = WebViewController(url: url!)
+                self.navigationController!.pushViewController(webView, animated: true)
+                
+             /*
                 let webBrowser = DZNWebViewController(URL: url)
                 webBrowser.supportedWebNavigationTools = DZNWebNavigationTools.All
                 webBrowser.showLoadingProgress = true
                 webBrowser.allowHistory = true
                 webBrowser.hideBarsWithGestures = true
-                self.navigationController!.pushViewController(webBrowser, animated: true)
+               
 
-*/
+                */
             }
         }
 

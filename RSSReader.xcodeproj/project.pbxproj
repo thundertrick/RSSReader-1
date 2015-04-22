@@ -210,9 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				CCDC0C961AB8B94200AF39F7 /* AppDelegate.swift */,
-				CCEE44211AE807E500F54329 /* WebViewController.swift */,
 				CCDC0C9D1AB8B97100AF39F7 /* MainTableViewController.swift */,
 				CCDC0C9F1AB8B97A00AF39F7 /* ArticleViewController.swift */,
+				CCEE44211AE807E500F54329 /* WebViewController.swift */,
 				CC1672881AD6F4400003EF40 /* HTMLParser.swift */,
 				CCDC0CA11AB8B98000AF39F7 /* FeedTableViewCell.swift */,
 				CCDC0CA21AB8B98000AF39F7 /* FeedTableViewCell.xib */,
