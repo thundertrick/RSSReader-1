@@ -518,9 +518,8 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
      
-        dispatch_async(dispatch_get_main_queue(), {
                self.tableView.endUpdates()
-        })
+        
     }
 
     

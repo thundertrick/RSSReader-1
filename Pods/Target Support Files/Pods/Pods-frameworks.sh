@@ -48,10 +48,12 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'ARChromeActivity.framework'
   install_framework 'Alamofire.framework'
-  install_framework 'DZNWebViewController.framework'
+  install_framework 'TUSafariActivity.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'ARChromeActivity.framework'
   install_framework 'Alamofire.framework'
-  install_framework 'DZNWebViewController.framework'
+  install_framework 'TUSafariActivity.framework'
 fi

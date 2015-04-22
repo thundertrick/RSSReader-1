@@ -1,6 +1,0 @@
-framework module DZNWebViewController {
-  umbrella header "Pods-DZNWebViewController-umbrella.h"
-
-  export *
-  module * { export * }
-}

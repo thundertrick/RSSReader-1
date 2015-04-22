@@ -51,6 +51,7 @@
 		CCDC0CAB1AB8B9AA00AF39F7 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */; };
 		CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */; };
 		CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CB11AB8B9D200AF39F7 /* Article.m */; };
+		CCEE44221AE807E500F54329 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEE44211AE807E500F54329 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
 		CCDC0CB01AB8B9D200AF39F7 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		CCDC0CB11AB8B9D200AF39F7 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		CCEE44211AE807E500F54329 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				CCDC0C961AB8B94200AF39F7 /* AppDelegate.swift */,
+				CCEE44211AE807E500F54329 /* WebViewController.swift */,
 				CCDC0C9D1AB8B97100AF39F7 /* MainTableViewController.swift */,
 				CCDC0C9F1AB8B97A00AF39F7 /* ArticleViewController.swift */,
 				CC1672881AD6F4400003EF40 /* HTMLParser.swift */,
@@ -536,6 +539,7 @@
 				CCDC0C781AB8B87800AF39F7 /* AFURLRequestSerialization.m in Sources */,
 				CCDC0C771AB8B87800AF39F7 /* AFURLConnectionOperation.m in Sources */,
 				CCDC0C7A1AB8B87800AF39F7 /* AFURLSessionManager.m in Sources */,
+				CCEE44221AE807E500F54329 /* WebViewController.swift in Sources */,
 				CCDC0C461AB8B82B00AF39F7 /* CoreDataHelper.swift in Sources */,
 				CCDC0C8E1AB8B88E00AF39F7 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CCDC0C591AB8B86400AF39F7 /* MWFeedItem.m in Sources */,
