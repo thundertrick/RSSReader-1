@@ -46,7 +46,7 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
      
         view.addSubview(webView)
-         setUpBarButtonItems()
+        
         webView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let height = NSLayoutConstraint(item: webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
         let width = NSLayoutConstraint(item: webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
@@ -57,6 +57,7 @@ class WebViewController: UIViewController {
         let url = urlToLoad
         let request = NSURLRequest(URL:url)
         webView.loadRequest(request)
+         setUpBarButtonItems()!!!!!!!!!!!!!!!!!!!
     }
     
     func setUpBarButtonItems() {
@@ -69,6 +70,8 @@ class WebViewController: UIViewController {
             progressButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "reload")
         }
         flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        backButton.enabled = false
+        forwardButton.enabled = false
         
         self.toolbarItems = [backButton, flexibleSpace, forwardButton, flexibleSpace, progressButton, flexibleSpace, actionButton]
     }
