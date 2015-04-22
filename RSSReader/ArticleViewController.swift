@@ -67,7 +67,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     func openWeb() {
         if let article = currentArticle {
             if article.link != nil {
-                let url = NSURL(string: "http://www.google.com")
+                let url = NSURL(string: article.link)
                 var webView = WebViewController(url: url!)
                 self.navigationController!.pushViewController(webView, animated: true)
                 
