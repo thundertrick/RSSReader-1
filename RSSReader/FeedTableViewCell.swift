@@ -119,7 +119,7 @@ class FeedTableViewCell: UITableViewCell {
         if countLabelLines(titleText) > 2 {
             titleText.numberOfLines = 3
             summaryText.numberOfLines = 2
-            println("adjusting label heigh to be taller")
+            println("adjusting label height to be taller")
              titleHeightConst = NSLayoutConstraint(item: titleText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 51)
             summaryHeightConst = NSLayoutConstraint(item: summaryText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 32)
             self.contentView.addConstraints([titleHeightConst, summaryHeightConst])
@@ -154,8 +154,6 @@ func countLabelLines(label:UILabel)->Int{
         
         //Now we return the amount of lines using the ceil method
         var lines = ceil(CGFloat(labelSize.height) / label.font.lineHeight)
-        println(labelSize.height)
-        println("\(lines)")
         return Int(lines)
     }
     

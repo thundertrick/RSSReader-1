@@ -113,8 +113,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             parser.articleTitle = article.title
             parser.articleAuthor = article.sourceTitle + "/"  + article.author
             parser.articleDatePublished = article.date
-         
-            println(parser.article)
+
             self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
         
         }

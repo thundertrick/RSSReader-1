@@ -53,7 +53,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+   
 
         let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -123,12 +123,21 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     }
 
     deinit {
-        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
         self.webView.navigationDelegate = nil
         destroyProgressViewIfNeeded()
 
     }
     
+ 
+    
+    override func viewWillAppear(animated: Bool) {
+    self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        clearProgressViewAnimated(true)
+            self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
+    }
+        
    
     // MARK: ToolBar Methods
     
