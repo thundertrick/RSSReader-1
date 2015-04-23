@@ -9,34 +9,42 @@
 import UIKit
 import WebKit
 import TUSafariActivity
-import ARChromeActivity
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, WKNavigationDelegate {
 
+    
+    // MARK: - Variables
     var actionButton : UIBarButtonItem!
     var backButton : UIBarButtonItem!
     var forwardButton : UIBarButtonItem!
-    var progressButton : UIBarButtonItem!
+    var stateButton : UIBarButtonItem!
     var flexibleSpace : UIBarButtonItem!
     
     var webView : WKWebView!
     var urlToLoad = NSURL()
     
+    // MARK: Setup view
+    
     required init(coder aDecoder: NSCoder) {
-        self.webView = WKWebView(frame: CGRectZero)
+
         super.init(coder: aDecoder)
     }
     
      init(url:NSURL) {
-        self.webView = WKWebView(frame: CGRectZero)
+
         super.init(nibName: nil, bundle: nil)
       
         urlToLoad = url
         
     }
     
+    override func loadView() {
+        super.loadView()
+        self.webView = WKWebView()
+        self.view = webView
+    }
+    
     init() {
-        self.webView = WKWebView(frame: CGRectZero)
         super.init(nibName: nil, bundle: nil)
             
         urlToLoad = NSURL(string: "http://www.google.com")!
@@ -44,38 +52,42 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        view.addSubview(webView)
         
-        webView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        let height = NSLayoutConstraint(item: webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
-        let width = NSLayoutConstraint(item: webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
-        view.addConstraints([height, width])
+        let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
         self.title = urlToLoad.description
-       
+        webView.navigationDelegate = self
+        webView.opaque = true
+        webView.backgroundColor = UIColor.lightGrayColor()
         
         let url = urlToLoad
         let request = NSURLRequest(URL:url)
         webView.loadRequest(request)
-         setUpBarButtonItems()!!!!!!!!!!!!!!!!!!!
+         setUpBarButtonItems()
+        
     }
+    
+    
     
     func setUpBarButtonItems() {
-        actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "actionMethod")
-        backButton = UIBarButtonItem(image: UIImage(named: "backbutton"), style: .Plain, target: self, action: "goBack")
-        forwardButton = UIBarButtonItem(image: UIImage(named: "forwardbutton"), style: .Plain, target: self, action: "goForward")
+        actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self
+            , action: "actionMethod")
+        backButton = UIBarButtonItem(image: UIImage(named: "backbutton"), style: .Plain, target: self.webView, action: "goBack")
+        forwardButton = UIBarButtonItem(image: UIImage(named: "forwardbutton"), style: .Plain, target: self.webView, action: "goForward")
         if self.webView.loading == true {
-            progressButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "stopLoading")
+            stateButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self.webView, action: "stopLoading")
         } else {
-            progressButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "reload")
+            stateButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self.webView, action: "reload")
         }
         flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        backButton.enabled = false
-        forwardButton.enabled = false
-        
-        self.toolbarItems = [backButton, flexibleSpace, forwardButton, flexibleSpace, progressButton, flexibleSpace, actionButton]
+       
+        backButton.enabled = self.webView.canGoBack
+        forwardButton.enabled = self.webView.canGoForward
+        self.toolbarItems = [backButton, flexibleSpace, forwardButton, flexibleSpace, stateButton, flexibleSpace, actionButton]
     }
     
+    
+    // MARK: ToolBar Methods
     
     func reload() {
         self.webView.reload()
@@ -99,12 +111,12 @@ class WebViewController: UIViewController {
     }
     
     func actionMethod() {
-        let textToShare = (webView.title != nil) ? webView.title! : ""
-            if let link = webView.URL {
+        
+        let textToShare : String = (self.webView.title != nil) ? self.webView.title! : ""
+            if let link = self.webView.URL {
                 let objectsToShare = [textToShare, link]
                 let safariActivity = TUSafariActivity()
-                let chromeActivity = ARChromeActivity()
-                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity, chromeActivity])
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity])
                 if activityVC.respondsToSelector("popoverPresentationController") {
                     // iOS 8+
                     let presentationController = activityVC.popoverPresentationController
@@ -114,15 +126,55 @@ class WebViewController: UIViewController {
                 self.presentViewController(activityVC, animated: true, completion: nil)
                 
                 
-        }
-
+            }
+        
+    }
     
+    
+    
+    
+    func updateStateBarButton() {
+        if self.webView.loading == true {
+            stateButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self.webView, action: "stopLoading")
+        } else {
+            stateButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self.webView, action: "reload")
+        }
+        self.toolbarItems = [backButton, flexibleSpace, forwardButton, flexibleSpace, stateButton, flexibleSpace, actionButton]
+        
+    }
+    
+    func updateToolBarItems() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = self.webView.loading
+        self.backButton.enabled = self.webView.canGoBack
+        self.forwardButton.enabled = self.webView.canGoForward
+        self.updateStateBarButton()
+    }
+    // MARK: Navigation Delegate
+    
+    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.updateStateBarButton()
+        self.title = self.webView.URL?.description
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = self.webView.loading
+        
     }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        self.updateToolBarItems()
+        self.title = self.webView.title
+    }
+    
+    func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+        self.updateToolBarItems()
+    }
+    
+    
+  
+   
+    
+
 
 
 }

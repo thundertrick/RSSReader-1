@@ -8,7 +8,7 @@
 
 import UIKit
 import TUSafariActivity
-import ARChromeActivity
+
 
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
@@ -59,7 +59,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
 
         }
         
-        self.toolbarItems = [flexibleSpace, readButton, flexibleSpace, starButton, flexibleSpace, actionButton, flexibleSpace]
+        self.toolbarItems = [readButton, flexibleSpace, starButton, flexibleSpace, actionButton]
         }
 
     }
@@ -166,8 +166,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             if let link = NSURL(string: article.link) {
                 let objectsToShare = [textToShare, link]
                 let safariActivity = TUSafariActivity()
-                 let chromeActivity = ARChromeActivity()
-                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity, chromeActivity])
+
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [safariActivity])
                 if activityVC.respondsToSelector("popoverPresentationController") {
                     // iOS 8+
                     let presentationController = activityVC.popoverPresentationController
@@ -180,6 +180,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             }
         }
     }
+    
  
 
 
