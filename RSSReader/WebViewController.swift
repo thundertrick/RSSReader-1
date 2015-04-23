@@ -223,6 +223,15 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         self.updateToolBarItems()
     }
     
+    func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
+        let alert = UIAlertController(title: "Error", message: "The page could not be loaded. Please check your internet connection.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        self.updateToolBarItems()
+    
+
+    }
+    
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
         if (keyPath == "estimatedProgress") {

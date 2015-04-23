@@ -107,6 +107,12 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     func configureFeedCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         cell.textLabel?.text = menuItems[indexPath.row]
+        
+            if indexPath.row > 3 {
+            cell.textLabel?.font = UIFont.italicSystemFontOfSize(18)
+            } else {
+            cell.textLabel?.font = UIFont.systemFontOfSize(18)
+            }
     }
     
     // Core Data fetched results source

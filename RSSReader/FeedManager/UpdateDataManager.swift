@@ -40,11 +40,13 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
     }
     
     func update() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         if urls.count > 0 {
             for url in urls {
                 requestFromURL(url)
             }
             delegate?.updatedData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
         }
         
