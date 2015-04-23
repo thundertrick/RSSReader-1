@@ -3,5 +3,4 @@ platform :ios, '8.3'
 use_frameworks!
 
 pod 'TUSafariActivity'
-pod 'ARChromeActivity'
 pod 'Alamofire'

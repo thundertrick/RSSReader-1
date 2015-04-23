@@ -1,16 +1,13 @@
 PODS:
   - Alamofire (1.2.1)
-  - ARChromeActivity (1.0.4)
   - TUSafariActivity (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
-  - ARChromeActivity
   - TUSafariActivity
 
 SPEC CHECKSUMS:
   Alamofire: 1acfdf179aff68b41a48dff70c1ac7fa263e2bcb
-  ARChromeActivity: 9064d94803338d3377f3e1013a8e8f4821d7daf1
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
 
 COCOAPODS: 0.37.0.beta.1

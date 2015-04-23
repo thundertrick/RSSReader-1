@@ -72,9 +72,14 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         self.navigationItem.rightBarButtonItem = gearButton
         
         // setup pull to refresh
-        var refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("updateFromRefreshButton"), forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl = refreshControl
+        let options = PullToRefreshOption()
+        options.backgroundColor = UIColor(red:0.927, green:0.946, blue:0.943, alpha:1)
+        options.indicatorColor = UIColor.orangeColor()
+        
+        self.tableView.addPullToRefresh(options: options, refreshCompletion: { [weak self] in
+            self?.updateFromRefreshButton()
+            self?.tableView.stopPullToRefresh()
+            })
         
         // add double tap gesture recognizer
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
@@ -332,7 +337,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
 
     func updateDataFailedWithError() {
 
-        refreshControl?.endRefreshing()
+  
         let alert = UIAlertController(title: "Refresh Failed", message: "Refresh of feed items failed. Please check your internet connection.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -348,7 +353,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     
     func updatedData() {
         println("updated data")
-        refreshControl?.endRefreshing()
+     
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
         self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
        
