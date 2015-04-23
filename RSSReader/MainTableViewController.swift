@@ -206,9 +206,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
         
         
-     
-        println(index)
-        
             if self.navigationController?.visibleViewController != self {
                 println("not table view controller")
                 self.navigationController?.popToRootViewControllerAnimated(true)
@@ -245,19 +242,14 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
-            self.sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+
             self.currentView = 1
            
         } else  if index == 1 {
             self.title = "All"
             self.fetchedResultsController.fetchRequest.predicate = nil
             self.fetchedResultsController.performFetch(self.error)
-            
-                self.tableView.reloadData()
-       
-          sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
-     
-         
+            self.tableView.reloadData()
             self.currentView = 1
           
         } else if index == 2 {
@@ -266,7 +258,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             self.fetchedResultsController.performFetch(self.error)
       
             self.tableView.reloadData()
-               sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+          
             self.currentView = 2
 
         } else if index == 3 {
@@ -275,7 +267,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             self.fetchedResultsController.performFetch(self.error)
             
             self.tableView.reloadData()
-            sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+
             self.currentView = 3
         
         
@@ -287,7 +279,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
            
             self.tableView.reloadData()
             self.title = feed.name
-                         self.currentView = index
+            self.currentView = index
             
             
         }
@@ -316,7 +308,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
         println("update Data failed")
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
-        sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
         
         // write func
 
@@ -327,7 +318,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         println("updated data")
      
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
-       sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
+    
        
 
     }

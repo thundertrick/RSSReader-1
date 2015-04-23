@@ -44,6 +44,8 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         lprg.minimumPressDuration = 2.0
         lprg.delegate = self
         self.tableView.addGestureRecognizer(lprg)
+        self.title = "Feeds"
+       
     }
     
     func handleLongPress(recognizer: UILongPressGestureRecognizer) {
@@ -70,13 +72,11 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         if cell == nil{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
             // Configure the cell...
-            cell?.backgroundColor = UIColor.clearColor()
-            cell?.textLabel?.textColor = UIColor.darkTextColor()
-            
+            cell?.backgroundColor = UIColor.whiteColor()
+            cell?.textLabel?.font = UIFont.italicSystemFontOfSize(18)
+            cell?.textLabel?.textColor = UIColor.orangeColor()
             let selectedCellView:UIView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
-            
-             selectedCellView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
-            cell?.selectedBackgroundView = selectedCellView
+        
         }
    
 
