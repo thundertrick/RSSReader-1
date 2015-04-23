@@ -2,8 +2,8 @@
 //  AlamofireImage.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 23/04/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 23/04/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 import UIKit

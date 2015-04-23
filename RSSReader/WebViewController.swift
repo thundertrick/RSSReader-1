@@ -2,8 +2,8 @@
 //  WebViewController.swift
 //  RSSReader
 //
-//  Created by Leopold Aschenbrenner on 22/04/15.
-//  Copyright (c) 2015 Leopold Aschenbrenner. All rights reserved.
+//  Created by The Hexagon on 22/04/15.
+//  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
 import UIKit
@@ -95,13 +95,14 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         let lineHeight: CGFloat = 2.0
         let frame : CGRect = CGRectMake(0, self.navigationController!.navigationBar.bounds.height - lineHeight, self.navigationController!.navigationBar.bounds.width, lineHeight)
         
-        
+    
         progressView = UIProgressView(frame: frame)
+            progressView.trackTintColor = UIColor.clearColor()
         self.navigationController!.navigationBar.addSubview(progressView)
     }
     
     
-  /*  func clearProgressViewAnimated(animated: Bool) {
+    func clearProgressViewAnimated(animated: Bool) {
         if progressView == nil {
             return
         }
@@ -117,13 +118,19 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     func destroyProgressViewIfNeeded() {
         if progressView != nil {
-            progressView.removeFromSuperview()
-            progressView = nil
+        
+        progressView.removeFromSuperview()
         }
     }
-*/
+
+    deinit {
+        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        self.webView.navigationDelegate = nil
+        clearProgressViewAnimated(true)
+
+    }
     
-    
+   
     // MARK: ToolBar Methods
     
     func reload() {
@@ -211,8 +218,15 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
         if (keyPath == "estimatedProgress") {
-            progressView.hidden = webView.estimatedProgress == 1
+            if webView.estimatedProgress == 1 {
+                self.clearProgressViewAnimated(true)
+            }
+            if progressView == nil {
+                self.instantiateProgressView()
+            }
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+        } else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
    
