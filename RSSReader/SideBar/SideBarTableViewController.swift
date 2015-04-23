@@ -6,13 +6,11 @@
 
 import UIKit
 
-protocol SideBarTableViewControllerDelegate{
-    func sideBarControllerDidSelectRow(indexPath:NSIndexPath)
-}
+
+
 
 class SideBarTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
 
-    var delegate:SideBarTableViewControllerDelegate?
     var feedManager = SaveFeedManager()
     var tableData:[String] = []
     var dataHelper = CoreDataHelper()
@@ -59,7 +57,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
             feedManager.deleteFeedAtIndexPath(indexPath!)
-           delegate?.sideBarControllerDidSelectRow(NSIndexPath(forRow: 1, inSection: 0))
+            tableView(self.tableView, heightForRowAtIndexPath:NSIndexPath(forRow: 1, inSection: 0))
         } else {
            println(recognizer.state)
         }
@@ -92,7 +90,10 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.sideBarControllerDidSelectRow(indexPath)
+        var nav = self.slideMenuController()?.mainViewController as! UINavigationController
+        var vc = nav.viewControllers[0] as! MainTableViewController
+        vc.sideBarDidSelectMenuButtonAtIndex(indexPath.row)
+        self.slideMenuController()?.closeLeft()
     }
     
 

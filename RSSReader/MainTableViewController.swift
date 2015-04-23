@@ -16,11 +16,9 @@ var currentArticle : Article? = nil
 
 var shouldScrollToTop = true
 
-class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
+class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
     
     
-    // iniatialize UI Helper Classes
-    var sideBar = SideBar()
     
     // initialize data helper classs
     var saveFeedManager = SaveFeedManager()
@@ -31,7 +29,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     let error = NSErrorPointer()
   
   
-    
+    var sideVC : SideBarTableViewController!
 
     
     
@@ -39,7 +37,14 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = true
+        let nav = self.slideMenuController()?.leftViewController as! UINavigationController
+          sideVC = nav.viewControllers[0] as! SideBarTableViewController
         
+        sideBarDidSelectMenuButtonAtIndex(currentView)
+        
+        if sideVC.fetchedResultsController.fetchedObjects?.count == 0 {
+            self.sideBarDidSelectMenuButtonAtIndex(0)
+        }
     
         // setup refresh classes delegates
         saveFeedManager.delegate = self
@@ -105,23 +110,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         self.navigationController!.hidesBarsWhenKeyboardAppears = false
         self.navigationController!.hidesBarsWhenVerticallyCompact = false
         shouldScrollToTop = false
-        setupSideBar()
     }
     
-    
-    func setupSideBar() {
-        var itemsForMenu : [String] = ["Add Feed", "All"]
-        
-        sideBar = SideBar(sourceView: self.navigationController!.view, menuItems: itemsForMenu, indexToSelect: currentView)
-        sideBar.delegate = self
-        
-        sideBarDidSelectMenuButtonAtIndex(currentView)
-        
-        if sideBar.sideBarTableViewController.fetchedResultsController.fetchedObjects?.count == 0 {
-            self.sideBarDidSelectMenuButtonAtIndex(0)
-        }
-
-    }
     
     
     
@@ -145,9 +135,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
             } else {
          
-                if sideBar.isSideBarOpen {
-                    sideBar.showSideBar(false)
-                }
+               
                 
                 let item = fetchedResultsController.objectAtIndexPath(indexPath!) as! Article
                 currentArticle = item
@@ -166,11 +154,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
     // side Bar pressed
 
     func openMenu() {
-        if sideBar.isSideBarOpen == true {
-            sideBar.showSideBar(false)
-        } else {
-            sideBar.showSideBar(true)
-        }
+        self.slideMenuController()?.openLeft()
       
      
     }
@@ -216,14 +200,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
 
     // MARK: - SideBar Delegate
     
-    func sideBarWillOpen() {
-        // do this func
-  
-    }
-    
-    func sideBarWillClose() {
-        // do this func
-    }
+
     
     // sideBar button selected
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
@@ -268,7 +245,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
-            self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+            self.sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
             self.currentView = 1
            
         } else  if index == 1 {
@@ -278,7 +255,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             
                 self.tableView.reloadData()
        
-          self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+          sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
      
          
             self.currentView = 1
@@ -289,7 +266,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.performFetch(self.error)
       
             self.tableView.reloadData()
-               self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+               sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
             self.currentView = 2
 
         } else if index == 3 {
@@ -298,13 +275,13 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.fetchedResultsController.performFetch(self.error)
             
             self.tableView.reloadData()
-            self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+            sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
             self.currentView = 3
         
         
         } else {
             let indexPath = NSIndexPath(forRow: index - 4, inSection: 0)
-            var feed = self.sideBar.sideBarTableViewController.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
+            var feed = self.sideVC.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
            
@@ -312,11 +289,6 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             self.title = feed.name
                          self.currentView = index
             
-            
-        }
-        
-        if sideBar.isSideBarOpen {
-            self.sideBar.showSideBar(false)
             
         }
         
@@ -344,7 +316,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         
         println("update Data failed")
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
-        self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
+        sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
         
         // write func
 
@@ -355,7 +327,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         println("updated data")
      
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
-        self.sideBar.sideBarTableViewController.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
+       sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forRow: currentView, inSection: 0), animated: true, scrollPosition: .None)
        
 
     }
@@ -564,7 +536,6 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
-        sideBar.removeSideBar()
     }
     
 }
