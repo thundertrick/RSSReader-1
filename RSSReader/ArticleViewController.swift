@@ -71,15 +71,6 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
                 var webView = WebViewController(url: url!)
                 self.navigationController!.pushViewController(webView, animated: true)
                 
-             /*
-                let webBrowser = DZNWebViewController(URL: url)
-                webBrowser.supportedWebNavigationTools = DZNWebNavigationTools.All
-                webBrowser.showLoadingProgress = true
-                webBrowser.allowHistory = true
-                webBrowser.hideBarsWithGestures = true
-               
-
-                */
             }
         }
 
@@ -142,14 +133,10 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     
         if navigationType == UIWebViewNavigationType.LinkClicked {
-         /*   let url = request.URL
-            let webBrowser = DZNWebViewController(URL: url)
-            webBrowser.supportedWebNavigationTools = DZNWebNavigationTools.All
-            webBrowser.showLoadingProgress = true
-            webBrowser.allowHistory = true
-            webBrowser.hideBarsWithGestures = true
-            self.navigationController!.pushViewController(webBrowser, animated: true)
-*/
+            
+            let url = request.URL
+            var webView = WebViewController(url: url!)
+            self.navigationController!.pushViewController(webView, animated: true)
             return false
 
         } else {
