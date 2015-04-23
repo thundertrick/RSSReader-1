@@ -17,7 +17,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     var error = NSErrorPointer()
     var menuItems : [String] {
         get {
-            var workingItems : [String] = ["Add Feed", "All", "Unread", "Starred"]
+            var workingItems : [String] = ["All", "Unread", "Starred"]
             let feedItems = fetchedResultsController.fetchedObjects as! [Feed]
             if feedItems.count > 0 {
                 for feedItem in feedItems {
@@ -44,7 +44,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         lprg.minimumPressDuration = 2.0
         lprg.delegate = self
         self.tableView.addGestureRecognizer(lprg)
-        let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addFeed")
         navigationItem.rightBarButtonItem = plusButton
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -52,6 +52,13 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         self.title = "Lightread"
        
+    }
+    func addFeed() {
+        var nav = self.slideMenuController()?.mainViewController as! UINavigationController
+        var vc = nav.viewControllers[0] as! MainTableViewController
+       vc.addFeed()
+        self.slideMenuController()?.closeLeft()
+        
     }
     
     func handleLongPress(recognizer: UILongPressGestureRecognizer) {
@@ -108,7 +115,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     func configureFeedCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         cell.textLabel?.text = menuItems[indexPath.row]
         
-            if indexPath.row > 3 {
+            if indexPath.row > 2 {
             cell.textLabel?.font = UIFont.italicSystemFontOfSize(18)
             } else {
             cell.textLabel?.font = UIFont.systemFontOfSize(18)

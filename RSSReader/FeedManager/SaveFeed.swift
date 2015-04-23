@@ -24,7 +24,7 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     
     
     func deleteFeedAtIndexPath(indexPath: NSIndexPath) {
-        let newIndexPath = NSIndexPath(forRow: indexPath.row - 4, inSection: 0)
+        let newIndexPath = NSIndexPath(forRow: indexPath.row - 3, inSection: 0)
         let moc = coreDataHelper.managedObjectContext()
         let objects = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc) as! [Feed]
         let object = objects[newIndexPath.row] as Feed

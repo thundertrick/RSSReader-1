@@ -196,7 +196,42 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
   
     
-  
+    func addFeed() {
+        
+        let alert = UIAlertController(title: "Add new feed", message: "Enter feed name and url", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler({ (textField:UITextField!) -> Void in
+            textField.placeholder = "URL"
+            textField.clearButtonMode = UITextFieldViewMode.Always
+        })
+        
+        alert.addTextFieldWithConfigurationHandler({ (textField:UITextField!) -> Void in
+            textField.placeholder = "Name (optional)"
+            textField.clearButtonMode = UITextFieldViewMode.Always
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action -> Void in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { action -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                
+                let textFields = alert.textFields
+                let feedNameTextField = textFields!.last as! UITextField
+                feedNameTextField.endEditing(true)
+                let feedURLTextField = textFields!.first as! UITextField
+                feedURLTextField.endEditing(true)
+                if  let feedURL = feedURLTextField.text {
+                self.saveFeedManager.saveFeedWithURL(feedURL, withName: feedNameTextField.text)
+                }
+            })
+        }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            self.currentView = 1
+
+    }
 
     // MARK: - SideBar Delegate
     
@@ -205,74 +240,34 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     // sideBar button selected
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
         
-        
-            if self.navigationController?.visibleViewController != self {
-                println("not table view controller")
-                self.navigationController?.popToRootViewControllerAnimated(true)
-            }
-        
-        if index == 0 { // Add Feed
-            let alert = UIAlertController(title: "Add new feed", message: "Enter feed name and url", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addTextFieldWithConfigurationHandler({ (textField:UITextField!) -> Void in
-                textField.placeholder = "URL"
-                textField.clearButtonMode = UITextFieldViewMode.Always
-            })
-            
-            alert.addTextFieldWithConfigurationHandler({ (textField:UITextField!) -> Void in
-                textField.placeholder = "Name (optional)"
-                textField.clearButtonMode = UITextFieldViewMode.Always
-            })
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action -> Void in
-                
-            }))
-            alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { action -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
-                    
-                    
-                    let textFields = alert.textFields
-                    let feedNameTextField = textFields!.last as! UITextField
-                    feedNameTextField.endEditing(true)
-                    let feedURLTextField = textFields!.first as! UITextField
-                    feedURLTextField.endEditing(true)
-                    if  let feedURL = feedURLTextField.text {
-                        self.saveFeedManager.saveFeedWithURL(feedURL, withName: feedNameTextField.text)
-                    }
-                })
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-
-            self.currentView = 1
-           
-        } else  if index == 1 {
+        if index == 0 {
             self.title = "All"
             self.fetchedResultsController.fetchRequest.predicate = nil
             self.fetchedResultsController.performFetch(self.error)
             self.tableView.reloadData()
-            self.currentView = 1
+            self.currentView = index
           
-        } else if index == 2 {
+        } else if index == 1 {
             self.title = "Unread"
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "read == %@", false)
             self.fetchedResultsController.performFetch(self.error)
       
             self.tableView.reloadData()
           
-            self.currentView = 2
+            self.currentView = index
 
-        } else if index == 3 {
+        } else if index == 2 {
             self.title = "Starred"
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "starred == %@", true)
             self.fetchedResultsController.performFetch(self.error)
             
             self.tableView.reloadData()
 
-            self.currentView = 3
+            self.currentView = index
         
         
         } else {
-            let indexPath = NSIndexPath(forRow: index - 4, inSection: 0)
+            let indexPath = NSIndexPath(forRow: index - 3, inSection: 0)
             var feed = self.sideVC.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
             self.fetchedResultsController.performFetch(self.error)
