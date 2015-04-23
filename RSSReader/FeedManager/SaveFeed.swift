@@ -40,7 +40,6 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
             moc.deleteObject(item)
           }
 
-        }
         
         coreDataHelper.saveManagedObjectContext(moc)
         
