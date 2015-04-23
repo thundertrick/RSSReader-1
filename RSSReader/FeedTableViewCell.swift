@@ -43,6 +43,7 @@ class FeedTableViewCell: UITableViewCell {
         addImage()
 
     }
+
     
     func removeImage() {
         if let viewToRemove = self.viewWithTag(123) {
@@ -62,6 +63,8 @@ class FeedTableViewCell: UITableViewCell {
       
         
     }
+    
+    
     
     func addImage() {
         thumbnailImage.tag = 123

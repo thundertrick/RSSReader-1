@@ -19,6 +19,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     var forwardButton : UIBarButtonItem!
     var stateButton : UIBarButtonItem!
     var flexibleSpace : UIBarButtonItem!
+    var progressView : UIProgressView!
     
     var webView : WKWebView!
     var urlToLoad = NSURL()
@@ -52,14 +53,15 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+
         let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
         self.title = urlToLoad.description
         webView.navigationDelegate = self
         webView.opaque = true
         webView.backgroundColor = UIColor.lightGrayColor()
-        
+        instantiateProgressView()
         let url = urlToLoad
         let request = NSURLRequest(URL:url)
         webView.loadRequest(request)
@@ -85,6 +87,41 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         forwardButton.enabled = self.webView.canGoForward
         self.toolbarItems = [backButton, flexibleSpace, forwardButton, flexibleSpace, stateButton, flexibleSpace, actionButton]
     }
+    
+    
+    // MARK: - ProgressView
+    
+    func instantiateProgressView() {
+        let lineHeight: CGFloat = 2.0
+        let frame : CGRect = CGRectMake(0, self.navigationController!.navigationBar.bounds.height - lineHeight, self.navigationController!.navigationBar.bounds.width, lineHeight)
+        
+        
+        progressView = UIProgressView(frame: frame)
+        self.navigationController!.navigationBar.addSubview(progressView)
+    }
+    
+    
+  /*  func clearProgressViewAnimated(animated: Bool) {
+        if progressView == nil {
+            return
+        }
+        let time : NSTimeInterval = (animated) ? 0.25 : 0.0
+        
+        
+        UIView.animateWithDuration(time, animations: { () -> Void in
+             self.progressView.alpha = 0.0
+        }) { (finished: Bool) -> Void in
+            self.destroyProgressViewIfNeeded()
+        }
+    }
+    
+    func destroyProgressViewIfNeeded() {
+        if progressView != nil {
+            progressView.removeFromSuperview()
+            progressView = nil
+        }
+    }
+*/
     
     
     // MARK: ToolBar Methods
@@ -164,6 +201,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         self.updateToolBarItems()
         self.title = self.webView.title
+         progressView.setProgress(0.0, animated: false)
     }
     
     func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
@@ -171,7 +209,12 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     }
     
     
-  
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        if (keyPath == "estimatedProgress") {
+            progressView.hidden = webView.estimatedProgress == 1
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+        }
+    }
    
     
 
