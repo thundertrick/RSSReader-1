@@ -13,6 +13,7 @@ protocol SideBarTableViewControllerDelegate{
 class SideBarTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
 
     var delegate:SideBarTableViewControllerDelegate?
+    var feedManager = SaveFeedManager()
     var tableData:[String] = []
     var dataHelper = CoreDataHelper()
     var error = NSErrorPointer()
@@ -57,7 +58,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         } else if indexPath!.row < 4 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
-            deleteFeedAtIndexPath(indexPath!)
+            feedManager.deleteFeedAtIndexPath(indexPath!)
            delegate?.sideBarControllerDidSelectRow(NSIndexPath(forRow: 1, inSection: 0))
         } else {
            println(recognizer.state)
@@ -95,24 +96,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
 
-    func deleteFeedAtIndexPath(indexPath: NSIndexPath) {
-        let newIndexPath = NSIndexPath(forRow: indexPath.row - 4, inSection: 0)
-      let object = fetchedResultsController.objectAtIndexPath(newIndexPath) as! Feed
-        let link = object.link
-        fetchedResultsController.managedObjectContext.deleteObject(object)
-        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
-        println("made it to here")
 
-          let p = NSPredicate(format: "source == %@", link)
-    
-       let items = dataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: p, managedObjectContext: fetchedResultsController.managedObjectContext) as! [Article]
-        println("and to here")
-        for item in items {
-            fetchedResultsController.managedObjectContext.deleteObject(item)
-        }
-        dataHelper.saveManagedObjectContext(fetchedResultsController.managedObjectContext)
-        
-    }
     
     func configureFeedCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         cell.textLabel?.text = menuItems[indexPath.row]

@@ -22,21 +22,35 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     private var givenFeedName = ""
     private var givenFeedURL = ""
     
-   
     
-    
-    func successInDeleteFeedAtIndex(index: Int) -> Bool {
+    func deleteFeedAtIndexPath(indexPath: NSIndexPath) {
+        let newIndexPath = NSIndexPath(forRow: indexPath.row - 4, inSection: 0)
         let moc = coreDataHelper.managedObjectContext()
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc)
-        if items.count >= index {
-            let item = items.objectAtIndex(index) as! Feed
-            moc.deleteObject(item)
-            coreDataHelper.saveManagedObjectContext(moc)
-            return true
-            
-        } else {
-            return false
+        let objects = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc) as! [Feed]
+        let object = objects[newIndexPath.row] as Feed
+        let link = object.link
+        moc.deleteObject(object)
+        coreDataHelper.saveManagedObjectContext(moc)
+        
+        
+        let p = NSPredicate(format: "source == %@", link)
+        
+        let items = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: p, managedObjectContext: moc) as! [Article]
+        var documentsDirectory:String? = nil
+        var paths : [AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if paths.count > 0 {
+            documentsDirectory = paths[0] as? String
         }
+        for item in items {
+            moc.deleteObject(item)
+            var path = documentsDirectory! + item.title + item.author + item.source
+            if path != "" && NSFileManager.defaultManager().fileExistsAtPath(path) {
+                NSFileManager.defaultManager().removeItemAtPath(path, error: NSErrorPointer())
+                }
+
+        }
+        
+        coreDataHelper.saveManagedObjectContext(moc)
         
     }
     

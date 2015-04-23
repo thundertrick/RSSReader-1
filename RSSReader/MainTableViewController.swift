@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 
 
@@ -409,27 +410,71 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         if self.fetchedResultsController.fetchedObjects?.count > indexPath.row {
           
             let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Article
-            var path = ""
-            var documentsDirectory:String? = nil
-            var paths : [AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-            if paths.count > 0 {
-                documentsDirectory = paths[0] as? String
-                 path = documentsDirectory! + item.title + item.author + item.source
+           
+            var savePath = ""
+            var imageSource = ""
+            if item.content != nil {
                 
+                let htmlContent = item.content as NSString
+                
+                let rangeOfString = NSMakeRange(0, htmlContent.length)
+                let regex = NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: nil, error: nil)
+                
+                if htmlContent.length > 0 {
+                    var match = regex?.matchesInString(htmlContent as String, options: nil, range: rangeOfString)
+                    
+                    if (match != nil) && (match?.count > 0) {
+                        for (index, value) in enumerate(match!) {
+                            
+                            let imageURL = htmlContent.substringWithRange(value.rangeAtIndex(2)) as NSString
+                            
+                            if (NSString(string: imageURL.lowercaseString).rangeOfString("feedburner").location == NSNotFound) && (NSString(string: imageURL.lowercaseString).rangeOfString("feedsportal").location == NSNotFound) && (imageURL.substringToIndex(4) == "http") {
+                                
+                                
+                                imageSource = imageURL as String
+                                break
+                            }
+                            
+                        }
+                    }
+                }
+                
+                if imageSource != "" {
+                    Alamofire.request(.GET, imageSource)
+                        .response { (request, response, data, error) in
+                            if error == nil {
+                                
+                                if cell.viewWithTag(123) == nil {
+                                    cell.addImage()
+                                }
+                                
+                                cell.thumbnailImage.image = UIImage(data: data as! NSData)
+                                
+                            } else {
+                                println("image downloading error")
+                                if cell.viewWithTag(123) != nil {
+                                    cell.removeImage()
+                                }
+                            }
+                    }
+                }
             }
+
             
-            if path != "" && NSFileManager.defaultManager().fileExistsAtPath(path) {
+           /* if savePath != "" && NSFileManager.defaultManager().fileExistsAtPath(savePath) {
                 if cell.viewWithTag(123) == nil {
                     cell.addImage()
                 }
-          
-                cell.thumbnailImage.image = UIImage(named: path)
+            
+                cell.thumbnailImage.image = UIImage(named: savePath)
                 
             }else{
+                println("file doesn't exist")
                 if cell.viewWithTag(123) != nil {
                 cell.removeImage()
                 }
             }
+*/
             cell.accessoryType = .DisclosureIndicator
         
             cell.summaryText.text = item.summary.stringByConvertingHTMLToPlainText()!
