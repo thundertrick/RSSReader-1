@@ -409,43 +409,21 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
         if self.fetchedResultsController.fetchedObjects?.count > indexPath.row {
           
             let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Article
-            var imageSource = ""
-            if item.content != nil {
-                
-                let htmlContent = item.content as NSString
-                
-                let rangeOfString = NSMakeRange(0, htmlContent.length)
-                let regex = NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: nil, error: nil)
-                
-                if htmlContent.length > 0 {
-                    var match = regex?.matchesInString(htmlContent as String, options: nil, range: rangeOfString)
-                    
-                    if (match != nil) && (match?.count > 0) {
-                        for (index, value) in enumerate(match!) {
-                           
-                            let imageURL = htmlContent.substringWithRange(value.rangeAtIndex(2)) as NSString
-                            
-                            if (NSString(string: imageURL.lowercaseString).rangeOfString("feedburner").location == NSNotFound) && (NSString(string: imageURL.lowercaseString).rangeOfString("feedsportal").location == NSNotFound) && (imageURL.substringToIndex(4) == "http") {
-                                
-                                
-                                imageSource = imageURL as String
-                                break
-                            }
-                            
-                        }
-                    }
-                }
+            var path = ""
+            var documentsDirectory:String? = nil
+            var paths : [AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            if paths.count > 0 {
+                documentsDirectory = paths[0] as? String
+                 path = documentsDirectory! + item.title + item.author + item.source
                 
             }
             
-            
-            if imageSource != "" {
+            if path != "" && NSFileManager.defaultManager().fileExistsAtPath(path) {
                 if cell.viewWithTag(123) == nil {
                     cell.addImage()
                 }
-            
-                println(imageSource)
-                cell.thumbnailImage.setImageWithURL(NSURL(string: imageSource), placeholderImage: UIImage(named: "placeholder"))
+          
+                cell.thumbnailImage.image = UIImage(named: path)
                 
             }else{
                 if cell.viewWithTag(123) != nil {
