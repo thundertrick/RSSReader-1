@@ -112,21 +112,20 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         UIView.animateWithDuration(time, animations: { () -> Void in
              self.progressView.alpha = 0.0
         }) { (finished: Bool) -> Void in
-            self.destroyProgressViewIfNeeded()
+           
         }
     }
     
     func destroyProgressViewIfNeeded() {
-        if progressView != nil {
         
         progressView.removeFromSuperview()
-        }
+        
     }
 
     deinit {
         self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
         self.webView.navigationDelegate = nil
-        clearProgressViewAnimated(true)
+        destroyProgressViewIfNeeded()
 
     }
     
@@ -220,10 +219,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         if (keyPath == "estimatedProgress") {
             if webView.estimatedProgress == 1 {
                 self.clearProgressViewAnimated(true)
+            } else {
+                progressView.alpha = 1.0
             }
-            if progressView == nil {
-                self.instantiateProgressView()
-            }
+            
+           
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
         } else {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
