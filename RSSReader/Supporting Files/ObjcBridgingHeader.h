@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 The Hexagon. All rights reserved.
 //
 
-#import "UIImageView+AFNetworking.h"
 #import "MWFeedParser.h"
 #import "NSString+HTML.h"
 #import "Feed.h"

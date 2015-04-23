@@ -440,6 +440,7 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                 }
                 
                 if imageSource != "" {
+                    cell.thumbnailImage.image = UIImage(named: "placeholder")
                     Alamofire.request(.GET, imageSource)
                         .response { (request, response, data, error) in
                             if error == nil {
