@@ -44,7 +44,13 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         lprg.minimumPressDuration = 2.0
         lprg.delegate = self
         self.tableView.addGestureRecognizer(lprg)
-        self.title = "Feeds"
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        navigationItem.rightBarButtonItem = plusButton
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.title = "Lightread"
        
     }
     
@@ -74,7 +80,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
             // Configure the cell...
             cell?.backgroundColor = UIColor.whiteColor()
             cell?.textLabel?.font = UIFont.italicSystemFontOfSize(18)
-            cell?.textLabel?.textColor = UIColor.orangeColor()
+            cell?.textLabel?.textColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
             let selectedCellView:UIView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
         
         }
