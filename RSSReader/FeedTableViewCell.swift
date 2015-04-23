@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class FeedTableViewCell: UITableViewCell {
 
     var thumbnailImage = UIImageView()
     
     @IBOutlet var titleText: UILabel!
+    var request: Alamofire.Request?
  
     @IBOutlet var summaryText: UILabel!
     

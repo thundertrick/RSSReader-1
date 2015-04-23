@@ -36,17 +36,9 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
         let p = NSPredicate(format: "source == %@", link)
         
         let items = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: p, managedObjectContext: moc) as! [Article]
-        var documentsDirectory:String? = nil
-        var paths : [AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        if paths.count > 0 {
-            documentsDirectory = paths[0] as? String
-        }
         for item in items {
             moc.deleteObject(item)
-            var path = documentsDirectory! + item.title + item.author + item.source
-            if path != "" && NSFileManager.defaultManager().fileExistsAtPath(path) {
-                NSFileManager.defaultManager().removeItemAtPath(path, error: NSErrorPointer())
-                }
+          }
 
         }
         

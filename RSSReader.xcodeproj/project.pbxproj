@@ -34,6 +34,7 @@
 		CCDC0CAB1AB8B9AA00AF39F7 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */; };
 		CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */; };
 		CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CB11AB8B9D200AF39F7 /* Article.m */; };
+		CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */; };
 		CCEE44221AE807E500F54329 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEE44211AE807E500F54329 /* WebViewController.swift */; };
 		CCEE44241AE81E2E00F54329 /* WebAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEE44231AE81E2E00F54329 /* WebAssets.xcassets */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
 		CCDC0CB01AB8B9D200AF39F7 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		CCDC0CB11AB8B9D200AF39F7 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImage.swift; sourceTree = "<group>"; };
 		CCEE44211AE807E500F54329 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		CCEE44231AE81E2E00F54329 /* WebAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WebAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				CCDC0C961AB8B94200AF39F7 /* AppDelegate.swift */,
+				CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */,
 				CCDC0C9D1AB8B97100AF39F7 /* MainTableViewController.swift */,
 				CCDC0C9F1AB8B97A00AF39F7 /* ArticleViewController.swift */,
 				CCEE44211AE807E500F54329 /* WebViewController.swift */,
@@ -423,6 +426,7 @@
 				CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */,
 				CCDC0C5A1AB8B86400AF39F7 /* MWFeedParser.m in Sources */,
 				CCDC0C9A1AB8B95B00AF39F7 /* SaveFeed.swift in Sources */,
+				CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */,
 				CCDC0C571AB8B86400AF39F7 /* GTMNSString+HTML.m in Sources */,
 				CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */,
 				CCDC0CA31AB8B98000AF39F7 /* FeedTableViewCell.swift in Sources */,

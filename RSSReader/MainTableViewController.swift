@@ -438,45 +438,30 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
                         }
                     }
                 }
+            
                 
-                if imageSource != "" {
-                    cell.thumbnailImage.image = UIImage(named: "placeholder")
-                    Alamofire.request(.GET, imageSource)
-                        .response { (request, response, data, error) in
-                            if error == nil {
-                                
-                                if cell.viewWithTag(123) == nil {
-                                    cell.addImage()
-                                }
-                                
-                                cell.thumbnailImage.image = UIImage(data: data as! NSData)
-                                
-                            } else {
-                                println("image downloading error")
-                                if cell.viewWithTag(123) != nil {
-                                    cell.removeImage()
-                                }
-                            }
+                cell.thumbnailImage.image = UIImage(named: "placeholder")
+                cell.request?.cancel()
+                
+                cell.request = Alamofire.request(.GET, imageSource).responseImage() {
+                    (request, _, image, error) in
+                    if error == nil && image != nil {
+                        if cell.viewWithTag(123) == nil {
+                            cell.addImage()
+                        }
+                        
+                        cell.thumbnailImage.image = image
+
+                    } else {
+                        if cell.viewWithTag(123) != nil {
+                            cell.removeImage()
+                        }
                     }
                 }
-            }
-
-            
-           /* if savePath != "" && NSFileManager.defaultManager().fileExistsAtPath(savePath) {
-                if cell.viewWithTag(123) == nil {
-                    cell.addImage()
-                }
-            
-                cell.thumbnailImage.image = UIImage(named: savePath)
                 
-            }else{
-                println("file doesn't exist")
-                if cell.viewWithTag(123) != nil {
-                cell.removeImage()
-                }
-            }
-*/
-            cell.accessoryType = .DisclosureIndicator
+    
+            
+                cell.accessoryType = .DisclosureIndicator
         
             cell.summaryText.text = item.summary.stringByConvertingHTMLToPlainText()!
    
@@ -496,7 +481,8 @@ class MainTableViewController: UITableViewController, SideBarDelegate, SaveFeedD
             
     
             
-        }
+            }
+    }
     }
     
   
