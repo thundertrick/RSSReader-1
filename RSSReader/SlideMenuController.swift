@@ -141,30 +141,26 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         self.addRightGestures()
     }
 
-
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-
-        super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
         self.mainContainerView.transform = CGAffineTransformMakeScale(1.0, 1.0)
         self.leftContainerView.hidden = true
         self.rightContainerView.hidden = true
-    }
-    
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         
         self.closeLeftNonAnimation()
         self.closeRightNonAnimation()
         self.leftContainerView.hidden = false
         self.rightContainerView.hidden = false
-
+        
         self.removeLeftGestures()
         self.removeRightGestures()
         self.addLeftGestures()
         self.addRightGestures()
+
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge.None

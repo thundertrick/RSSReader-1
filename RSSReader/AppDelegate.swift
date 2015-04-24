@@ -12,18 +12,22 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    required override init() {
+        super.init()
+    }
     var window: UIWindow?
-
+    var storyboard : UIStoryboard!
+    var mainViewController : MainTableViewController!
+    var nvc: UINavigationController!
     private func createMenuView() {
         
         // create viewController code...
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+      storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController
+        mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController
         let leftViewController = SideBarTableViewController()
-      
         
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+       nvc = UINavigationController(rootViewController: mainViewController)
         let nvc2: UINavigationController = UINavigationController(rootViewController: leftViewController)
         
     

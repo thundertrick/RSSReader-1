@@ -6,9 +6,6 @@
 
 import UIKit
 
-
-
-
 class SideBarTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
 
     var feedManager = SaveFeedManager()

@@ -10,6 +10,7 @@
 		CA87E636D89C08A62EB80D26 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D63985F1C1060438C2436 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC1672891AD6F4400003EF40 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1672881AD6F4400003EF40 /* HTMLParser.swift */; };
 		CC2D850B1AE9386D00F0CCB4 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */; };
+		CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */; };
 		CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC34673E1AB8C8BB00434630 /* FeedModel.xcdatamodeld */; };
 		CC3467421AB8C94E00434630 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3467411AB8C94E00434630 /* Images.xcassets */; };
 		CC4518601AE920F4003C333A /* pulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CC45185C1AE920F4003C333A /* pulltorefresharrow.png */; };
@@ -59,6 +60,7 @@
 		C38D63985F1C1060438C2436 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1672881AD6F4400003EF40 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = ../SlideMenuController.swift; sourceTree = "<group>"; };
+		CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedViewController.swift; sourceTree = "<group>"; };
 		CC34673F1AB8C8BB00434630 /* FeedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedModel.xcdatamodel; sourceTree = "<group>"; };
 		CC3467411AB8C94E00434630 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC45185C1AE920F4003C333A /* pulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulltorefresharrow.png; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CCDC0C961AB8B94200AF39F7 /* AppDelegate.swift */,
+				CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */,
 				CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */,
 				CCDC0C9D1AB8B97100AF39F7 /* MainTableViewController.swift */,
 				CCDC0C9F1AB8B97A00AF39F7 /* ArticleViewController.swift */,
@@ -451,6 +454,7 @@
 				CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */,
 				CCDC0C571AB8B86400AF39F7 /* GTMNSString+HTML.m in Sources */,
 				CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */,
+				CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */,
 				CCDC0CA31AB8B98000AF39F7 /* FeedTableViewCell.swift in Sources */,
 				CCDC0C9B1AB8B95B00AF39F7 /* UpdateDataManager.swift in Sources */,
 				CC4518631AE920F4003C333A /* UIScrollViewExtension.swift in Sources */,

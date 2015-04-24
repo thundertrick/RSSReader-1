@@ -21,7 +21,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
     
     // initialize data helper classs
-    var saveFeedManager = SaveFeedManager()
+
     var updateDataManager = UpdateDataManager()
     var dataHelper = CoreDataHelper()
     var managedObjectContext: NSManagedObjectContext?
@@ -43,13 +43,12 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         sideBarDidSelectMenuButtonAtIndex(currentView)
         
         if sideVC.fetchedResultsController.fetchedObjects?.count == 0 {
-            self.sideBarDidSelectMenuButtonAtIndex(0)
+            self.addFeed()
         }
     
         // setup refresh classes delegates
-        saveFeedManager.delegate = self
         updateDataManager.delegate = self
-    
+        
         updateDataManager.update()
     
         // customize ui
@@ -197,39 +196,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
   
     
     func addFeed() {
-        
-        let alert = UIAlertController(title: "Add new feed", message: "Enter feed name and url", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addTextFieldWithConfigurationHandler({ (textField:UITextField!) -> Void in
-            textField.placeholder = "URL"
-            textField.clearButtonMode = UITextFieldViewMode.Always
-        })
-        
-        alert.addTextFieldWithConfigurationHandler({ (textField:UITextField!) -> Void in
-            textField.placeholder = "Name (optional)"
-            textField.clearButtonMode = UITextFieldViewMode.Always
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action -> Void in
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("navAddFeed") as! UINavigationController
+        self.navigationController!.presentViewController(vc, animated: true, completion: nil)
             
-        }))
-        alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { action -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                
-                let textFields = alert.textFields
-                let feedNameTextField = textFields!.last as! UITextField
-                feedNameTextField.endEditing(true)
-                let feedURLTextField = textFields!.first as! UITextField
-                feedURLTextField.endEditing(true)
-                if  let feedURL = feedURLTextField.text {
-                self.saveFeedManager.saveFeedWithURL(feedURL, withName: feedNameTextField.text)
-                }
-            })
-        }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-            self.currentView = 1
+        self.currentView = 1
 
     }
 
@@ -361,6 +332,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        var cell: FeedTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell
         configureCell(cell, atIndexPath: indexPath)
+        
         return cell
 
     }
