@@ -37,6 +37,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearsSelectionOnViewWillAppear = false
         let lprg = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         lprg.minimumPressDuration = 2.0
         lprg.delegate = self
@@ -45,11 +46,25 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         navigationItem.rightBarButtonItem = plusButton
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+         self.navigationController?.toolbarHidden = false
+        self.navigationController?.toolbar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
+        self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
+        var gearButton = UIBarButtonItem(image: UIImage(named: "gear"), style: UIBarButtonItemStyle.Plain, target: self, action: "openSettings")
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        self.toolbarItems = [flexibleSpace, gearButton]
         self.title = "Lightread"
        
     }
+    
+    // settings button pressed
+    func openSettings() {
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("SettingsController") as! UINavigationController
+        self.navigationController!.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
     func addFeed() {
         var nav = self.slideMenuController()?.mainViewController as! UINavigationController
         var vc = nav.viewControllers[0] as! MainTableViewController

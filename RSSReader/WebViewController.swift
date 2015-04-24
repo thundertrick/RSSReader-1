@@ -24,6 +24,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     var webView : WKWebView!
     var urlToLoad = NSURL()
     
+    var titleLabel : UILabel!
+    
     // MARK: Setup view
     
     required init(coder aDecoder: NSCoder) {
@@ -53,11 +55,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        initTitleLabel()
 
         let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
-        self.title = urlToLoad.description
+        setTitle()
         webView.navigationDelegate = self
         webView.opaque = true
         webView.backgroundColor = UIColor.lightGrayColor()
@@ -128,7 +130,48 @@ class WebViewController: UIViewController, WKNavigationDelegate {
 
     }
     
- 
+    func initTitleLabel() {
+        titleLabel = UILabel(frame: self.navigationController!.navigationBar.frame)
+        titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleHeight|UIViewAutoresizing.FlexibleWidth
+        self.navigationItem.titleView = titleLabel
+    }
+    
+    func setTitle() {
+        
+        let titleURL = (self.webView.URL?.description != nil) ? self.webView.URL!.description : ""
+        let title = (self.webView.title != nil) ? self.webView.title! : ""
+        var text = title
+        
+        let titleFont: UIFont = UIFont.boldSystemFontOfSize(12.0)
+        let urlFont : UIFont = UIFont.boldSystemFontOfSize(10.0)
+        
+        let textColor : UIColor = UIColor.blackColor()
+        
+        if text != "" {
+            if titleURL != "" {
+            text += "\n\(titleURL)"
+            }
+        } else {
+            text = titleURL
+        }
+        
+        let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: textColor]
+        var attrString = NSMutableAttributedString(string: text, attributes: attributes)
+        
+        if (text as NSString).rangeOfString(titleURL).location == NSNotFound {
+        
+            attrString.addAttribute(NSFontAttributeName, value: urlFont, range: (text as NSString).rangeOfString(titleURL))
+        
+        }
+        
+        titleLabel.attributedText = attrString
+        titleLabel.frame.size.height = self.navigationController!.navigationBar.frame.height
+        
+        
+       
+    }
     
     override func viewWillAppear(animated: Bool) {
     self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
@@ -205,7 +248,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         self.updateStateBarButton()
-        self.title = self.webView.URL?.description
+        setTitle()
     }
 
     func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!) {

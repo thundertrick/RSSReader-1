@@ -64,7 +64,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
         // register nib for FeedTableViewCell
         var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
 
 
         // setup nav bar butons
@@ -72,8 +72,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         var menuButton = UIBarButtonItem(image: UIImage(named: "menu"), style: UIBarButtonItemStyle.Plain, target: self, action: "openMenu")
         self.navigationItem.leftBarButtonItem = menuButton
         
-        var gearButton = UIBarButtonItem(image: UIImage(named: "gear"), style: UIBarButtonItemStyle.Plain, target: self, action: "openSettings")
-        self.navigationItem.rightBarButtonItem = gearButton
+      
         
         // setup pull to refresh
         let options = PullToRefreshOption()
@@ -158,11 +157,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
      
     }
     
-    // settings button pressed
-    func openSettings() {
-        
-    }
-    
+ 
     // pull to refresh
     func updateFromRefreshButton() {
         updateDataManager.update()
@@ -330,11 +325,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       var cell: FeedTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell
-        configureCell(cell, atIndexPath: indexPath)
+       var cell: FeedTableViewCell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as! FeedTableViewCell
+            configureCell(cell, atIndexPath: indexPath)
+           return cell
+   
         
-        return cell
-
     }
     
 
