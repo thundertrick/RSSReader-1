@@ -29,6 +29,7 @@ class AddFeedViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = cancel
         let save = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "save")
         self.navigationItem.rightBarButtonItem = save
+        urlField.text = UIPasteboard.generalPasteboard().string
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

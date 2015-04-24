@@ -69,7 +69,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         var nav = self.slideMenuController()?.mainViewController as! UINavigationController
         var vc = nav.viewControllers[0] as! MainTableViewController
        vc.addFeed()
-        self.slideMenuController()?.closeLeft()
+  
         
     }
     
