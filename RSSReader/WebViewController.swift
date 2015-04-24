@@ -160,13 +160,14 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: textColor]
         var attrString = NSMutableAttributedString(string: text, attributes: attributes)
         
-        if (text as NSString).rangeOfString(titleURL).location == NSNotFound {
+        if (text as NSString).rangeOfString(titleURL).location != NSNotFound {
         
             attrString.addAttribute(NSFontAttributeName, value: urlFont, range: (text as NSString).rangeOfString(titleURL))
         
         }
         
         titleLabel.attributedText = attrString
+   titleLabel.sizeToFit()
         titleLabel.frame.size.height = self.navigationController!.navigationBar.frame.height
         
         
@@ -258,7 +259,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         self.updateToolBarItems()
-        self.title = self.webView.title
+        setTitle()
          progressView.setProgress(0.0, animated: false)
     }
     
@@ -284,7 +285,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
                 progressView.alpha = 1.0
             }
             
-           
+           setTitle()
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
         } else {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
