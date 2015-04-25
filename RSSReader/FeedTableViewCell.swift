@@ -53,10 +53,6 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     
-    override func prepareForReuse() {
-        self.accessoryType = .DisclosureIndicator
-    }
-    
     func removeImage() {
         if let viewToRemove = self.viewWithTag(123) {
             imageRemoved = true

@@ -36,7 +36,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
     override func viewDidLoad() {
         
-        super.viewDidLoad()
+       
     
         self.clearsSelectionOnViewWillAppear = true
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
@@ -61,7 +61,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         updateDataManager.delegate = self
         
         updateDataManager.update()
-    
+        super.viewDidLoad()
        
        
         // clear backButton text
@@ -338,12 +338,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
-        dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
-            
-        })
-    
-       
+
 
     }
     
@@ -391,17 +386,28 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         var cell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as? FeedTableViewCell
         if cell != nil {
             configureCell(cell!, atIndexPath: indexPath)
+          
             return cell!
         } else {
             var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
             self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
              var theCell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
             configureCell(theCell!, atIndexPath: indexPath)
+         
             return theCell!
         }
         
    
         
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        dispatch_async(dispatch_get_main_queue(), {
+            cell.accessoryType = .DisclosureIndicator
+            cell.accessoryView = nil
+            cell.layoutSubviews()
+            
+        })
     }
  
 
@@ -534,21 +540,25 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
      
-               self.tableView.endUpdates()
+            self.tableView.endUpdates()
+        println("called")
         
-        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
-        var unread = 0
-        for object in objects {
-            if object.read == false {
-                ++unread
+            let objects = self.fetchedResultsController.fetchedObjects as! [Article]
+            var unread = 0
+            for object in objects {
+                if object.read == false {
+                    ++unread
+                }
             }
-        }
-        if unread == 0 {
-            self.markReadButton.enabled = false
-        } else {
-            self.markReadButton.enabled = true
-        }
-        self.tableView.layoutIfNeeded()
+            if unread == 0 {
+                self.markReadButton.enabled = false
+            } else {
+                self.markReadButton.enabled = true
+            }
+        
+        
+        
+       
 
         
     }
@@ -651,5 +661,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
             break
         }
     }
+    
+    
     
 }
