@@ -37,9 +37,6 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aih-Ng-LAg">
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="gear" id="XeV-ha-a94">
-                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -70,7 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gear" width="29" height="29"/>
-        <image name="menu" width="22" height="22"/>
+        <image name="menu" width="24" height="24"/>
     </resources>
 </document>

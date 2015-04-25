@@ -46,7 +46,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
                 requestFromURL(url)
             }
             delegate?.updatedData()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
 
         }
         

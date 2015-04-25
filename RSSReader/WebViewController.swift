@@ -65,7 +65,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
         navigationItem.backBarButtonItem = backItem
         setTitle()
         webView.navigationDelegate = self
-        webView.opaque = true
         webView.backgroundColor = UIColor.lightGrayColor()
         instantiateProgressView()
         let url = urlToLoad
@@ -203,6 +202,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
         }
         
         titleLabel.attributedText = attrString
+        titleLabel.frame = self.navigationController!.navigationBar.frame
         titleLabel.sizeToFit()
          self.navigationItem.titleView = titleLabel
         
@@ -211,15 +211,23 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         self.navigationController!.hidesBarsOnSwipe = true
              self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
+ 
     
     }
     override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
         clearProgressViewAnimated(true)
             self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        setTitle()
     }
         
    

@@ -306,7 +306,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     // MARK: - updateData  Delegate
 
     func updateDataFailedWithError() {
-
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
   
         let alert = UIAlertController(title: "Refresh Failed", message: "Refresh of feed items failed. Please check your internet connection.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -322,7 +322,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
     func updatedData() {
         println("updated data")
-     
+     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
     
        
