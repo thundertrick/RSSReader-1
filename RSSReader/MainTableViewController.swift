@@ -43,10 +43,12 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
           sideVC = nav.viewControllers[0] as! SideBarTableViewController
         // customize ui
-        markReadButton = UIBarButtonItem(title: "Mark All Read", style: .Plain, target: self, action: "markAllRead")
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        self.toolbarItems = [flexibleSpace, markReadButton, flexibleSpace]
-        self.navigationController?.toolbarHidden = false
+        markReadButton = UIBarButtonItem(image: UIImage(named: "checkmark"), style: UIBarButtonItemStyle.Plain, target: self, action: "markAllRead")
+        self.navigationItem.rightBarButtonItem = markReadButton
+
+
+    
+        self.navigationController?.toolbarHidden = true
         
         
         sideBarDidSelectMenuButtonAtIndex(currentView)
@@ -71,7 +73,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
         
-        // register nib for FeedTableViewCell
+              // register nib for FeedTableViewCell
         var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
 
@@ -188,8 +190,9 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         }
         
         if unread > 0 {
+            let itemText = (unread == 1) ? "item" : "items"
         
-        let alert = UIAlertController(title: "Mark All Read", message: "Do you want to mark \(unread) items as read?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Mark All Read", message: "Do you want to mark \(unread) \(itemText) as read?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action -> Void in
             
