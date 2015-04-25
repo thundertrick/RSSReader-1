@@ -47,9 +47,15 @@ class FeedTableViewCell: UITableViewCell {
         summaryText.clipsToBounds = true
         titleText.clipsToBounds = true
              sourceAndDateText.clipsToBounds = true
+        
+        self.accessoryType = .DisclosureIndicator
 
     }
 
+    
+    override func prepareForReuse() {
+        self.accessoryType = .DisclosureIndicator
+    }
     
     func removeImage() {
         if let viewToRemove = self.viewWithTag(123) {

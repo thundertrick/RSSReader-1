@@ -48,6 +48,8 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addFeed")
         navigationItem.rightBarButtonItem = plusButton
         
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont.boldFontWithSize(17)]
@@ -82,6 +84,12 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
        vc.addFeed()
     }
     
+    func deleteFeed(indexPath: NSIndexPath) {
+        feedManager.deleteFeedAtIndexPath(indexPath)
+        
+        vc.selectCorrect()
+    }
+    
     func handleLongPress(recognizer: UILongPressGestureRecognizer) {
         
         let p : CGPoint = recognizer.locationInView(self.tableView)
@@ -92,9 +100,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         } else if indexPath!.row < 3 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
-            feedManager.deleteFeedAtIndexPath(indexPath!)
-           
-            vc.selectCorrect()
+          deleteFeed(indexPath!)
         } else {
            println(recognizer.state)
         }
@@ -179,14 +185,61 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
+           
         })
         
     }
     
+    // MARK: - Editing
+    
+    
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row > 2 {
+            return true
+        }
+        
+        return false
+    }
+
+    
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+        self.deleteFeed(indexPath)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        if tableView.numberOfRowsInSection(0) < 4 {
+            self.setEditing(false, animated: true)
+        }
+    } else if editingStyle == .Insert {
+    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+    }
+   
+    
+    
+    
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        
+        
+    
+    }
+
+    
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+
+    return false
+    }
+
+
     
     
    
     }
-    
-    
+
+
 

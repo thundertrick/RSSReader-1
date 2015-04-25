@@ -338,6 +338,10 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+            
+        })
     
        
 
@@ -384,7 +388,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       var cell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
+        var cell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as? FeedTableViewCell
         if cell != nil {
             configureCell(cell!, atIndexPath: indexPath)
             return cell!
@@ -399,7 +403,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
    
         
     }
-    
+ 
 
 
     
@@ -459,7 +463,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
                 
     
             
-                cell.accessoryType = .DisclosureIndicator
+               
         
             cell.summaryText.text = item.summary.stringByConvertingHTMLToPlainText()!
    
@@ -480,8 +484,12 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
             
             }
+            
+        }
     }
-    }
+    
+  
+
     
   
     
@@ -540,7 +548,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
         } else {
             self.markReadButton.enabled = true
         }
-
+        self.tableView.layoutIfNeeded()
 
         
     }
@@ -608,6 +616,10 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
         return NSAttributedString(string: text, attributes: attributes)
         
         
+    }
+    
+    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return true
     }
     
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
