@@ -179,6 +179,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     override func viewWillAppear(animated: Bool) {
     self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         self.navigationController!.hidesBarsOnSwipe = true
+             self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
     
     }
     override func viewWillDisappear(animated: Bool) {

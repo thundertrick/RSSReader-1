@@ -11,7 +11,7 @@ import TUSafariActivity
 
 
 
-class ArticleViewController: UIViewController, UIWebViewDelegate {
+class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecognizerDelegate {
     
     // MARK: - init
     var dataHelper = CoreDataHelper()
@@ -21,24 +21,73 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     var actionButton : UIBarButtonItem = UIBarButtonItem()
     var starButton : UIBarButtonItem = UIBarButtonItem()
     var readButton : UIBarButtonItem = UIBarButtonItem()
+    
+    var showGestureRecognizer = UISwipeGestureRecognizer()
+    var hideGestureRecognizer = UISwipeGestureRecognizer()
+    
     // MARK: - Setup View
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+         // gestureRecognizers
+        showGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        showGestureRecognizer.delegate = self
+        showGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(showGestureRecognizer)
+        
+        hideGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        hideGestureRecognizer.delegate = self
+        hideGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(hideGestureRecognizer)
+        
+        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(hideGestureRecognizer)
+        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(showGestureRecognizer)
+    
+        
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
         initToolBarButtonItems()
         webView.delegate = self
         webView.opaque = false
+
         
         // clear backButton text
         
         let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
+    
 
         
     }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == hideGestureRecognizer || gestureRecognizer == showGestureRecognizer {
+            return true
+        }
+        
+        return false
+    }
+    
+    // MARK: - Gesture Recognizer
+    
+
+    func handleSwipe(recognizer:UISwipeGestureRecognizer){
+        println("handle swipe")
+
+        if recognizer.direction == UISwipeGestureRecognizerDirection.Left{
+          
+            openWeb()
+        } else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    
+        
+        
+        
+    }
+
+
     
     func initToolBarButtonItems() {
        if let article = currentArticle {
@@ -166,9 +215,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
  
 
-
+    
  
     
 

@@ -294,9 +294,7 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         if self.isRightOpen() {
             return
         }
-        if !shouldOpenSide {
-            return
-        }
+     
         
         
         

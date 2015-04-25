@@ -15,7 +15,7 @@ import Alamofire
 var currentArticle : Article? = nil
 
 var shouldScrollToTop = true
-var shouldOpenSide = true
+
 
 class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
     
@@ -113,8 +113,14 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = false
-        shouldOpenSide = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+         self.navigationController?.setToolbarHidden(false, animated: true)
         shouldScrollToTop = false
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.slideMenuController()?.leftPanGesture?.enabled = true
     }
     
     
@@ -295,10 +301,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
     
     }
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        shouldOpenSide = false
-    }
+  
     
     // MARK: - updateData  Delegate
 
@@ -375,7 +378,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
             self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
              var theCell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
-            configureCell(cell!, atIndexPath: indexPath)
+            configureCell(theCell!, atIndexPath: indexPath)
             return theCell!
         }
         
@@ -523,6 +526,8 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
         } else {
             self.markReadButton.enabled = true
         }
+
+
         
     }
 
@@ -556,6 +561,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
+        self.slideMenuController()?.leftPanGesture?.enabled = false
     }
     
 }
