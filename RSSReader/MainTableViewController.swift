@@ -338,7 +338,26 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         self.sideBarDidSelectMenuButtonAtIndex(currentView)
+        
+            
+        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
+        var unread = 0
+        for object in objects {
+            if object.read == false {
+                ++unread
+            }
+        }
+        if unread == 0 {
+            self.markReadButton.enabled = false
+        } else {
+            self.markReadButton.enabled = true
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
 
+       
 
     }
     

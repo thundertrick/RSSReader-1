@@ -16,7 +16,7 @@ protocol UpdateDataManagerDelegate {
 
 class UpdateDataManager: NSObject, MWFeedParserDelegate {
     var coreDataHelper = CoreDataHelper()
-    
+    var feedParser : MWFeedParser? = nil
     
     var delegate : UpdateDataManagerDelegate?
      var urls : [String] {
@@ -56,10 +56,11 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
     
      func requestFromURL(url: String)  {
         let url = NSURL(string: url)
-        let feedParser = MWFeedParser(feedURL: url)
-        feedParser.delegate = self
-        feedParser.feedParseType = ParseTypeFull
-        feedParser.parse()
+         feedParser = MWFeedParser(feedURL: url)
+        feedParser!.delegate = self
+        feedParser!.feedParseType = ParseTypeFull
+        feedParser!.parse()
+        feedParser = nil
     }
     
     

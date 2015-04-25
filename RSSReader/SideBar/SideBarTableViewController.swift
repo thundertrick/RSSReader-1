@@ -183,10 +183,13 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     var _fetchedResultsController: NSFetchedResultsController?
 
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        let selectedCell = self.tableView.indexPathForSelectedRow()
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
            
         })
+        
+        self.tableView.selectRowAtIndexPath(selectedCell, animated: false, scrollPosition: .None)
         
     }
     
@@ -231,8 +234,12 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row > 2 {
+            return true
+        }
+        
+        return false
 
-    return false
     }
 
 
