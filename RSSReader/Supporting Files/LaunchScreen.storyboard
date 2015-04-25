@@ -37,6 +37,9 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aih-Ng-LAg">
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="checkmark" id="oqA-3M-3m7">
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -67,6 +70,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" width="22" height="22"/>
         <image name="menu" width="24" height="24"/>
     </resources>
 </document>
