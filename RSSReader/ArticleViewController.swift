@@ -105,8 +105,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = true
-        self.navigationController!.hidesBarsOnTap = true
-      
+ 
         if let article = currentArticle {
             self.title = article.sourceTitle
             parser.articleContent = article.content

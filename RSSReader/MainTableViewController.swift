@@ -113,7 +113,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = false
-        self.navigationController!.hidesBarsOnTap = false
+    
         shouldScrollToTop = false
     }
     
