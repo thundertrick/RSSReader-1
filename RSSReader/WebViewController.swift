@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import TUSafariActivity
 
-class WebViewController: UIViewController, WKNavigationDelegate {
+class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecognizerDelegate {
 
     
     // MARK: - Variables
@@ -25,6 +25,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     var urlToLoad = NSURL()
     
     var titleLabel : UILabel!
+    
+      var backGestureRecognizer = UISwipeGestureRecognizer()
     
     // MARK: Setup view
     
@@ -69,6 +71,12 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         let url = urlToLoad
         let request = NSURLRequest(URL:url)
         webView.loadRequest(request)
+        backGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        backGestureRecognizer.delegate = self
+        backGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(backGestureRecognizer)
+        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(backGestureRecognizer)
+
          setUpBarButtonItems()
         
     }
@@ -92,6 +100,32 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         self.toolbarItems = [backButton, flexibleSpace, forwardButton, flexibleSpace, stateButton, flexibleSpace, actionButton]
     }
     
+    // MARK: - GestureRecognizer
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer ==  backGestureRecognizer {
+            return true
+        }
+        
+        return false
+    }
+    
+    // MARK: - Gesture Recognizer
+    
+    
+    func handleSwipe(recognizer:UISwipeGestureRecognizer){
+        println("handle swipe")
+        
+        if recognizer.direction == UISwipeGestureRecognizerDirection.Right{
+         self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+        
+        
+        
+        
+    }
+
     
     // MARK: - ProgressView
     

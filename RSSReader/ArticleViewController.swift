@@ -22,26 +22,26 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     var starButton : UIBarButtonItem = UIBarButtonItem()
     var readButton : UIBarButtonItem = UIBarButtonItem()
     
-    var showGestureRecognizer = UISwipeGestureRecognizer()
-    var hideGestureRecognizer = UISwipeGestureRecognizer()
+    var backGestureRecognizer = UISwipeGestureRecognizer()
+    var forwardGestureRecognizer = UISwipeGestureRecognizer()
     
     // MARK: - Setup View
 
     override func viewDidLoad() {
         super.viewDidLoad()
          // gestureRecognizers
-        showGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
-        showGestureRecognizer.delegate = self
-        showGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(showGestureRecognizer)
+        backGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        backGestureRecognizer.delegate = self
+        backGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(backGestureRecognizer)
         
-        hideGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
-        hideGestureRecognizer.delegate = self
-        hideGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
-        self.view.addGestureRecognizer(hideGestureRecognizer)
+        forwardGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        forwardGestureRecognizer.delegate = self
+        forwardGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(forwardGestureRecognizer)
         
-        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(hideGestureRecognizer)
-        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(showGestureRecognizer)
+        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(forwardGestureRecognizer)
+        self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(backGestureRecognizer)
     
         
         var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
@@ -61,7 +61,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == hideGestureRecognizer || gestureRecognizer == showGestureRecognizer {
+        if gestureRecognizer == forwardGestureRecognizer || gestureRecognizer == backGestureRecognizer {
             return true
         }
         
@@ -154,6 +154,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
  
         if let article = currentArticle {
             self.title = article.sourceTitle
@@ -161,6 +163,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
             parser.articleTitle = article.title
             parser.articleAuthor = article.sourceTitle + "/"  + article.author
             parser.articleDatePublished = article.date
+            
 
             self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
         
