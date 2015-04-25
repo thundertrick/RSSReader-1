@@ -16,6 +16,8 @@ class SettingsTableViewController: UITableViewController {
         var doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "dismiss")
         navigationItem.rightBarButtonItem = doneButton
         
+        self.title = "Settings"
+        
     }
 
 

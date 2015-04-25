@@ -8,8 +8,7 @@
 
 import UIKit
 import Alamofire
-
-
+import DZNEmptyDataSet
 
 
 var currentArticle : Article? = nil
@@ -17,7 +16,7 @@ var currentArticle : Article? = nil
 var shouldScrollToTop = true
 
 
-class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
+class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
 
     
@@ -46,20 +45,17 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         markReadButton = UIBarButtonItem(image: UIImage(named: "checkmark"), style: UIBarButtonItemStyle.Plain, target: self, action: "markAllRead")
         self.navigationItem.rightBarButtonItem = markReadButton
 
-
+        // empty data set
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        
+        self.tableView.tableFooterView = UIView()
     
         self.navigationController?.toolbarHidden = true
+    
         
-        
-        sideBarDidSelectMenuButtonAtIndex(currentView)
-        if self.fetchedResultsController.fetchedObjects?.count < 1 {
-            currentView = 0
-             sideBarDidSelectMenuButtonAtIndex(currentView)
-        }
-        
-        if sideVC.fetchedResultsController.fetchedObjects?.count == 0 {
-            self.addFeed()
-        }
+       selectCorrect()
+    
     
         // setup refresh classes delegates
         updateDataManager.delegate = self
@@ -107,9 +103,17 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
         self.tableView.addGestureRecognizer(tapGesture)
         
-
+       
      
 
+    }
+    
+    func selectCorrect() {
+        sideBarDidSelectMenuButtonAtIndex(currentView)
+        if self.fetchedResultsController.fetchedObjects?.count < 1 {
+            currentView = 0
+            sideBarDidSelectMenuButtonAtIndex(currentView)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -124,6 +128,13 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         super.viewDidAppear(animated)
         self.slideMenuController()?.leftPanGesture?.enabled = true
     }
+    
+   /* deinit {
+        self.tableView.emptyDataSetSource = nil
+        self.tableView.emptyDataSetDelegate = nil
+    }
+
+*/
     
     
     
@@ -300,7 +311,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         }
         
         self.sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: false, scrollPosition: .None)
-
+        self.tableView.reloadEmptyDataSet()
         
     
     }
@@ -565,6 +576,68 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         self.slideMenuController()?.leftPanGesture?.enabled = false
+    }
+    
+    // MARK: - Empty Data
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Items"
+        let attributes = [NSForegroundColorAttributeName : UIColor.darkGrayColor(), NSFontAttributeName : UIFont.boldFontWithSize(18)]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        var text = ""
+        
+        switch currentView {
+        case 0:
+            text = "Looks like you haven't added any feeds yet!"
+        case 1:
+            text = "You've read all articles!"
+        case 2:
+            text = "Looks like you haven't starred any articles yet. To do so, go to an article and tap the star."
+        default:
+            text = ":( Looks like we have an error. Please delete this feed and try again."
+        }
+        
+        var paragraph : NSMutableParagraphStyle = NSMutableParagraphStyle()
+        paragraph.lineBreakMode = .ByWordWrapping
+        paragraph.alignment = .Center
+        
+        let attributes = [NSForegroundColorAttributeName : UIColor.darkGrayColor(), NSFontAttributeName : UIFont.fontWithSize(14), NSParagraphStyleAttributeName : paragraph]
+        return NSAttributedString(string: text, attributes: attributes)
+        
+        
+    }
+    
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+         let attributes = [NSForegroundColorAttributeName : UIColor.orangeColor(), NSFontAttributeName : UIFont.boldFontWithSize(18)]
+        var text = ""
+        switch currentView {
+        case 0:
+            text = "Add New Feed"
+        case 1:
+            text = "Add New Feed"
+        default:
+            text = ""
+        }
+        
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+        return UIColor(red:0.88, green:0.88, blue:0.88, alpha:1)
+    }
+    
+    func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
+        switch currentView {
+        case 0:
+            self.addFeed()
+        case 1:
+            self.addFeed()
+        default:
+            break
+        }
     }
     
 }

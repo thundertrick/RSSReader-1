@@ -11,6 +11,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     var feedManager = SaveFeedManager()
     var tableData:[String] = []
     var dataHelper = CoreDataHelper()
+    var vc : MainTableViewController!
     var error = NSErrorPointer()
     var menuItems : [String] {
         get {
@@ -38,39 +39,47 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
+        
         let lprg = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         lprg.minimumPressDuration = 2.0
         lprg.delegate = self
         self.tableView.addGestureRecognizer(lprg)
+        
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addFeed")
         navigationItem.rightBarButtonItem = plusButton
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont.boldFontWithSize(17)]
+        
          self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
+        
         var gearButton = UIBarButtonItem(image: UIImage(named: "gear"), style: UIBarButtonItemStyle.Plain, target: self, action: "openSettings")
+        
         var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        
         self.toolbarItems = [flexibleSpace, gearButton]
+        
+        var nav = self.slideMenuController()?.mainViewController as! UINavigationController
+        vc = nav.viewControllers[0] as! MainTableViewController
+        
         self.title = "Lightread"
+     
        
     }
     
     // settings button pressed
     func openSettings() {
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("SettingsController") as! UINavigationController
-        self.navigationController!.presentViewController(vc, animated: true, completion: nil)
+        let settings = storyboard.instantiateViewControllerWithIdentifier("SettingsController") as! UINavigationController
+        self.navigationController!.presentViewController(settings, animated: true, completion: nil)
         
     }
     
     func addFeed() {
-        var nav = self.slideMenuController()?.mainViewController as! UINavigationController
-        var vc = nav.viewControllers[0] as! MainTableViewController
        vc.addFeed()
-  
-        
     }
     
     func handleLongPress(recognizer: UILongPressGestureRecognizer) {
@@ -80,11 +89,12 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         println("\(indexPath?.row), \(indexPath?.section)")
         if (indexPath == nil) {
             return
-        } else if indexPath!.row < 4 {
+        } else if indexPath!.row < 3 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
             feedManager.deleteFeedAtIndexPath(indexPath!)
-            tableView(self.tableView, heightForRowAtIndexPath:NSIndexPath(forRow: 1, inSection: 0))
+           
+            vc.selectCorrect()
         } else {
            println(recognizer.state)
         }
@@ -116,8 +126,6 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var nav = self.slideMenuController()?.mainViewController as! UINavigationController
-        var vc = nav.viewControllers[0] as! MainTableViewController
         vc.sideBarDidSelectMenuButtonAtIndex(indexPath.row)
         self.slideMenuController()?.closeLeft()
     }
