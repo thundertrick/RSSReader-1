@@ -116,7 +116,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-         self.navigationController?.setToolbarHidden(false, animated: true)
+         self.navigationController?.setToolbarHidden(true, animated: true)
         shouldScrollToTop = false
     }
     
