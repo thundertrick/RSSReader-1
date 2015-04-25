@@ -18,7 +18,7 @@ var shouldScrollToTop = true
 
 class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
     
-    
+
     
     // initialize data helper classs
 
@@ -64,7 +64,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
         // register nib for FeedTableViewCell
         var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
 
 
         // setup nav bar butons
@@ -96,8 +96,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
         self.tableView.addGestureRecognizer(tapGesture)
         
-        // set title
-        self.title = "All"
+
      
 
     }
@@ -206,21 +205,24 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     // sideBar button selected
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
         
+  
+        
         if index == 0 {
             self.title = "All"
             self.fetchedResultsController.fetchRequest.predicate = nil
             self.fetchedResultsController.performFetch(self.error)
             self.tableView.reloadData()
-            self.currentView = index
+            
           
         } else if index == 1 {
             self.title = "Unread"
+    
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "read == %@", false)
             self.fetchedResultsController.performFetch(self.error)
       
             self.tableView.reloadData()
-          
-            self.currentView = index
+            self.fetchedResultsController.fetchRequest.predicate = nil
+            
 
         } else if index == 2 {
             self.title = "Starred"
@@ -229,7 +231,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             
             self.tableView.reloadData()
 
-            self.currentView = index
         
         
         } else {
@@ -240,10 +241,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
            
             self.tableView.reloadData()
             self.title = feed.name
-            self.currentView = index
+         
             
             
         }
+        self.currentView = index
         
         if shouldScrollToTop {
             self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
@@ -252,6 +254,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             shouldScrollToTop = true
         }
         
+        self.sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: false, scrollPosition: .None)
 
         
     
@@ -325,9 +328,18 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       var cell: FeedTableViewCell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as! FeedTableViewCell
-            configureCell(cell, atIndexPath: indexPath)
-           return cell
+       var cell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
+        if cell != nil {
+            configureCell(cell!, atIndexPath: indexPath)
+            return cell!
+        } else {
+            var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
+            self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
+             var theCell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
+            configureCell(cell!, atIndexPath: indexPath)
+            return theCell!
+        }
+        
    
         
     }
@@ -466,6 +478,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
+ 
         switch type{
         case .Insert:
             if let newIndex = newIndexPath{
@@ -485,6 +498,8 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
                 self.tableView.insertRowsAtIndexPaths([newIndex], withRowAnimation: UITableViewRowAnimation.Fade)
             }
         }
+            
+        
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
