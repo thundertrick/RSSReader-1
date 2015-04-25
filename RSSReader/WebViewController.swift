@@ -137,7 +137,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleHeight|UIViewAutoresizing.FlexibleWidth
-        self.navigationItem.titleView = titleLabel
+       
     }
     
     func setTitle() {
@@ -169,8 +169,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         }
         
         titleLabel.attributedText = attrString
-   titleLabel.sizeToFit()
-        titleLabel.frame.size.height = self.navigationController!.navigationBar.frame.height
+        titleLabel.sizeToFit()
+         self.navigationItem.titleView = titleLabel
         
         
        

@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 1
 
+// DZNEmptyDataSet
+#define COCOAPODS_POD_AVAILABLE_DZNEmptyDataSet
+#define COCOAPODS_VERSION_MAJOR_DZNEmptyDataSet 1
+#define COCOAPODS_VERSION_MINOR_DZNEmptyDataSet 5
+#define COCOAPODS_VERSION_PATCH_DZNEmptyDataSet 2
+
 // TUSafariActivity
 #define COCOAPODS_POD_AVAILABLE_TUSafariActivity
 #define COCOAPODS_VERSION_MAJOR_TUSafariActivity 1

@@ -38,7 +38,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        shouldOpenSide = true
+    
         self.clearsSelectionOnViewWillAppear = true
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
           sideVC = nav.viewControllers[0] as! SideBarTableViewController
@@ -113,7 +113,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = false
-    
+        shouldOpenSide = true
         shouldScrollToTop = false
     }
     

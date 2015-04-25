@@ -49,9 +49,11 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'DZNEmptyDataSet.framework'
   install_framework 'TUSafariActivity.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'DZNEmptyDataSet.framework'
   install_framework 'TUSafariActivity.framework'
 fi
