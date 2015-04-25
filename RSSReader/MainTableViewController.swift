@@ -279,7 +279,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         if unread == 0 {
             self.markReadButton.enabled = false
         } else {
-            self.markReadButton.enabled = false
+            self.markReadButton.enabled = true
         }
         
         if shouldScrollToTop {
@@ -517,7 +517,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
         if unread == 0 {
             self.markReadButton.enabled = false
         } else {
-            self.markReadButton.enabled = false
+            self.markReadButton.enabled = true
         }
         
     }
