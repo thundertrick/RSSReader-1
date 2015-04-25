@@ -36,11 +36,17 @@ class FeedTableViewCell: UITableViewCell {
     var titleConstAdd = false
     override func awakeFromNib() {
         super.awakeFromNib()
+    
+   
+        titleText.font = UIFont.boldFontWithSize(13)
+        summaryText.font = UIFont.fontWithSize(12)
+        sourceAndDateText.font = UIFont.fontWithSize(11)
+        sourceAndDateText.textColor = UIColor.darkGrayColor()
+        addImage()
         thumbnailImage.clipsToBounds = true
         summaryText.clipsToBounds = true
         titleText.clipsToBounds = true
-        sourceAndDateText.clipsToBounds = true
-        addImage()
+             sourceAndDateText.clipsToBounds = true
 
     }
 
@@ -57,8 +63,7 @@ class FeedTableViewCell: UITableViewCell {
             detailConst = NSLayoutConstraint(item: sourceAndDateText, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.contentView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 14)
         
             self.contentView.addConstraints([titleConst, detailConst, summaryConst])
-            setNumberOfLines()
-            self.contentView.layoutSubviews()
+
         }
       
         
@@ -94,7 +99,7 @@ class FeedTableViewCell: UITableViewCell {
         
 
         self.contentView.addConstraints([widthConst, heightConst, leftConst, topConst, imgTitleConst, imgSummaryConst, imgDetailConst])
-        setNumberOfLines()
+ 
         self.contentView.layoutSubviews()
         
     }
@@ -108,55 +113,5 @@ class FeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setNumberOfLines() {
-        
-        if titleConstAdd {
-            self.contentView.removeConstraints([titleHeightConst, summaryHeightConst])
-        }
-        if titleText.numberOfLines == 3 {
-            titleText.numberOfLines = 2
-        }
-        if countLabelLines(titleText) > 2 {
-            titleText.numberOfLines = 3
-            summaryText.numberOfLines = 2
-            println("adjusting label height to be taller")
-             titleHeightConst = NSLayoutConstraint(item: titleText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 51)
-            summaryHeightConst = NSLayoutConstraint(item: summaryText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 32)
-            self.contentView.addConstraints([titleHeightConst, summaryHeightConst])
-        } else {
-            titleText.numberOfLines = 2
-            summaryText.numberOfLines = 3
-            
-             titleHeightConst = NSLayoutConstraint(item: titleText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 36)
-                summaryHeightConst = NSLayoutConstraint(item: summaryText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 47)
-            self.contentView.addConstraints([titleHeightConst, summaryHeightConst])
-        }
-        
-        titleConstAdd = true
-        
-
-    }
-}
-
-
-func countLabelLines(label:UILabel)->Int{
-    
-    if let text = label.text{
-        // cast text to NSString so we can use sizeWithAttributes
-        var myText = text as NSString
-        
-        //Set attributes
-        var attributes = [NSFontAttributeName : UIFont.boldSystemFontOfSize(14)]
-
-        //Calculate the size of your UILabel by using the systemfont and the paragraph we created before. Edit the font and replace it with yours if you use another
-  
-        var labelSize = myText.boundingRectWithSize(CGSizeMake(label.bounds.width, CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
-        
-        //Now we return the amount of lines using the ceil method
-        var lines = ceil(CGFloat(labelSize.height) / label.font.lineHeight)
-        return Int(lines)
-    }
-    
-    return 0
-    
+   
 }

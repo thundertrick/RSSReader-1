@@ -179,8 +179,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
         let title = (self.webView.title != nil) ? self.webView.title! : ""
         var text = title
         
-        let titleFont: UIFont = UIFont.boldSystemFontOfSize(12.0)
-        let urlFont : UIFont = UIFont.boldSystemFontOfSize(10.0)
+        let titleFont: UIFont = UIFont.boldFontWithSize(12.0)
+        let urlFont : UIFont = UIFont.boldFontWithSize(10.0)
         
         let textColor : UIColor = UIColor.blackColor()
         

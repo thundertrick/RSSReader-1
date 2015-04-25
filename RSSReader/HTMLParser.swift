@@ -13,6 +13,7 @@ class HTMLParser {
     var articleTitle  = String()
     var articleDatePublished = NSDate()
     var articleAuthor = String()
+    var articleSource = String()
 
     var article : String {
         get {
@@ -22,13 +23,13 @@ class HTMLParser {
 
    private var configuredDate : String {
         get {
-            return "\(NSDateFormatter.localizedStringFromDate(articleDatePublished, dateStyle: .MediumStyle, timeStyle: .ShortStyle))<br />"
+            return "<i>\(NSDateFormatter.localizedStringFromDate(articleDatePublished, dateStyle: .MediumStyle, timeStyle: .ShortStyle))</i><br />"
         }
     }
     
     private var authorToAppend : String {
         get {
-            return "<i>\(articleAuthor)</i><br />"
+            return "<span style=\"color: #EB6034; font-family:Avenir-Heavy;\">\(articleSource)</span> / \(articleAuthor)<br />"
         }
         
     }
@@ -40,7 +41,7 @@ class HTMLParser {
     }
 
     private func formatFromContent(content : String) -> String {
-        let formattingHTML = "<body style=\"font-family:Helvetica;\" ><html style=\"-webkit-text-size-adjust: none;\" ><style type='text/css'>img { max-width: 100%; width: auto; height: auto; }</style>"
+        let formattingHTML = "<body style=\"font-family:Avenir-Book;\" ><html style=\"-webkit-text-size-adjust: none;\" ><style type='text/css'>img { max-width: 100%; width: auto; height: auto; }</style>"
         var workingContent = String()
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             workingContent = formattingHTML + content

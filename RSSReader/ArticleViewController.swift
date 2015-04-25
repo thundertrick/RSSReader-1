@@ -161,7 +161,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
             self.title = article.sourceTitle
             parser.articleContent = article.content
             parser.articleTitle = article.title
-            parser.articleAuthor = article.sourceTitle + "/"  + article.author
+            parser.articleAuthor = article.author
+            parser.articleSource =  article.sourceTitle
             parser.articleDatePublished = article.date
             
 

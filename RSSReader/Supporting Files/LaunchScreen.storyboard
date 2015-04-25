@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--All-->
+        <!--Unread-->
         <scene sceneID="Gc6-Fi-7bT">
             <objects>
                 <tableViewController id="dNf-ZS-R5n" sceneMemberID="viewController">
@@ -28,12 +28,9 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Y1t-oQ-nyx"/>
-                        <barButtonItem title="Mark All Read" id="hKC-Wg-Rhj">
-                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="IiG-XO-tod"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="All" id="MwJ-tG-fOG">
+                    <navigationItem key="navigationItem" title="Unread" id="MwJ-tG-fOG">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aih-Ng-LAg">
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -41,7 +38,7 @@
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdg-FN-Z2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +47,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EYU-zw-vSx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="r5p-6D-5c9" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r5p-6D-5c9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4GK-o1-tam">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -73,4 +70,5 @@
         <image name="checkmark" width="22" height="22"/>
         <image name="menu" width="24" height="24"/>
     </resources>
+    <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

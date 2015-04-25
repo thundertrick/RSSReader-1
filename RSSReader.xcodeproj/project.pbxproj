@@ -12,6 +12,7 @@
 		CC2D850B1AE9386D00F0CCB4 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */; };
 		CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */; };
 		CC2D85111AEA07EE00F0CCB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */; };
+		CC2DA4101AEC1DAA0069947C /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */; };
 		CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC34673E1AB8C8BB00434630 /* FeedModel.xcdatamodeld */; };
 		CC3467421AB8C94E00434630 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3467411AB8C94E00434630 /* Images.xcassets */; };
 		CC4518601AE920F4003C333A /* pulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CC45185C1AE920F4003C333A /* pulltorefresharrow.png */; };
@@ -63,6 +64,7 @@
 		CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = ../SlideMenuController.swift; sourceTree = "<group>"; };
 		CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedViewController.swift; sourceTree = "<group>"; };
 		CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
 		CC34673F1AB8C8BB00434630 /* FeedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedModel.xcdatamodel; sourceTree = "<group>"; };
 		CC3467411AB8C94E00434630 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC45185C1AE920F4003C333A /* pulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulltorefresharrow.png; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				CCDC0C961AB8B94200AF39F7 /* AppDelegate.swift */,
+				CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */,
 				CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */,
 				CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */,
 				CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */,
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC4518611AE920F4003C333A /* PullToRefreshOption.swift in Sources */,
+				CC2DA4101AEC1DAA0069947C /* UIFont+Custom.swift in Sources */,
 				CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */,
 				CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */,
 				CCDC0C5A1AB8B86400AF39F7 /* MWFeedParser.m in Sources */,

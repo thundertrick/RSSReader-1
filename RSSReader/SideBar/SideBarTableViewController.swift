@@ -46,7 +46,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         navigationItem.rightBarButtonItem = plusButton
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont.boldFontWithSize(17)]
          self.navigationController?.toolbarHidden = false
         self.navigationController?.toolbar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
@@ -97,8 +97,6 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         if cell == nil{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
             // Configure the cell...
-            cell?.backgroundColor = UIColor.whiteColor()
-            cell?.textLabel?.font = UIFont.italicSystemFontOfSize(18)
             cell?.textLabel?.textColor = UIColor.grayColor()
             let selectedCellView:UIView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
             selectedCellView.backgroundColor = UIColor(red:1, green:0.938, blue:0.919, alpha:1)
@@ -131,9 +129,9 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         cell.textLabel?.text = menuItems[indexPath.row]
         
             if indexPath.row > 2 {
-            cell.textLabel?.font = UIFont.italicSystemFontOfSize(18)
+            cell.textLabel?.font = UIFont.italicFontWithSize(18)
             } else {
-            cell.textLabel?.font = UIFont.systemFontOfSize(18)
+            cell.textLabel?.font = UIFont.fontWithSize(18)
             }
     }
     
