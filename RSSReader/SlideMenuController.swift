@@ -142,9 +142,7 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
+    func transition() {
         self.mainContainerView.transform = CGAffineTransformMakeScale(1.0, 1.0)
         self.leftContainerView.hidden = true
         self.rightContainerView.hidden = true
@@ -159,6 +157,12 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         self.addLeftGestures()
         self.addRightGestures()
 
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        transition()
+       
     }
 
     override func viewDidLoad() {
