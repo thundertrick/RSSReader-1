@@ -53,6 +53,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         urlToLoad = NSURL(string: "http://www.google.com")!
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initTitleLabel()
@@ -176,6 +178,8 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewWillAppear(animated: Bool) {
     self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+        self.navigationController!.hidesBarsOnSwipe = true
+        self.navigationController!.hidesBarsOnTap = true
     }
     override func viewWillDisappear(animated: Bool) {
         clearProgressViewAnimated(true)

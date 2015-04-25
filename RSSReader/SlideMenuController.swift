@@ -265,8 +265,7 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func isTagetViewController() -> Bool {
-        // Function to determine the target ViewController
-        // Please to override it if necessary
+        
         return true
     }
     
@@ -291,6 +290,11 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         if self.isRightOpen() {
             return
         }
+        if !shouldOpenSide {
+            return
+        }
+        
+        
         
         switch panGesture.state {
             case UIGestureRecognizerState.Began:

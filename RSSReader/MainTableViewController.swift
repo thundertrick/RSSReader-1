@@ -15,6 +15,7 @@ import Alamofire
 var currentArticle : Article? = nil
 
 var shouldScrollToTop = true
+var shouldOpenSide = true
 
 class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDataManagerDelegate, NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate {
     
@@ -37,6 +38,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        shouldOpenSide = true
         self.clearsSelectionOnViewWillAppear = true
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
           sideVC = nav.viewControllers[0] as! SideBarTableViewController
@@ -111,8 +113,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.hidesBarsOnSwipe = false
-        self.navigationController!.hidesBarsWhenKeyboardAppears = false
-        self.navigationController!.hidesBarsWhenVerticallyCompact = false
+        self.navigationController!.hidesBarsOnTap = false
         shouldScrollToTop = false
     }
     
@@ -294,7 +295,10 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
     
     }
-    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        shouldOpenSide = false
+    }
     
     // MARK: - updateData  Delegate
 
