@@ -27,6 +27,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     var managedObjectContext: NSManagedObjectContext?
     var currentView = 1
     let error = NSErrorPointer()
+    var markReadButton : UIBarButtonItem!
   
   
     var sideVC : SideBarTableViewController!
@@ -39,8 +40,18 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         self.clearsSelectionOnViewWillAppear = true
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
           sideVC = nav.viewControllers[0] as! SideBarTableViewController
+        // customize ui
+        markReadButton = UIBarButtonItem(title: "Mark All Read", style: .Plain, target: self, action: "markAllRead")
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        self.toolbarItems = [flexibleSpace, markReadButton, flexibleSpace]
+        self.navigationController?.toolbarHidden = false
+        
         
         sideBarDidSelectMenuButtonAtIndex(currentView)
+        if self.fetchedResultsController.fetchedObjects?.count < 1 {
+            currentView = 0
+             sideBarDidSelectMenuButtonAtIndex(currentView)
+        }
         
         if sideVC.fetchedResultsController.fetchedObjects?.count == 0 {
             self.addFeed()
@@ -51,11 +62,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
         updateDataManager.update()
     
-        // customize ui
-        var markReadButton = UIBarButtonItem(title: "Mark All Read", style: .Plain, target: self, action: "markAllRead")
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-         self.toolbarItems = [flexibleSpace, markReadButton, flexibleSpace]
-        self.navigationController?.toolbarHidden = false
+       
        
         // clear backButton text
         
@@ -165,7 +172,17 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
     func markAllRead() {
         
-        let alert = UIAlertController(title: "Mark All Read", message: "Do you want to mark all items as read?", preferredStyle: UIAlertControllerStyle.Alert)
+        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
+        var unread = 0
+        for object in objects {
+            if object.read == false {
+                ++unread
+            }
+        }
+        
+        if unread > 0 {
+        
+        let alert = UIAlertController(title: "Mark All Read", message: "Do you want to mark \(unread) items as read?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action -> Void in
             
@@ -182,6 +199,10 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             }))
         
            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        
+        
 
         
     }
@@ -246,6 +267,20 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             
         }
         self.currentView = index
+        
+        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
+        var unread = 0
+        for object in objects {
+            if object.read == false {
+                ++unread
+            }
+        }
+        
+        if unread == 0 {
+            self.markReadButton.enabled = false
+        } else {
+            self.markReadButton.enabled = false
+        }
         
         if shouldScrollToTop {
             self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
@@ -471,6 +506,19 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
      
                self.tableView.endUpdates()
+        
+        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
+        var unread = 0
+        for object in objects {
+            if object.read == false {
+                ++unread
+            }
+        }
+        if unread == 0 {
+            self.markReadButton.enabled = false
+        } else {
+            self.markReadButton.enabled = false
+        }
         
     }
 

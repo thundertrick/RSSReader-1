@@ -101,6 +101,9 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
             cell?.textLabel?.font = UIFont.italicSystemFontOfSize(18)
             cell?.textLabel?.textColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
             let selectedCellView:UIView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
+            selectedCellView.backgroundColor = UIColor(red:1, green:0.938, blue:0.919, alpha:1)
+            cell?.selectedBackgroundView = selectedCellView
+            
         
         }
    
