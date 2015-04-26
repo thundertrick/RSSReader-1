@@ -79,6 +79,8 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
+
        
     }
     // settings button pressed
@@ -94,9 +96,10 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
       
     }
     
-    func deleteFeed(indexPath: NSIndexPath) {
-        feedManager.deleteFeedAtIndexPath(indexPath)
-        
+    func deleteFeed(object: Feed) {
+           println(" and here")
+        feedManager.deleteFeed(object, moc: self.fetchedResultsController.managedObjectContext)
+           println("and and here")
         vc.selectCorrect()
     }
     
@@ -110,7 +113,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         } else if indexPath!.row < 3 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
-          deleteFeed(indexPath!)
+          deleteFeed(self.fetchedResultsController.objectAtIndexPath(indexPath!) as! Feed)
         } else {
            println(recognizer.state)
         }
@@ -192,70 +195,35 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     var _fetchedResultsController: NSFetchedResultsController?
 
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        if userDriveModelChange {
-            return
-        }
-        self.tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        
-        if userDriveModelChange {
-            return
-        }
-        
-        self.tableView.endUpdates()
-        
-  
-        
-    }
-    
-    
-    
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
-        if userDriveModelChange {
-            return
-        }
-        
-        var newPath = NSIndexPath()
-        var path = NSIndexPath()
-        if newIndexPath != nil {
-         newPath = NSIndexPath(forRow: newIndexPath!.row + 3, inSection: newIndexPath!.section)
-        }
-        if indexPath != nil {
-        path = NSIndexPath(forRow: indexPath!.row + 3, inSection: indexPath!.section)
-        }
-        switch type{
-            
-        case .Insert:
-        
-            self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Fade)
-            
-        case .Delete:
-       
-                self.tableView.deleteRowsAtIndexPaths([path], withRowAnimation: UITableViewRowAnimation.Fade)
-        
-        case .Update:
-        
-                self.tableView.reloadRowsAtIndexPaths([path], withRowAnimation: UITableViewRowAnimation.Fade)
-    
-        case .Move:
-       
-                self.tableView.deleteRowsAtIndexPaths([path], withRowAnimation: UITableViewRowAnimation.Fade)
-                self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Fade)
-        
-        }
-        
-        
-    }
 
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        if userDriveModelChange {
+            return
+        }
+        let selectedCell = self.tableView.indexPathForSelectedRow()
+        
+        dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+        })
+        
+        self.tableView.selectRowAtIndexPath(selectedCell, animated: false, scrollPosition: .None)
+  
+    }
+    
+    
+    
+    
     
     // MARK: - Editing
     
     
-    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        vc.slideMenuController()?.leftPanGesture!.enabled = !editing
+        if editing == false {
+            vc.sideBarDidSelectMenuButtonAtIndex(vc.currentView)
+        }
+    }
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 
@@ -271,10 +239,13 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
-        self.deleteFeed(indexPath)
+ 
+        self.deleteFeed(self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forItem: indexPath.row - 3, inSection: indexPath.section)) as! Feed)
+        println("here")
         if tableView.numberOfRowsInSection(0) < 4 {
             self.setEditing(false, animated: true)
         }
+        
     } else if editingStyle == .Insert {
     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
@@ -310,6 +281,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     
         if indexPath.row > 2 {
             return true
         }
@@ -317,10 +289,15 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         return false
 
     }
-   
+    
+    override func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+        if proposedDestinationIndexPath.row < 3{
+            return sourceIndexPath
+        } else {
+            return proposedDestinationIndexPath
+        }
     }
-
-
-
+   
+}
 
 

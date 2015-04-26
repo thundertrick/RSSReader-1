@@ -103,7 +103,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
         self.tableView.addGestureRecognizer(tapGesture)
         
-       
+     
      
 
     }
@@ -132,10 +132,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if let row = self.tableView.indexPathForSelectedRow() {
-            self.tableView.deselectRowAtIndexPath(row, animated: true)
-        }
     }
     
    /* deinit {
@@ -346,27 +342,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     func updatedData() {
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        self.sideBarDidSelectMenuButtonAtIndex(currentView)
-        
-            
-        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
-        var unread = 0
-        for object in objects {
-            if object.read == false {
-                ++unread
-            }
-        }
-        if unread == 0 {
-            self.markReadButton.enabled = false
-        } else {
-            self.markReadButton.enabled = true
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
 
-       
 
     }
     
@@ -385,18 +361,26 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
      func feedSaved(feedItem: Feed) {
         println("feed saved")
         updateDataManager.update()
-        dispatch_async(dispatch_get_main_queue(), {
-            self.sideVC.tableView.reloadData()
-        })
+      
       
     }
     
     
-   
-
-
     // MARK: - Table view data source
-
+    
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.accessoryType = .DisclosureIndicator
+    }
+    
+    
+    
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if self.slideMenuController()?.isLeftOpen() == true {
+            return false
+        }
+        return true
+    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 125
@@ -432,17 +416,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        dispatch_async(dispatch_get_main_queue(), {
-            cell.accessoryType = .DisclosureIndicator
-            cell.accessoryView = nil
-            cell.layoutSubviews()
-            
-        })
-    }
- 
-
-
     
     func configureCell(cell: FeedTableViewCell, atIndexPath indexPath: NSIndexPath) {
      
@@ -566,27 +539,20 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     
     
 func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    
+   
       self.tableView.beginUpdates()
+    
    }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
      
+  
             self.tableView.endUpdates()
+        self.tableView.layoutIfNeeded()
+         self.sideBarDidSelectMenuButtonAtIndex(currentView)
         println("called")
-        
-            let objects = self.fetchedResultsController.fetchedObjects as! [Article]
-            var unread = 0
-            for object in objects {
-                if object.read == false {
-                    ++unread
-                }
-            }
-            if unread == 0 {
-                self.markReadButton.enabled = false
-            } else {
-                self.markReadButton.enabled = true
-            }
-        
+       
         
         
        
@@ -597,7 +563,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
     
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
+
  
         switch type{
         case .Insert:
@@ -617,8 +583,9 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
                 self.tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Fade)
                 self.tableView.insertRowsAtIndexPaths([newIndex], withRowAnimation: UITableViewRowAnimation.Fade)
             }
+           
         }
-            
+        
         
     }
 

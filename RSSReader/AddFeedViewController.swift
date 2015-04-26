@@ -25,10 +25,25 @@ class AddFeedViewController: UIViewController {
         self.title = "Add Feed"
         let appDel : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         saveFeedManager.delegate = appDel.mainViewController
+        
         let cancel = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
         self.navigationItem.leftBarButtonItem = cancel
+        
+        
         let save = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "save")
+        save.setTitleTextAttributes([NSFontAttributeName : UIFont.boldFontWithSize(17)], forState: .Normal)
         self.navigationItem.rightBarButtonItem = save
+        
+        
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont.boldFontWithSize(17)]
+
+        urlLabel.font = UIFont.fontWithSize(17)
+        urlField.font = UIFont.fontWithSize(14)
+        
+        nameLabel.font = UIFont.fontWithSize(17)
+        nameField.font = UIFont.fontWithSize(14)
+        
         urlField.text = UIPasteboard.generalPasteboard().string
     }
     override func viewDidAppear(animated: Bool) {

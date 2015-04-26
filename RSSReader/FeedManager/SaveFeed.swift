@@ -23,25 +23,22 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     private var givenFeedURL = ""
     
     
-    func deleteFeedAtIndexPath(indexPath: NSIndexPath) {
-        let newIndexPath = NSIndexPath(forRow: indexPath.row - 3, inSection: 0)
-        let moc = coreDataHelper.managedObjectContext()
-        let objects = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: nil, managedObjectContext: moc) as! [Feed]
-        let object = objects[newIndexPath.row] as Feed
+    func deleteFeed(object: Feed, moc: NSManagedObjectContext) {
+          println("and and and here")
         let link = object.link
         moc.deleteObject(object)
         coreDataHelper.saveManagedObjectContext(moc)
-        
-        
+              println("and and and and here")
+        let managedOC = coreDataHelper.managedObjectContext()
         let p = NSPredicate(format: "source == %@", link)
         
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: p, managedObjectContext: moc) as! [Article]
+        let items = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: p, managedObjectContext: managedOC) as! [Article]
         for item in items {
-            moc.deleteObject(item)
+            managedOC.deleteObject(item)
           }
 
         
-        coreDataHelper.saveManagedObjectContext(moc)
+        coreDataHelper.saveManagedObjectContext(managedOC)
         
     }
     

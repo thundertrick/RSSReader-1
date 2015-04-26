@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
          UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont.boldFontWithSize(17)]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont.fontWithSize(17)], forState: UIControlState.Normal)
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -75,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.LeopoldAschenbrenner.RSSReader" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com..RSSReader" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1] as! NSURL
     }()
