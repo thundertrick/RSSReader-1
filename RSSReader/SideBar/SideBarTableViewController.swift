@@ -113,7 +113,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         } else if indexPath!.row < 3 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
-            self.deleteFeed(self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forItem: indexPath!.row - 3, inSection: indexPath.section)) as! Feed)
+            self.deleteFeed(self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forItem: indexPath!.row - 3, inSection: indexPath!.section)) as! Feed)
             println("here")
             if tableView.numberOfRowsInSection(0) < 4 {
                 self.setEditing(false, animated: true)
