@@ -11,6 +11,7 @@ import Alamofire
 import DZNEmptyDataSet
 
 
+
 var currentArticle : Article? = nil
 
 var shouldScrollToTop = true
@@ -294,26 +295,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         }
         self.currentView = index
         
-        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
-        var unread = 0
-        for object in objects {
-            if object.read == false {
-                ++unread
-            }
-        }
-        
-        if unread == 0 {
-            self.markReadButton.enabled = false
-        } else {
-            self.markReadButton.enabled = true
-        }
-        
-        if shouldScrollToTop {
-            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
-
-        } else {
-            shouldScrollToTop = true
-        }
         
         self.sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: false, scrollPosition: .None)
         self.tableView.reloadEmptyDataSet()
@@ -549,13 +530,28 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
      
   
             self.tableView.endUpdates()
-        self.tableView.layoutIfNeeded()
-         self.sideBarDidSelectMenuButtonAtIndex(currentView)
         println("called")
-       
+        let objects = self.fetchedResultsController.fetchedObjects as! [Article]
+        var unread = 0
+        for object in objects {
+            if object.read == false {
+                ++unread
+            }
+        }
         
+        if unread == 0 {
+            self.markReadButton.enabled = false
+        } else {
+            self.markReadButton.enabled = true
+        }
         
-       
+        if shouldScrollToTop {
+            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
+            
+        } else {
+            shouldScrollToTop = true
+        }
+
 
         
     }
