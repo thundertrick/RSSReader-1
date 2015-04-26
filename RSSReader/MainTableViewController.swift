@@ -42,6 +42,10 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         self.clearsSelectionOnViewWillAppear = true
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
           sideVC = nav.viewControllers[0] as! SideBarTableViewController
+        // register nib for FeedTableViewCell
+        var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
+
         // customize ui
         markReadButton = UIBarButtonItem(image: UIImage(named: "checkmark"), style: UIBarButtonItemStyle.Plain, target: self, action: "markAllRead")
         self.navigationItem.rightBarButtonItem = markReadButton
@@ -70,10 +74,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         let backItem = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
         
-              // register nib for FeedTableViewCell
-        var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
-
+        
 
         // setup nav bar butons
         
@@ -254,6 +255,8 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
         
         NSFetchedResultsController.deleteCacheWithName(self.fetchedResultsController.cacheName)
+        NSFetchedResultsController.deleteCacheWithName("Locations")
+        NSFetchedResultsController.deleteCacheWithName(nil)
         
         if index == 0 {
             self.title = "All"
