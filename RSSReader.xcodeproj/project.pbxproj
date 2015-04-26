@@ -13,6 +13,7 @@
 		CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */; };
 		CC2D85111AEA07EE00F0CCB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */; };
 		CC2DA4101AEC1DAA0069947C /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */; };
+		CC2DA4131AECBEC60069947C /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2DA4121AECBEC60069947C /* Feed.m */; };
 		CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC34673E1AB8C8BB00434630 /* FeedModel.xcdatamodeld */; };
 		CC3467421AB8C94E00434630 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3467411AB8C94E00434630 /* Images.xcassets */; };
 		CC4518601AE920F4003C333A /* pulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CC45185C1AE920F4003C333A /* pulltorefresharrow.png */; };
@@ -39,7 +40,6 @@
 		CCDC0CA41AB8B98000AF39F7 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0CA21AB8B98000AF39F7 /* FeedTableViewCell.xib */; };
 		CCDC0CA61AB8B98E00AF39F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0CA51AB8B98E00AF39F7 /* Main.storyboard */; };
 		CCDC0CAB1AB8B9AA00AF39F7 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */; };
-		CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */; };
 		CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CB11AB8B9D200AF39F7 /* Article.m */; };
 		CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */; };
 		CCEE44221AE807E500F54329 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEE44211AE807E500F54329 /* WebViewController.swift */; };
@@ -65,6 +65,8 @@
 		CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedViewController.swift; sourceTree = "<group>"; };
 		CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
+		CC2DA4111AECBEC60069947C /* Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
+		CC2DA4121AECBEC60069947C /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
 		CC34673F1AB8C8BB00434630 /* FeedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedModel.xcdatamodel; sourceTree = "<group>"; };
 		CC3467411AB8C94E00434630 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC45185C1AE920F4003C333A /* pulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulltorefresharrow.png; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		CCDC0CA21AB8B98000AF39F7 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		CCDC0CA51AB8B98E00AF39F7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
-		CCDC0CAE1AB8B9D200AF39F7 /* Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
-		CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
 		CCDC0CB01AB8B9D200AF39F7 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		CCDC0CB11AB8B9D200AF39F7 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImage.swift; sourceTree = "<group>"; };
@@ -289,8 +289,8 @@
 		CCDC0CB41AB8B9D700AF39F7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				CCDC0CAE1AB8B9D200AF39F7 /* Feed.h */,
-				CCDC0CAF1AB8B9D200AF39F7 /* Feed.m */,
+				CC2DA4111AECBEC60069947C /* Feed.h */,
+				CC2DA4121AECBEC60069947C /* Feed.m */,
 				CCDC0CB01AB8B9D200AF39F7 /* Article.h */,
 				CCDC0CB11AB8B9D200AF39F7 /* Article.m */,
 			);
@@ -455,13 +455,13 @@
 				CC4518611AE920F4003C333A /* PullToRefreshOption.swift in Sources */,
 				CC2DA4101AEC1DAA0069947C /* UIFont+Custom.swift in Sources */,
 				CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */,
-				CCDC0CB21AB8B9D200AF39F7 /* Feed.m in Sources */,
 				CCDC0C5A1AB8B86400AF39F7 /* MWFeedParser.m in Sources */,
 				CCDC0C9A1AB8B95B00AF39F7 /* SaveFeed.swift in Sources */,
 				CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */,
 				CCDC0C571AB8B86400AF39F7 /* GTMNSString+HTML.m in Sources */,
 				CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */,
 				CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */,
+				CC2DA4131AECBEC60069947C /* Feed.m in Sources */,
 				CCDC0CA31AB8B98000AF39F7 /* FeedTableViewCell.swift in Sources */,
 				CCDC0C9B1AB8B95B00AF39F7 /* UpdateDataManager.swift in Sources */,
 				CC4518631AE920F4003C333A /* UIScrollViewExtension.swift in Sources */,

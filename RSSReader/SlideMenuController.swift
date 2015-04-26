@@ -213,6 +213,7 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         if (self.leftViewController != nil) {
             if self.leftPanGesture == nil {
                 self.leftPanGesture = UIPanGestureRecognizer(target: self, action: "handleLeftPanGesture:")
+                leftPanGesture!.cancelsTouchesInView = false
                 self.leftPanGesture!.delegate = self
                 self.view.addGestureRecognizer(self.leftPanGesture!)
             }
@@ -294,8 +295,7 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         if self.isRightOpen() {
             return
         }
-     
-        
+    
         
         
         switch panGesture.state {
@@ -309,6 +309,7 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
                 self.leftViewController?.beginAppearanceTransition(LeftPanState.wasHiddenAtStartOfPan, animated: true)
                 self.addShadowToView(self.leftContainerView)
                 self.setOpenWindowLevel()
+            
             case UIGestureRecognizerState.Changed:
                 
                 var translation: CGPoint = panGesture.translationInView(panGesture.view!)
@@ -360,10 +361,11 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
             return
         }
         
+        
+
         switch panGesture.state {
         case UIGestureRecognizerState.Began:
-            
-            RightPanState.frameAtStartOfPan = self.rightContainerView.frame
+                        RightPanState.frameAtStartOfPan = self.rightContainerView.frame
             RightPanState.startPointOfPan = panGesture.locationInView(self.view)
             RightPanState.wasOpenAtStartOfPan =  self.isRightOpen()
             RightPanState.wasHiddenAtStartOfPan = self.isRightHidden()

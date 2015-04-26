@@ -1,9 +1,9 @@
 //
 //  Feed.m
-//  RSSReader
+//  
 //
-//  Created by The Hexagon on 04/03/15.
-//  Copyright (c) 2015 The Hexagon. All rights reserved.
+//  Created by Leopold Aschenbrenner on 26/04/15.
+//
 //
 
 #import "Feed.h"
@@ -11,10 +11,10 @@
 
 @implementation Feed
 
+@dynamic orderValue;
 @dynamic link;
 @dynamic name;
 @dynamic summary;
 @dynamic title;
-@dynamic dateAdded;
 
 @end

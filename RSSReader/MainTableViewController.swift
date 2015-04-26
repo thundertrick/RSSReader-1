@@ -122,11 +122,20 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         self.navigationController?.setNavigationBarHidden(false, animated: true)
          self.navigationController?.setToolbarHidden(true, animated: true)
         shouldScrollToTop = false
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.slideMenuController()?.leftPanGesture?.enabled = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let row = self.tableView.indexPathForSelectedRow() {
+            self.tableView.deselectRowAtIndexPath(row, animated: true)
+        }
     }
     
    /* deinit {
@@ -376,6 +385,9 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
      func feedSaved(feedItem: Feed) {
         println("feed saved")
         updateDataManager.update()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.sideVC.tableView.reloadData()
+        })
       
     }
     

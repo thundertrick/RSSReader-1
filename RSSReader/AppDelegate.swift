@@ -19,13 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var storyboard : UIStoryboard!
     var mainViewController : MainTableViewController!
     var nvc: UINavigationController!
+    var leftViewController : SideBarTableViewController!
     private func createMenuView() {
         
         // create viewController code...
       storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController
-        let leftViewController = SideBarTableViewController()
+         leftViewController = SideBarTableViewController()
         
        nvc = UINavigationController(rootViewController: mainViewController)
         let nvc2: UINavigationController = UINavigationController(rootViewController: leftViewController)

@@ -13,6 +13,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     var dataHelper = CoreDataHelper()
     var vc : MainTableViewController!
     var error = NSErrorPointer()
+    var userDriveModelChange = false
     var menuItems : [String] {
         get {
             var workingItems : [String] = ["All", "Unread", "Starred"]
@@ -71,7 +72,15 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
      
        
     }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+       
+    }
     // settings button pressed
     func openSettings() {
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -82,6 +91,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     func addFeed() {
        vc.addFeed()
+      
     }
     
     func deleteFeed(indexPath: NSIndexPath) {
@@ -161,7 +171,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         
         
         let entity = NSEntityDescription.entityForName("Feed", inManagedObjectContext: managedObjectContext)
-        let sort = NSSortDescriptor(key: "dateAdded", ascending: true)
+        let sort = NSSortDescriptor(key: "orderValue", ascending: true)
         let req = NSFetchRequest()
         req.entity = entity
         req.sortDescriptors = [sort]
@@ -182,16 +192,65 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     var _fetchedResultsController: NSFetchedResultsController?
 
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        if userDriveModelChange {
+            return
+        }
+        self.tableView.beginUpdates()
+    }
+    
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        let selectedCell = self.tableView.indexPathForSelectedRow()
-        dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
-           
-        })
         
-        self.tableView.selectRowAtIndexPath(selectedCell, animated: false, scrollPosition: .None)
+        if userDriveModelChange {
+            return
+        }
+        
+        self.tableView.endUpdates()
+        
+  
         
     }
+    
+    
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
+        if userDriveModelChange {
+            return
+        }
+        
+        var newPath = NSIndexPath()
+        var path = NSIndexPath()
+        if newIndexPath != nil {
+         newPath = NSIndexPath(forRow: newIndexPath!.row + 3, inSection: newIndexPath!.section)
+        }
+        if indexPath != nil {
+        path = NSIndexPath(forRow: indexPath!.row + 3, inSection: indexPath!.section)
+        }
+        switch type{
+            
+        case .Insert:
+        
+            self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            
+        case .Delete:
+       
+                self.tableView.deleteRowsAtIndexPaths([path], withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        case .Update:
+        
+                self.tableView.reloadRowsAtIndexPaths([path], withRowAnimation: UITableViewRowAnimation.Fade)
+    
+        case .Move:
+       
+                self.tableView.deleteRowsAtIndexPaths([path], withRowAnimation: UITableViewRowAnimation.Fade)
+                self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        }
+        
+        
+    }
+
     
     // MARK: - Editing
     
@@ -199,6 +258,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+
         if indexPath.row > 2 {
             return true
         }
@@ -212,7 +272,6 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
         self.deleteFeed(indexPath)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         if tableView.numberOfRowsInSection(0) < 4 {
             self.setEditing(false, animated: true)
         }
@@ -226,9 +285,26 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        userDriveModelChange = true
+     let originPath = NSIndexPath(forRow: fromIndexPath.row - 3, inSection: fromIndexPath.section)
+        let newPath = NSIndexPath(forRow: toIndexPath.row - 3, inSection: toIndexPath.section)
+       
+        var items = self.fetchedResultsController.fetchedObjects as! [Feed]
         
+        let itemToMove = self.fetchedResultsController.objectAtIndexPath(originPath) as! Feed
         
-    
+        items.removeAtIndex(originPath.row)
+        
+        items.insert(itemToMove, atIndex: newPath.row)
+        
+        for (index, value) in enumerate(items) {
+            value.orderValue = index
+            
+        }
+        dataHelper.saveManagedObjectContext(self.fetchedResultsController.managedObjectContext)
+        
+      userDriveModelChange = false
+        
     }
 
     
@@ -241,12 +317,10 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         return false
 
     }
-
-
-    
-    
    
     }
+
+
 
 
 

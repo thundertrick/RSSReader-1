@@ -60,6 +60,21 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
         
     }
     
+    func retrieveNumber() -> Double {
+        if let object = NSUserDefaults.standardUserDefaults().objectForKey("numberForFeed") as? Double {
+            let newNumber = object + 1.0
+            NSUserDefaults.standardUserDefaults().setObject(newNumber, forKey: "numberForFeed")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            return newNumber
+            
+        } else {
+            let number = 0.0
+            NSUserDefaults.standardUserDefaults().setObject(number, forKey: "numberForFeed")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            NSUserDefaults.standardUserDefaults().synchronize()
+            return number
+        }
+    }
     // MARK: – FeedParser Delegate
     
      func feedParser(parser: MWFeedParser!, didFailWithError error: NSError!) {
@@ -74,7 +89,7 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
         feedInfo.title = info.title
         feedInfo.summary = (info.summary != nil) ? info.summary : ""
         feedInfo.name = (givenFeedName != "") ? givenFeedName : info.title
-        feedInfo.dateAdded = NSDate()
+        feedInfo.orderValue = retrieveNumber()
         coreDataHelper.saveManagedObjectContext(moc)
         delegate?.feedSaved(feedInfo)
 
