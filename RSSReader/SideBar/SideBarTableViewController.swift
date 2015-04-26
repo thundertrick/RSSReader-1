@@ -68,7 +68,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         var nav = self.slideMenuController()?.mainViewController as! UINavigationController
         vc = nav.viewControllers[0] as! MainTableViewController
         
-        self.title = "Lightread"
+        self.title = "Read"
      
        
     }
@@ -113,7 +113,12 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         } else if indexPath!.row < 3 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
-          deleteFeed(self.fetchedResultsController.objectAtIndexPath(indexPath!) as! Feed)
+            self.deleteFeed(self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forItem: indexPath!.row - 3, inSection: indexPath.section)) as! Feed)
+            println("here")
+            if tableView.numberOfRowsInSection(0) < 4 {
+                self.setEditing(false, animated: true)
+            }
+            
         } else {
            println(recognizer.state)
         }
