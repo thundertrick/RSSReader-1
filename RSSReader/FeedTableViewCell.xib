@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Verge | 12:00 11/02/215" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWO-dZ-AtB">
-                        <rect key="frame" x="8" y="101" width="326" height="15"/>
+                        <rect key="frame" x="8" y="96" width="326" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="bmg-Ts-OqM"/>
                         </constraints>
@@ -42,15 +42,15 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="58l-pc-wMP" secondAttribute="trailing" constant="-3" id="1uR-wj-BYy"/>
-                    <constraint firstItem="RWO-dZ-AtB" firstAttribute="top" secondItem="4rz-wv-9j5" secondAttribute="bottom" constant="7" id="7EW-4c-SOe"/>
+                    <constraint firstItem="RWO-dZ-AtB" firstAttribute="top" secondItem="4rz-wv-9j5" secondAttribute="bottom" constant="2" id="Ao3-UT-gRg"/>
                     <constraint firstItem="4rz-wv-9j5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" placeholder="YES" id="EN5-NK-4CN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RWO-dZ-AtB" secondAttribute="bottom" constant="5" id="I6Q-ce-atP"/>
                     <constraint firstItem="4rz-wv-9j5" firstAttribute="top" secondItem="58l-pc-wMP" secondAttribute="bottom" constant="4" id="Rab-hI-mEy"/>
                     <constraint firstItem="4rz-wv-9j5" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="X8H-mF-k4R"/>
                     <constraint firstItem="RWO-dZ-AtB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hWt-2U-6hn"/>
                     <constraint firstItem="58l-pc-wMP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="hrz-UE-hAV"/>
                     <constraint firstItem="58l-pc-wMP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" placeholder="YES" id="vYX-ZJ-3R4"/>
                     <constraint firstItem="RWO-dZ-AtB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" placeholder="YES" id="vlA-z4-Ady"/>
-                    <constraint firstItem="RWO-dZ-AtB" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="yvr-wP-FMu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

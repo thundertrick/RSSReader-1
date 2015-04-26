@@ -253,7 +253,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     // sideBar button selected
     func sideBarDidSelectMenuButtonAtIndex(index: Int) {
         
-  
+        NSFetchedResultsController.deleteCacheWithName(self.fetchedResultsController.cacheName)
         
         if index == 0 {
             self.title = "All"
@@ -294,7 +294,12 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             
         }
         self.currentView = index
-        
+        if shouldScrollToTop {
+            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
+            
+        } else {
+            shouldScrollToTop = true
+        }
         
         self.sideVC.tableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: false, scrollPosition: .None)
         self.tableView.reloadEmptyDataSet()
@@ -324,7 +329,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
+            self.sideBarDidSelectMenuButtonAtIndex(self.currentView)
         })
 
 
@@ -548,12 +553,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
             self.markReadButton.enabled = true
         }
         
-        if shouldScrollToTop {
-            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
-            
-        } else {
-            shouldScrollToTop = true
-        }
+  
 
 
         
