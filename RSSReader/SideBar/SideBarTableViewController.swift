@@ -68,7 +68,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         var nav = self.slideMenuController()?.mainViewController as! UINavigationController
         vc = nav.viewControllers[0] as! MainTableViewController
         
-        self.title = "Read"
+        self.title = "Lightread"
      
        
     }

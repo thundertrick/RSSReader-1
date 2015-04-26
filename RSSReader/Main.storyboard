@@ -76,18 +76,27 @@
         <scene sceneID="fZD-ZC-zZY">
             <objects>
                 <tableViewController id="tgI-PW-iGj" customClass="SettingsTableViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FjR-IW-CZB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FjR-IW-CZB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="B7l-cE-td5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsCell" textLabel="HLG-mR-v0P" style="IBUITableViewCellStyleDefault" id="4mS-8f-dIL">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B7l-cE-td5" id="Wk1-sG-j2S">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4mS-8f-dIL" id="8z7-Rs-fpj">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HLG-mR-v0P">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="tgI-PW-iGj" id="ozm-eR-CpQ"/>
                             <outlet property="delegate" destination="tgI-PW-iGj" id="6OC-NH-PQ6"/>
@@ -133,9 +142,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR9-tw-fKB">
+                                <rect key="frame" x="227" y="233" width="146" height="30"/>
+                                <state key="normal" title="Add suggested feeds">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSuggestedFeed:" destination="Rih-MG-z8F" eventType="touchUpInside" id="2x7-sl-iS9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="JR9-tw-fKB" firstAttribute="top" secondItem="0Hc-ji-w1r" secondAttribute="bottom" constant="169" id="28P-7C-odd"/>
+                            <constraint firstAttribute="centerX" secondItem="JR9-tw-fKB" secondAttribute="centerX" id="FeN-UR-hzu"/>
                             <constraint firstItem="wPl-Ty-f39" firstAttribute="leading" secondItem="zBC-EB-L58" secondAttribute="leadingMargin" id="HyR-BV-8V5"/>
                             <constraint firstItem="ICr-Tc-zDO" firstAttribute="top" secondItem="0Hc-ji-w1r" secondAttribute="bottom" constant="22" id="KYW-Xk-MpG"/>
                             <constraint firstAttribute="centerX" secondItem="VHg-lm-0jK" secondAttribute="centerX" constant="-5" id="Rcg-mK-CW7"/>

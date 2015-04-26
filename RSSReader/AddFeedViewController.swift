@@ -69,6 +69,18 @@ class AddFeedViewController: UIViewController {
     }
     
   
+    @IBAction func addSuggestedFeed(sender: AnyObject) {
+        self.view.endEditing(true)
+        self.navigationController!.dismissViewControllerAnimated(true, completion: {
+            self.saveFeedManager.saveFeedWithURL("http://www.theverge.com/rss/index.xml", withName: "The Verge")
+             self.saveFeedManager.saveFeedWithURL("http://www.vox.com/rss/index.xml", withName: "Vox")
+             self.saveFeedManager.saveFeedWithURL("http://feeds.wired.com/wired/index", withName: "WIRED")
+             self.saveFeedManager.saveFeedWithURL("http://feeds.feedburner.com/TechCrunch/", withName: "Techcrunch")
+             self.saveFeedManager.saveFeedWithURL("http://daringfireball.net/feeds/main", withName: "Daring Fireball")
+        })
+
+        
+    }
 
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

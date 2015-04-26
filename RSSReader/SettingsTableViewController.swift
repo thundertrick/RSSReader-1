@@ -10,13 +10,17 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         println("hi dude waz up")
         var doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "dismiss")
         navigationItem.rightBarButtonItem = doneButton
         
+        
         self.title = "Settings"
+
         
     }
 
@@ -26,7 +30,7 @@ class SettingsTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,15 +44,19 @@ class SettingsTableViewController: UITableViewController {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    /*
+  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("settingsCell", forIndexPath: indexPath) as! UITableViewCell
 
-        // Configure the cell...
+        cell.textLabel?.text = "About"
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Thanks for using Lightread!"
+    }
+  
 
     /*
     // Override to support conditional editing of the table view.
