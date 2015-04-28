@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="The Title is the Best Phone Yet and you its great asdfasdf asdf a" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58l-pc-wMP">
-                        <rect key="frame" x="8" y="8" width="329" height="34"/>
+                        <rect key="frame" x="8" y="8" width="329" height="35"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -27,17 +27,9 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Verge | 12:00 11/02/215" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWO-dZ-AtB">
                         <rect key="frame" x="8" y="96" width="326" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="bmg-Ts-OqM"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="bmg-Ts-OqM"/>
-                            </mask>
-                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -45,7 +37,7 @@
                     <constraint firstItem="RWO-dZ-AtB" firstAttribute="top" secondItem="4rz-wv-9j5" secondAttribute="bottom" constant="3" id="Ao3-UT-gRg"/>
                     <constraint firstItem="4rz-wv-9j5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" placeholder="YES" id="EN5-NK-4CN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="RWO-dZ-AtB" secondAttribute="bottom" constant="5" id="I6Q-ce-atP"/>
-                    <constraint firstItem="4rz-wv-9j5" firstAttribute="top" secondItem="58l-pc-wMP" secondAttribute="bottom" constant="4" id="Rab-hI-mEy"/>
+                    <constraint firstItem="4rz-wv-9j5" firstAttribute="top" secondItem="58l-pc-wMP" secondAttribute="bottom" constant="3" id="Rab-hI-mEy"/>
                     <constraint firstItem="4rz-wv-9j5" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="X8H-mF-k4R"/>
                     <constraint firstItem="RWO-dZ-AtB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hWt-2U-6hn"/>
                     <constraint firstItem="58l-pc-wMP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="hrz-UE-hAV"/>
