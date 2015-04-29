@@ -321,20 +321,13 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         self.presentViewController(alert, animated: true, completion: nil)
         
         println("update Data failed")
-        self.sideBarDidSelectMenuButtonAtIndex(currentView)
-        
-        // write func
-
+   
     }
    
     
     func updatedData() {
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        dispatch_async(dispatch_get_main_queue()) {
-            self.sideBarDidSelectMenuButtonAtIndex(self.currentView)
-        }
-
 
     }
     
