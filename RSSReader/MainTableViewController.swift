@@ -331,9 +331,9 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     func updatedData() {
         println("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        dispatch_async(dispatch_get_main_queue(), {
+        dispatch_async(dispatch_get_main_queue()) {
             self.sideBarDidSelectMenuButtonAtIndex(self.currentView)
-        })
+        }
 
 
     }

@@ -40,14 +40,17 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
     }
     
     func update() {
+        dispatch_async(dispatch_get_main_queue()) {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        if urls.count > 0 {
-            for url in urls {
-                requestFromURL(url)
+        if self.urls.count > 0 {
+            for url in self.urls {
+           self.requestFromURL(url)
             }
-            delegate?.updatedData()
+       self.delegate?.updatedData()
             
 
+        }
+            
         }
         
     }
@@ -74,6 +77,8 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
 
     
      func feedParser(parser: MWFeedParser!, didParseFeedItem item: MWFeedItem!) {
+        
+        dispatch_async(dispatch_get_main_queue()) {
 
         if let date = item.date {
         let author = (item.author != nil) ? item.author : "(no author)"
@@ -83,8 +88,8 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         let updatedDate = (item.date != nil) ? item.updated : NSDate()
         let link = (item.link != nil) ? item.link : "\(parser.url())"
         let source = "\(parser.url())"
-        let moc = coreDataHelper.managedObjectContext()
-        let items = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "link == %@", source), managedObjectContext: moc) as! [Feed]
+        let moc = self.coreDataHelper.managedObjectContext()
+        let items = self.coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: NSPredicate(format: "link == %@", source), managedObjectContext: moc) as! [Feed]
         let sourceTitle : String = items[0].name
     
         
@@ -101,7 +106,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         }
         let predicateArray = [p, p1, p2, p3]
         let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicateArray)
-        let articles : [Article] = coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: predicate, managedObjectContext: moc) as! [Article]
+        let articles : [Article] = self.coreDataHelper.fetchEntities(NSStringFromClass(Article), withPredicate: predicate, managedObjectContext: moc) as! [Article]
         if articles.count > 0 {
             for article in articles {
                 if article.content != content {
@@ -124,7 +129,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             
             } else {
 
-            let feedArticle : Article = coreDataHelper.insertManagedObject(NSStringFromClass(Article), managedObjectContext: moc) as! Article
+            let feedArticle : Article = self.coreDataHelper.insertManagedObject(NSStringFromClass(Article), managedObjectContext: moc) as! Article
             feedArticle.author =  author
             feedArticle.content = summary
             feedArticle.date = date
@@ -138,20 +143,24 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             feedArticle.starred = false
             var imageSource = ""
             }
-        coreDataHelper.saveManagedObjectContext(moc)
+        self.coreDataHelper.saveManagedObjectContext(moc)
             
         } else {
             println("\(item)" + " didn't have date")
+        }
+            
         }
         
     }
     
      func feedParser(parser: MWFeedParser!, didParseFeedInfo info: MWFeedInfo!) {
-        let moc = coreDataHelper.managedObjectContext()
+        
+        dispatch_async(dispatch_get_main_queue()) {
+        let moc = self.coreDataHelper.managedObjectContext()
         let predicate = NSPredicate(format: "link = %@", "\(parser.url())")
-        let feeds = coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: predicate, managedObjectContext: moc) as!  [Feed]
+        let feeds = self.coreDataHelper.fetchEntities(NSStringFromClass(Feed), withPredicate: predicate, managedObjectContext: moc) as!  [Feed]
         for feedItem in feeds {
-            let amoc = coreDataHelper.managedObjectContext()
+            let amoc = self.coreDataHelper.managedObjectContext()
             let feed = amoc.objectWithID(feedItem.objectID) as!Feed
             if feed.title != info.title {
                 feed.title = info.title
@@ -159,11 +168,13 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             if feed.summary != info.summary {
                 feed.summary = info.summary
             }
-            coreDataHelper.saveManagedObjectContext(moc)
+            self.coreDataHelper.saveManagedObjectContext(moc)
         }
         
     }
     
+}
+
        
     
 }
