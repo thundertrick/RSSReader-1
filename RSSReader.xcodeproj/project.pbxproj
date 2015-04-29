@@ -92,8 +92,8 @@
 		CCDC0C501AB8B86400AF39F7 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
 		CCDC0C511AB8B86400AF39F7 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
 		CCDC0C521AB8B86400AF39F7 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
-		CCDC0C531AB8B86400AF39F7 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
-		CCDC0C541AB8B86400AF39F7 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		CCDC0C531AB8B86400AF39F7 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "MWFeedParser/NSString+HTML.h"; sourceTree = "<group>"; };
+		CCDC0C541AB8B86400AF39F7 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "MWFeedParser/NSString+HTML.m"; sourceTree = "<group>"; };
 		CCDC0C551AB8B86400AF39F7 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
 		CCDC0C561AB8B86400AF39F7 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		CCDC0C951AB8B8A500AF39F7 /* ObjcBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjcBridgingHeader.h; sourceTree = "<group>"; };
@@ -240,6 +240,8 @@
 		CCDC0C181AB8B62200AF39F7 /* Libaries */ = {
 			isa = PBXGroup;
 			children = (
+				CCDC0C531AB8B86400AF39F7 /* NSString+HTML.h */,
+				CCDC0C541AB8B86400AF39F7 /* NSString+HTML.m */,
 				CC45185B1AE920E2003C333A /* PullToRefresh */,
 				CCDC0C471AB8B85400AF39F7 /* MWFeedParser */,
 			);
@@ -260,8 +262,6 @@
 				CCDC0C501AB8B86400AF39F7 /* MWFeedParser_Private.h */,
 				CCDC0C511AB8B86400AF39F7 /* NSDate+InternetDateTime.h */,
 				CCDC0C521AB8B86400AF39F7 /* NSDate+InternetDateTime.m */,
-				CCDC0C531AB8B86400AF39F7 /* NSString+HTML.h */,
-				CCDC0C541AB8B86400AF39F7 /* NSString+HTML.m */,
 				CCDC0C551AB8B86400AF39F7 /* NSString+XMLEntities.h */,
 				CCDC0C561AB8B86400AF39F7 /* NSString+XMLEntities.m */,
 			);
