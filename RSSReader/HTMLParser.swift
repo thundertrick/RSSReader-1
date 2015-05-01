@@ -44,34 +44,11 @@ class HTMLParser {
 
     private func formatFromContent(content : String) -> String {
         let formattingHTML = "<body style=\"font-family:Avenir-Book;\" ><html style=\"-webkit-text-size-adjust: none;\" ><style type='text/css'>img { max-width: 100%; width: auto; height: auto; }</style><style type='text/css'>* a { color: #EB6034; text-decoration: underline; }</style>"
-        var workingContent = NSString()
+        var workingContent = String()
         workingContent = formattingHTML + content
         workingContent = workingContent.stringByReplacingOccurrencesOfString("<img", withString: "<br /><img").stringByReplacingOccurrencesOfString("<iframe", withString: "<br /><iframe").stringByReplacingOccurrencesOfString("</iframe>", withString: "</iframe><br />").stringByReplacingOccurrencesOfString("&nbsp;", withString: "")
         
-        
-        
-        let rangeOfString = NSMakeRange(0, workingContent.length)
-        let regex = NSRegularExpression(pattern: "(<img.*?src=\".*?\".*?/>)(.*?)", options: nil, error: nil)
-        
-        if workingContent.length > 0 {
-            var match = regex?.matchesInString(workingContent as String, options: nil, range: rangeOfString)
-            
-            if (match != nil) && (match?.count > 0) {
-                for (index, value) in enumerate(match!) {
-                    
-                    let subString = workingContent.substringFromIndex(2)
-                    workingContent.stringByReplacingOccurrencesOfString(subString, withString: "<br />\(subString)")
-                    
-                
-                    }
-                    
-                }
+        return workingContent
 
-   
-        }
-        
-        return workingContent as String
     }
-
-
 }
