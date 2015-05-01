@@ -84,7 +84,6 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         }
      
         
-        
     }
 
     
