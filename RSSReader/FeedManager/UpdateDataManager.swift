@@ -83,8 +83,10 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         if let date = item.date {
         let author = (item.author != nil) ? item.author : "(no author)"
         let title = (item.title != nil) ? item.title : "(no title)"
-        let summary = (item.summary != nil) ? item.summary : ""
-        let content = (item.content != nil) ? item.content : summary
+        var summary = (item.summary != nil) ? item.summary : ""
+            summary = summary.stringByReplacingOccurrencesOfString("&nbsp;", withString: "")
+        var content = (item.content != nil) ? item.content : summary
+            content = content.stringByReplacingOccurrencesOfString("&nbsp;", withString: "")
         let updatedDate = (item.date != nil) ? item.updated : NSDate()
         let link = (item.link != nil) ? item.link : "\(parser.url())"
         let source = "\(parser.url())"
