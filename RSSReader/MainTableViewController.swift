@@ -33,7 +33,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
   
     var sideVC : SideBarTableViewController!
 
-    
+
     
     override func viewDidLoad() {
         
@@ -124,6 +124,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         self.navigationController?.setNavigationBarHidden(false, animated: true)
          self.navigationController?.setToolbarHidden(true, animated: true)
         shouldScrollToTop = false
+        articleViewScrollPosition = nil
         
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import TUSafariActivity
 
-
+var articleViewScrollPosition :CGPoint? = nil
 
 class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecognizerDelegate {
     
@@ -25,6 +25,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     var backGestureRecognizer = UISwipeGestureRecognizer()
     var forwardGestureRecognizer = UISwipeGestureRecognizer()
     
+    
+        var viewDidLayoutSubviewScrollPosition = false
     // MARK: - Setup View
 
     override func viewDidLoad() {
@@ -58,6 +60,48 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     
 
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController!.hidesBarsOnSwipe = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        viewDidLayoutSubviewScrollPosition = false
+
+        if let article = currentArticle {
+            self.title = article.sourceTitle
+            parser.articleContent = article.content
+            parser.articleTitle = article.title
+            parser.articleAuthor = article.author
+            parser.articleSource =  article.sourceTitle
+            parser.articleDatePublished = article.date
+            
+            
+            self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
+            
+        }
+     
+        
+        
+    }
+
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+       articleViewScrollPosition = self.webView.scrollView.contentOffset
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !viewDidLayoutSubviewScrollPosition {
+            if let scrollPosition = articleViewScrollPosition {
+                self.webView.scrollView.setContentOffset(scrollPosition, animated: false)
+            }
+            viewDidLayoutSubviewScrollPosition = true
+        }
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -151,28 +195,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         }
         
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController!.hidesBarsOnSwipe = true
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.setToolbarHidden(false, animated: true)
- 
-        if let article = currentArticle {
-            self.title = article.sourceTitle
-            parser.articleContent = article.content
-            parser.articleTitle = article.title
-            parser.articleAuthor = article.author
-            parser.articleSource =  article.sourceTitle
-            parser.articleDatePublished = article.date
-            
-
-            self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
-        
-        }
-      
-        
-    }
-  
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -197,6 +220,14 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         }
     
     
+    func webViewDidFinishLoad(webView: UIWebView) {
+        if let scrollPosition = articleViewScrollPosition {
+            self.webView.scrollView.setContentOffset(scrollPosition, animated: false)
+        }
+
+    }
+    
+    
     func actionMethod() {
    
         if let article = currentArticle {
@@ -219,10 +250,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-   
-    }
+    
     
  
 
