@@ -90,7 +90,6 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
        articleViewScrollPosition = self.webView.scrollView.contentOffset
         
     }
