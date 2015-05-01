@@ -25,8 +25,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     var backGestureRecognizer = UISwipeGestureRecognizer()
     var forwardGestureRecognizer = UISwipeGestureRecognizer()
     
-    
-        var viewDidLayoutSubviewScrollPosition = false
+
     // MARK: - Setup View
 
     override func viewDidLoad() {
@@ -67,8 +66,9 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         self.navigationController!.hidesBarsOnSwipe = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
-        viewDidLayoutSubviewScrollPosition = false
 
+
+        if articleViewScrollPosition == nil {
         if let article = currentArticle {
             self.title = article.sourceTitle
             parser.articleContent = article.content
@@ -80,6 +80,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
             
             self.webView.loadHTMLString(parser.article, baseURL: NSURL(string: article.link))
             
+        }
         }
      
         
@@ -94,15 +95,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if !viewDidLayoutSubviewScrollPosition {
-            if let scrollPosition = articleViewScrollPosition {
-                self.webView.scrollView.setContentOffset(scrollPosition, animated: false)
-            }
-            viewDidLayoutSubviewScrollPosition = true
-        }
-    }
+ 
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == forwardGestureRecognizer || gestureRecognizer == backGestureRecognizer {
