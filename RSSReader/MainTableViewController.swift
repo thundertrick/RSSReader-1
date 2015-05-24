@@ -33,7 +33,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
   
     var sideVC : SideBarTableViewController!
 
-
+    let imageCache = NSCache()
     
     override func viewDidLoad() {
         
@@ -406,6 +406,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     func configureCell(cell: FeedTableViewCell, atIndexPath indexPath: NSIndexPath) {
      
         if self.fetchedResultsController.fetchedObjects?.count > indexPath.row {
+            cell.thumbnailImage.image = UIImage(named: "placeholder")
           
             let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Article
            
@@ -438,22 +439,31 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
                 }
             
                 
-                cell.thumbnailImage.image = UIImage(named: "placeholder")
+              
                 cell.request?.cancel()
+                
+                if let image = self.imageCache.objectForKey(imageSource) as? UIImage {
+                    if cell.viewWithTag(123) == nil {
+                        cell.addImage()
+                    }
+                    cell.thumbnailImage.image = image
+                } else {
+
+                
                 
                 cell.request = Alamofire.request(.GET, imageSource).responseImage() {
                     (request, _, image, error) in
                     if error == nil && image != nil {
-                        if cell.viewWithTag(123) == nil {
-                            cell.addImage()
-                        }
+                      
                         
+                        self.imageCache.setObject(image!, forKey: request.URLString)
                         cell.thumbnailImage.image = image
 
                     } else {
                         if cell.viewWithTag(123) != nil {
                             cell.removeImage()
                         }
+                    }
                     }
                 }
                 
