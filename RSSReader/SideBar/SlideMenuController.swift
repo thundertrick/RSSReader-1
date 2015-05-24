@@ -136,7 +136,6 @@ class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         rightContainerView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
         self.view.insertSubview(rightContainerView, atIndex: 3)
         
-        
         self.addLeftGestures()
         self.addRightGestures()
     }

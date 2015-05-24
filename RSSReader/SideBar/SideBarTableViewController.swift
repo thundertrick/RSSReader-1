@@ -69,6 +69,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         vc = nav.viewControllers[0] as! MainTableViewController
         
         self.title = "Lightread"
+        self.tableView.scrollsToTop = false
      
        
     }
