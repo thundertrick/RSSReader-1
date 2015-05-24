@@ -406,6 +406,9 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     func configureCell(cell: FeedTableViewCell, atIndexPath indexPath: NSIndexPath) {
      
         if self.fetchedResultsController.fetchedObjects?.count > indexPath.row {
+            if cell.viewWithTag(123) == nil {
+                cell.addImage()
+            }
             cell.thumbnailImage.image = UIImage(named: "placeholder")
           
             let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Article
