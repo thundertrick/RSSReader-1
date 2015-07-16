@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CA87E636D89C08A62EB80D26 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38D63985F1C1060438C2436 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC1672891AD6F4400003EF40 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1672881AD6F4400003EF40 /* HTMLParser.swift */; };
-		CC2D850B1AE9386D00F0CCB4 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */; };
 		CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */; };
 		CC2D85111AEA07EE00F0CCB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */; };
 		CC2DA4101AEC1DAA0069947C /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */; };
@@ -61,7 +60,6 @@
 		9B2722C395FB33E7B09CCFEB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C38D63985F1C1060438C2436 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1672881AD6F4400003EF40 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
-		CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedViewController.swift; sourceTree = "<group>"; };
 		CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 		CCDC0CA71AB8B99F00AF39F7 /* SideBar */ = {
 			isa = PBXGroup;
 			children = (
-				CC2D850A1AE9386D00F0CCB4 /* SlideMenuController.swift */,
 				CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */,
 			);
 			path = SideBar;
@@ -472,7 +469,6 @@
 				CCDC0C591AB8B86400AF39F7 /* MWFeedItem.m in Sources */,
 				CCDC0C971AB8B94200AF39F7 /* AppDelegate.swift in Sources */,
 				CC2D85111AEA07EE00F0CCB4 /* SettingsTableViewController.swift in Sources */,
-				CC2D850B1AE9386D00F0CCB4 /* SlideMenuController.swift in Sources */,
 				CCDC0C5C1AB8B86400AF39F7 /* NSString+HTML.m in Sources */,
 				CCDC0C9E1AB8B97100AF39F7 /* MainTableViewController.swift in Sources */,
 				CCDC0C5D1AB8B86400AF39F7 /* NSString+XMLEntities.m in Sources */,

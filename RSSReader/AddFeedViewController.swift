@@ -86,7 +86,8 @@ class AddFeedViewController: UIViewController {
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         let appDel : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    appDel.mainViewController.slideMenuController()?.transition()
+    appDel.mainViewController.slideMenuController()?.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
         
     }
     /*

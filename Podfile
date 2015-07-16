@@ -5,4 +5,4 @@ use_frameworks!
 pod 'TUSafariActivity'
 pod 'Alamofire'
 pod 'DZNEmptyDataSet'
-
+pod 'SlideMenuControllerSwift'

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import DZNEmptyDataSet
-
+import SlideMenuControllerSwift
 
 
 var currentArticle : Article? = nil
@@ -29,7 +29,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     var currentView = 1
     let error = NSErrorPointer()
     var markReadButton : UIBarButtonItem!
-  
+    let appDel : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
   
     var sideVC : SideBarTableViewController!
 
