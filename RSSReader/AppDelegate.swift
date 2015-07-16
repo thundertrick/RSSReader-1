@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! MainTableViewController
+        SlideMenuOptions.leftBezelWidth = 150.0
          leftViewController = SideBarTableViewController()
         
        nvc = UINavigationController(rootViewController: mainViewController)
