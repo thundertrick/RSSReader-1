@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (1.2.1)
+  - Alamofire (1.2.2)
   - DZNEmptyDataSet (1.5.2)
   - TUSafariActivity (1.0.4)
 
@@ -9,8 +9,8 @@ DEPENDENCIES:
   - TUSafariActivity
 
 SPEC CHECKSUMS:
-  Alamofire: 1acfdf179aff68b41a48dff70c1ac7fa263e2bcb
+  Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
   DZNEmptyDataSet: 741da409081a4bf707c949c964623a6ad1799772
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
 
-COCOAPODS: 0.37.0.rc.2
+COCOAPODS: 0.37.1
