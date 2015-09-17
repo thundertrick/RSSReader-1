@@ -24,11 +24,11 @@ class SaveFeedManager: NSObject, MWFeedParserDelegate {
     
     
     func deleteFeed(object: Feed, moc: NSManagedObjectContext) {
-          println("and and and here")
+          print("and and and here")
         let link = object.link
         moc.deleteObject(object)
         coreDataHelper.saveManagedObjectContext(moc)
-              println("and and and and here")
+              print("and and and and here")
         let managedOC = coreDataHelper.managedObjectContext()
         let p = NSPredicate(format: "source == %@", link)
         

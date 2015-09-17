@@ -19,16 +19,17 @@ class CoreDataHelper: NSObject {
     
     func insertManagedObject(className:NSString, managedObjectContext:NSManagedObjectContext)->AnyObject{
     
-        let managedObject:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(className as String, inManagedObjectContext: managedObjectContext) as! NSManagedObject
+        let managedObject:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(className as String, inManagedObjectContext: managedObjectContext) 
         
         return managedObject
         
     }
     
     func saveManagedObjectContext(managedObjectContext:NSManagedObjectContext)->Bool{
-        if managedObjectContext.save(nil){
+        do {
+            try managedObjectContext.save()
             return true
-        }else{
+        } catch _ {
             return false
         }
     }
@@ -44,7 +45,7 @@ class CoreDataHelper: NSObject {
         }
         
         fetchRequest.returnsObjectsAsFaults = false
-        let items:NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)!
+        let items:NSArray = try! managedObjectContext.executeFetchRequest(fetchRequest)
         
        return items
     }

@@ -102,7 +102,7 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
         let p2 = NSPredicate(format: "source == %@", source)
         var p3 = NSPredicate()
         if let theDate = item.date {
-            p3 = NSPredicate(format: "date == %@", item.date)
+            p3 = NSPredicate(format: "date == %@", theDate)
         } else {
             p3 = NSPredicate(format: "content == %@", content)
         }
@@ -143,12 +143,12 @@ class UpdateDataManager: NSObject, MWFeedParserDelegate {
             feedArticle.updatedDate = updatedDate
             feedArticle.read = false
             feedArticle.starred = false
-            var imageSource = ""
+         
             }
         self.coreDataHelper.saveManagedObjectContext(moc)
             
         } else {
-            println("\(item)" + " didn't have date")
+            print("\(item)" + " didn't have date")
         }
             
         }

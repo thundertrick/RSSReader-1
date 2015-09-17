@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import DZNEmptyDataSet
 import SlideMenuControllerSwift
+import AlamofireImage
 
 
 var currentArticle : Article? = nil
@@ -33,7 +34,6 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
   
     var sideVC : SideBarTableViewController!
 
-    let imageCache = NSCache()
     
     override func viewDidLoad() {
         
@@ -43,7 +43,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         let nav = self.slideMenuController()?.leftViewController as! UINavigationController
           sideVC = nav.viewControllers[0] as! SideBarTableViewController
         // register nib for FeedTableViewCell
-        var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
+        let nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
 
         // customize ui
@@ -78,7 +78,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
 
         // setup nav bar butons
         
-        var menuButton = UIBarButtonItem(image: UIImage(named: "menu"), style: UIBarButtonItemStyle.Plain, target: self, action: "openMenu")
+        let menuButton = UIBarButtonItem(image: UIImage(named: "menu"), style: UIBarButtonItemStyle.Plain, target: self, action: "openMenu")
         self.navigationItem.leftBarButtonItem = menuButton
         
       
@@ -88,7 +88,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         options.backgroundColor = UIColor(red:0.927, green:0.946, blue:0.943, alpha:1)
         options.indicatorColor = UIColor.orangeColor()
         
-        self.tableView.addPullToRefresh(options: options, refreshCompletion: { [weak self] in
+        self.tableView.addPullToRefresh(options, refreshCompletion: { [weak self] in
             self?.updateFromRefreshButton()
             self?.tableView.stopPullToRefresh()
             })
@@ -240,7 +240,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
   
     
     func addFeed() {
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("navAddFeed") as! UINavigationController
         self.navigationController!.presentViewController(vc, animated: true, completion: nil)
             
@@ -262,7 +262,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         if index == 0 {
             self.title = "All"
             self.fetchedResultsController.fetchRequest.predicate = nil
-            self.fetchedResultsController.performFetch(self.error)
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch let error1 as NSError {
+                self.error.memory = error1
+            }
             self.tableView.reloadData()
             
           
@@ -270,7 +274,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
             self.title = "Unread"
     
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "read == %@", false)
-            self.fetchedResultsController.performFetch(self.error)
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch let error1 as NSError {
+                self.error.memory = error1
+            }
       
             self.tableView.reloadData()
             self.fetchedResultsController.fetchRequest.predicate = nil
@@ -279,7 +287,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         } else if index == 2 {
             self.title = "Starred"
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "starred == %@", true)
-            self.fetchedResultsController.performFetch(self.error)
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch let error1 as NSError {
+                self.error.memory = error1
+            }
             
             self.tableView.reloadData()
 
@@ -287,9 +299,13 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
         } else {
             let indexPath = NSIndexPath(forRow: index - 3, inSection: 0)
-            var feed = self.sideVC.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
+            let feed = self.sideVC.fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
             self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "source == %@", feed.link)
-            self.fetchedResultsController.performFetch(self.error)
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch let error1 as NSError {
+                self.error.memory = error1
+            }
            
             self.tableView.reloadData()
             self.title = feed.name
@@ -321,13 +337,13 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
         
-        println("update Data failed")
+        print("update Data failed")
    
     }
    
     
     func updatedData() {
-        println("updated data")
+        print("updated data")
      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
     }
@@ -336,7 +352,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     // MARK: - saveFeed Delegate
     
      func savedFeedFailedWithError() {
-        println("savedFeedFailedWithError")
+        print("savedFeedFailedWithError")
         let alert = UIAlertController(title: "Feed could not be saved", message: "Please verify the validity of the RSS feed link and check your internet connection.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -345,7 +361,7 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
     }
 
      func feedSaved(feedItem: Feed) {
-        println("feed saved")
+        print("feed saved")
         updateDataManager.update()
       
       
@@ -378,21 +394,21 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        let info = self.fetchedResultsController.sections![section] 
         return info.numberOfObjects
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as? FeedTableViewCell
+        let cell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as? FeedTableViewCell
         if cell != nil {
             configureCell(cell!, atIndexPath: indexPath)
           
             return cell!
         } else {
-            var nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
+            let nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
             self.tableView.registerNib(nib, forCellReuseIdentifier: "FeedCell")
-             var theCell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
+             let theCell: FeedTableViewCell? = tableView.dequeueReusableCellWithIdentifier("FeedCell") as? FeedTableViewCell
             configureCell(theCell!, atIndexPath: indexPath)
          
             return theCell!
@@ -413,20 +429,20 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
           
             let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Article
            
-            var savePath = ""
+    
             var imageSource = ""
             if item.content != nil {
                 
                 let htmlContent = item.content as NSString
                 
                 let rangeOfString = NSMakeRange(0, htmlContent.length)
-                let regex = NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: nil, error: nil)
+                let regex = try? NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: [])
                 
                 if htmlContent.length > 0 {
-                    var match = regex?.matchesInString(htmlContent as String, options: nil, range: rangeOfString)
+                    let match = regex?.matchesInString(htmlContent as String, options: [], range: rangeOfString)
                     
                     if (match != nil) && (match?.count > 0) {
-                        for (index, value) in enumerate(match!) {
+                        for (_, value) in (match!).enumerate() {
                             
                             let imageURL = htmlContent.substringWithRange(value.rangeAtIndex(2)) as NSString
                             
@@ -442,35 +458,20 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
                 }
             
                 
-              
-                cell.request?.cancel()
                 
-                if let image = self.imageCache.objectForKey(imageSource) as? UIImage {
-                    if cell.viewWithTag(123) == nil {
-                        cell.addImage()
-                    }
-                    cell.thumbnailImage.image = image
-                } else {
-
-                
-                
-                cell.request = Alamofire.request(.GET, imageSource).responseImage() {
-                    (request, _, image, error) in
-                    if error == nil && image != nil {
-                      
+                Alamofire.request(.GET, imageSource)
+                    .responseImage { request, response, result in
+                        print(request)
+                        print(response)
+                        debugPrint(result)
                         
-                        self.imageCache.setObject(image!, forKey: request.URLString)
-                        cell.thumbnailImage.image = image
-
-                    } else {
-                        if cell.viewWithTag(123) != nil {
-                            cell.removeImage()
+                        if let image = result.value {
+                            cell.thumbnailImage.image = image
                         }
-                    }
-                    }
                 }
+            
                 
-    
+         
             
                
         
@@ -528,8 +529,11 @@ class MainTableViewController: UITableViewController, SaveFeedDelegate, UpdateDa
         
         // perform initial model fetch
         var e: NSError?
-        if !self._fetchedResultsController!.performFetch(&e) {
-            println("fetch error: \(e!.localizedDescription)")
+        do {
+            try self._fetchedResultsController!.performFetch()
+        } catch let error as NSError {
+            e = error
+            print("fetch error: \(e!.localizedDescription)")
         }
         
         return self._fetchedResultsController!
@@ -548,7 +552,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
      
   
             self.tableView.endUpdates()
-        println("called")
+        print("called")
         let objects = self.fetchedResultsController.fetchedObjects as! [Article]
         var unread = 0
         for object in objects {
@@ -569,11 +573,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
         
     }
 
-    
-    
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-
- 
         switch type{
         case .Insert:
             if let newIndex = newIndexPath{
@@ -592,11 +592,12 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
                 self.tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Fade)
                 self.tableView.insertRowsAtIndexPaths([newIndex], withRowAnimation: UITableViewRowAnimation.Fade)
             }
-           
+            
         }
-        
-        
     }
+ 
+        
+ 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
@@ -625,7 +626,7 @@ func controllerWillChangeContent(controller: NSFetchedResultsController) {
             text = ":( Looks like we have an error. Please delete this feed and try again."
         }
         
-        var paragraph : NSMutableParagraphStyle = NSMutableParagraphStyle()
+        let paragraph : NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragraph.lineBreakMode = .ByWordWrapping
         paragraph.alignment = .Center
         

@@ -40,7 +40,6 @@
 		CCDC0CA61AB8B98E00AF39F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDC0CA51AB8B98E00AF39F7 /* Main.storyboard */; };
 		CCDC0CAB1AB8B9AA00AF39F7 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */; };
 		CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC0CB11AB8B9D200AF39F7 /* Article.m */; };
-		CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */; };
 		CCEE44221AE807E500F54329 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEE44211AE807E500F54329 /* WebViewController.swift */; };
 		CCEE44241AE81E2E00F54329 /* WebAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEE44231AE81E2E00F54329 /* WebAssets.xcassets */; };
 /* End PBXBuildFile section */
@@ -106,7 +105,6 @@
 		CCDC0CA91AB8B9AA00AF39F7 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		CCDC0CB01AB8B9D200AF39F7 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
 		CCDC0CB11AB8B9D200AF39F7 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
-		CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImage.swift; sourceTree = "<group>"; };
 		CCEE44211AE807E500F54329 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		CCEE44231AE81E2E00F54329 /* WebAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WebAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,7 +185,6 @@
 				CC2DA40F1AEC1DAA0069947C /* UIFont+Custom.swift */,
 				CC2D85101AEA07EE00F0CCB4 /* SettingsTableViewController.swift */,
 				CC2D850E1AE96D3000F0CCB4 /* AddFeedViewController.swift */,
-				CCDFD2371AE8D80900CF1EE9 /* AlamofireImage.swift */,
 				CCDC0C9D1AB8B97100AF39F7 /* MainTableViewController.swift */,
 				CCDC0C9F1AB8B97A00AF39F7 /* ArticleViewController.swift */,
 				CCEE44211AE807E500F54329 /* WebViewController.swift */,
@@ -341,8 +338,9 @@
 		CCDC0BE31AB8B37800AF39F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Leopold Aschenbrenner";
 				TargetAttributes = {
 					CCDC0BEA1AB8B37800AF39F7 = {
@@ -455,7 +453,6 @@
 				CCDC0CB31AB8B9D200AF39F7 /* Article.m in Sources */,
 				CCDC0C5A1AB8B86400AF39F7 /* MWFeedParser.m in Sources */,
 				CCDC0C9A1AB8B95B00AF39F7 /* SaveFeed.swift in Sources */,
-				CCDFD2381AE8D80900CF1EE9 /* AlamofireImage.swift in Sources */,
 				CCDC0C571AB8B86400AF39F7 /* GTMNSString+HTML.m in Sources */,
 				CC3467401AB8C8BB00434630 /* FeedModel.xcdatamodeld in Sources */,
 				CC2D850F1AE96D3000F0CCB4 /* AddFeedViewController.swift in Sources */,
@@ -519,6 +516,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -586,8 +584,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "RSSReader/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = "ç";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thehexagon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RSSReader/Supporting Files/ObjcBridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -603,8 +602,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "RSSReader/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = "ç";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thehexagon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RSSReader/Supporting Files/ObjcBridgingHeader.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,6 +625,7 @@
 				);
 				INFOPLIST_FILE = "RSSReaderTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thehexagon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RSSReader.app/RSSReader";
 			};
@@ -640,6 +641,7 @@
 				);
 				INFOPLIST_FILE = "RSSReaderTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thehexagon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RSSReader.app/RSSReader";
 			};

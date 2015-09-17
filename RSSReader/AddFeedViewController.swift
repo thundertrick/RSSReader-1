@@ -63,7 +63,7 @@ class AddFeedViewController: UIViewController {
     func save() {
         self.view.endEditing(true)
         self.navigationController!.dismissViewControllerAnimated(true, completion: {
-            self.saveFeedManager.saveFeedWithURL(self.urlField.text, withName: self.nameField.text)
+            self.saveFeedManager.saveFeedWithURL(self.urlField.text!, withName: self.nameField.text!)
         })
         
     }

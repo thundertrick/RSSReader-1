@@ -18,7 +18,7 @@ class HTMLParser {
     var article : String {
         get {
             let output = formatFromContent(titleToAppend + authorToAppend + configuredDate + articleContent)
-            println(output)
+            print(output)
             return output
         }
     }

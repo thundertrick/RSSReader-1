@@ -45,7 +45,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         self.webView.scrollView.panGestureRecognizer.requireGestureRecognizerToFail(backGestureRecognizer)
     
         
-        var webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
+        let webButton = UIBarButtonItem(image: UIImage(named: "globe"), style: UIBarButtonItemStyle.Plain, target: self, action: "openWeb")
         self.navigationItem.rightBarButtonItem = webButton
         initToolBarButtonItems()
         webView.delegate = self
@@ -107,7 +107,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     
 
     func handleSwipe(recognizer:UISwipeGestureRecognizer){
-        println("handle swipe")
+        print("handle swipe")
 
         if recognizer.direction == UISwipeGestureRecognizerDirection.Left{
           
@@ -127,7 +127,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
     func initToolBarButtonItems() {
        if let article = currentArticle {
         actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "actionMethod")
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
         if article.starred == true {
             self.starButton = UIBarButtonItem(image: UIImage(named: "filledStar"), style: UIBarButtonItemStyle.Plain, target: self, action: "starItem")
             
@@ -152,7 +152,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         if let article = currentArticle {
             if article.link != nil {
                 let url = NSURL(string: article.link)
-                var webView = WebViewController(url: url!)
+                let webView = WebViewController(url: url!)
                 self.navigationController!.pushViewController(webView, animated: true)
                 
             }
@@ -200,7 +200,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, UIGestureRecog
         if navigationType == UIWebViewNavigationType.LinkClicked {
             
             let url = request.URL
-            var webView = WebViewController(url: url!)
+            let webView = WebViewController(url: url!)
             self.navigationController!.pushViewController(webView, animated: true)
             return false
 

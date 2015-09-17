@@ -1,17 +1,21 @@
 PODS:
-  - Alamofire (2.0.1)
+  - Alamofire (2.0.0)
+  - AlamofireImage (1.0.0):
+    - Alamofire (= 2.0.0)
   - DZNEmptyDataSet (1.7.1)
   - SlideMenuControllerSwift (2.0.0)
   - TUSafariActivity (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage (~> 1.0)
   - DZNEmptyDataSet
   - SlideMenuControllerSwift
   - TUSafariActivity
 
 SPEC CHECKSUMS:
-  Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
+  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  AlamofireImage: 8907ef3597fd9fda896b8805a658fd567ff91c6f
   DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
   SlideMenuControllerSwift: 85ce7142935a32e26de41aa90fac0cc9f60fb01c
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546

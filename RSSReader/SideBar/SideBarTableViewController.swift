@@ -59,13 +59,13 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         self.navigationController?.toolbar.barTintColor = UIColor(red: 0.89, green: 0.506, blue: 0.384, alpha: 1)
         self.navigationController?.toolbar.tintColor = UIColor.whiteColor()
         
-        var gearButton = UIBarButtonItem(image: UIImage(named: "gear"), style: UIBarButtonItemStyle.Plain, target: self, action: "openSettings")
+        let gearButton = UIBarButtonItem(image: UIImage(named: "gear"), style: UIBarButtonItemStyle.Plain, target: self, action: "openSettings")
         
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
         self.toolbarItems = [flexibleSpace, gearButton]
         
-        var nav = self.slideMenuController()?.mainViewController as! UINavigationController
+        let nav = self.slideMenuController()?.mainViewController as! UINavigationController
         vc = nav.viewControllers[0] as! MainTableViewController
         
         self.title = "Lightread"
@@ -86,7 +86,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     // settings button pressed
     func openSettings() {
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let settings = storyboard.instantiateViewControllerWithIdentifier("SettingsController") as! UINavigationController
         self.navigationController!.presentViewController(settings, animated: true, completion: nil)
         
@@ -98,9 +98,9 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     func deleteFeed(object: Feed) {
-           println(" and here")
+           print(" and here")
         feedManager.deleteFeed(object, moc: self.fetchedResultsController.managedObjectContext)
-           println("and and here")
+           print("and and here")
         vc.selectCorrect()
     }
     
@@ -108,26 +108,26 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         
         let p : CGPoint = recognizer.locationInView(self.tableView)
         let indexPath = self.tableView.indexPathForRowAtPoint(p)
-        println("\(indexPath?.row), \(indexPath?.section)")
+        print("\(indexPath?.row), \(indexPath?.section)")
         if (indexPath == nil) {
             return
         } else if indexPath!.row < 3 {
             return
         } else if (recognizer.state == UIGestureRecognizerState.Began) {
             self.deleteFeed(self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forItem: indexPath!.row - 3, inSection: indexPath!.section)) as! Feed)
-            println("here")
+            print("here")
             if tableView.numberOfRowsInSection(0) < 4 {
                 self.setEditing(false, animated: true)
             }
             
         } else {
-           println(recognizer.state)
+           print(recognizer.state)
         }
         
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
+        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") 
 
         if cell == nil{
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
@@ -193,8 +193,11 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         
         // perform initial model fetch
         var e: NSError?
-        if !self._fetchedResultsController!.performFetch(&e) {
-            println("fetch error: \(e!.localizedDescription)")
+        do {
+            try self._fetchedResultsController!.performFetch()
+        } catch let error as NSError {
+            e = error
+            print("fetch error: \(e!.localizedDescription)")
         }
         
         return self._fetchedResultsController!
@@ -206,7 +209,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         if userDriveModelChange {
             return
         }
-        let selectedCell = self.tableView.indexPathForSelectedRow()
+        let selectedCell = self.tableView.indexPathForSelectedRow
         
         dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -247,7 +250,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
     if editingStyle == .Delete {
  
         self.deleteFeed(self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forItem: indexPath.row - 3, inSection: indexPath.section)) as! Feed)
-        println("here")
+        print("here")
         if tableView.numberOfRowsInSection(0) < 4 {
             self.setEditing(false, animated: true)
         }
@@ -274,7 +277,7 @@ class SideBarTableViewController: UITableViewController, NSFetchedResultsControl
         
         items.insert(itemToMove, atIndex: newPath.row)
         
-        for (index, value) in enumerate(items) {
+        for (index, value) in items.enumerate() {
             value.orderValue = index
             
         }

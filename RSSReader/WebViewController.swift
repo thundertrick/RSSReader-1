@@ -30,7 +30,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
     
     // MARK: Setup view
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)
     }
@@ -113,7 +113,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
     
     
     func handleSwipe(recognizer:UISwipeGestureRecognizer){
-        println("handle swipe")
+        print("handle swipe")
         
         if recognizer.direction == UISwipeGestureRecognizerDirection.Right{
          self.navigationController?.popViewControllerAnimated(true)
@@ -169,7 +169,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
         titleLabel = UILabel(frame: self.navigationController!.navigationBar.frame)
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleHeight|UIViewAutoresizing.FlexibleWidth
+        titleLabel.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
        
     }
     
@@ -193,7 +193,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
         }
         
         let attributes = [NSFontAttributeName: titleFont, NSForegroundColorAttributeName: textColor]
-        var attrString = NSMutableAttributedString(string: text, attributes: attributes)
+        let attrString = NSMutableAttributedString(string: text, attributes: attributes)
         
         if (text as NSString).rangeOfString(titleURL).location != NSNotFound {
         
@@ -325,7 +325,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIGestureRecogn
     }
     
     
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if (keyPath == "estimatedProgress") {
             if webView.estimatedProgress == 1 {
                 self.clearProgressViewAnimated(true)
